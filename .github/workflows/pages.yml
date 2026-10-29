@@ -1,0 +1,38 @@
+name: Publish public query
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Expand public site
+        run: |
+          mkdir -p _site
+          python3 - <<'PY'
+          import glob, zipfile
+          packages=sorted(glob.glob('site-*.zip'))
+          assert packages, 'No public site packages uploaded yet'
+          for p in packages:
+              with zipfile.ZipFile(p) as z: z.extractall('_site')
+          PY
+          test -f _site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

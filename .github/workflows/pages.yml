@@ -21,7 +21,7 @@ jobs:
       - name: Verify and expand public site
         run: |
           python3 - <<'PY'
-          import json, pathlib, hashlib, tarfile
+          import json, pathlib, hashlib, tarfile, shutil
           manifest=json.loads(pathlib.Path('public-site-manifest.json').read_text())
           with open('site.tar.xz','wb') as out:
               for name, digest in sorted(manifest.items()):
@@ -30,6 +30,15 @@ jobs:
                   out.write(data)
           with tarfile.open('site.tar.xz') as t:
               t.extractall('_site',filter='data')
+          updates=json.loads(pathlib.Path('site-overrides-manifest.json').read_text())
+          for name, digest in updates.items():
+              relative=pathlib.PurePosixPath(name)
+              assert not relative.is_absolute() and '..' not in relative.parts
+              source=pathlib.Path('site-overrides')/relative
+              assert source.is_file() and hashlib.sha256(source.read_bytes()).hexdigest()==digest, name
+              dest=pathlib.Path('_site')/relative
+              dest.parent.mkdir(parents=True,exist_ok=True)
+              shutil.copyfile(source,dest)
           assert pathlib.Path('_site/index.html').is_file()
           PY
       - uses: actions/configure-pages@v5

@@ -124,3 +124,19 @@ main{padding-top:12px}.detail-head{display:block;margin:6px 0}.detail-head h2{fo
 .module-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;max-width:1200px}.module-nav button{min-height:40px;padding:8px 4px;font-size:14px;line-height:1.35}.module-nav .school-entry{grid-column:1/-1;min-height:38px}
 .college-profile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.college-profile-grid .catalog-card{padding:10px;gap:6px}.college-profile-grid .catalog-card b{font-size:14px}.college-profile{background:white;border:1px solid var(--line);border-radius:8px;padding:12px;margin:10px 0;font-size:14px;line-height:1.7}.college-profile p{margin:0 0 8px}.college-profile a,.innovation-source a,.department-help{color:var(--blue);font-size:12px}.innovation-links{display:flex;gap:8px;margin:9px 0}.innovation-links a{text-decoration:none;font-size:12px}.innovation-card>span{font-size:12px}.innovation-source{font-size:12px;margin:6px 0}.college-contact strong{overflow-wrap:anywhere}
 @media(max-width:359px){.module-nav button{font-size:12px}.college-profile-grid .catalog-card{padding:8px}.college-profile-grid .catalog-card b{font-size:13px}}
+
+/* Three vertical pairs: scores, introductions, contacts. */
+.module-nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.module-nav button{min-height:48px;white-space:normal;overflow-wrap:anywhere;padding:7px 5px;font-size:14px}
+.module-nav .nav-score{background:#e6efff;color:#194b9c}
+.module-nav .nav-intro{background:#e1f3ec;color:#15634b}
+.module-nav .nav-contact{background:#fff0dc;color:#86520c}
+.module-nav .nav-score.active{background:#1d4fa7;color:#fff}
+.module-nav .nav-intro.active{background:#176b50;color:#fff}
+.module-nav .nav-contact.active{background:#8a550e;color:#fff}
+.module-nav button.active{box-shadow:inset 0 0 0 2px currentColor}
+.module-nav .school-entry{min-height:38px}
+@media(max-width:359px){.module-nav button{font-size:12px;padding:6px 3px}}
+
+.module-nav .policy-entry{grid-column:1/-1;min-height:38px;background:#eee8fa;color:#624197}.module-nav .policy-entry.active{background:#624197;color:white}
+.policy-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:10px 0}.policy-tabs button{border:1px solid #d9cdec;background:#f6f2fc;color:#624197;border-radius:8px;padding:9px 3px;font-size:13px}.policy-tabs button.active{background:#624197;color:white}.policy-detail{background:white;border:1px solid #dce4ef;border-radius:12px;padding:12px}.policy-detail h2{font-size:18px;margin:0 0 8px}.policy-highlight{display:block;color:#624197;font-size:17px}.policy-detail section{padding:8px 0;border-top:1px solid #edf0f6}.policy-detail h3{font-size:14px;margin:0 0 4px}.policy-detail p{font-size:14px;line-height:1.65;margin:4px 0}.policy-detail>a{display:inline-block;margin-top:8px;font-size:13px}

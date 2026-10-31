@@ -1,6 +1,6 @@
 {
-  "index.html": "11a551f5079b85aa371102445f83c25cad1e28a964735d52c286fc1747294869",
-  "style.css": "feddaf05e7d26dbe74e71a921cbad43d8499ccfa39cec4f675a9ff499a787703",
+  "index.html": "0cd6e2f8d0e25c2dc0f2311238c7a570f916b2a01f7766face14391bedfc3c5b",
+  "style.css": "2207f5e9866d9f6b765f8a3e44a06e66243672f8ed977a1a245373ef31d0faa3",
   "catalog/majors.json": "e1b9ace55526ad5a31a379d51e6a86ed7318b74e2afd0a167ef5d031817b003e",
   "catalog/innovation-2026.png": "ae29ce6a56a15a00dc63d8ac07f84114eb14d97130d7f8c0db227859df795c23",
   "zhuke-live/index.html": "478b5e8573c9e1d003a6c5b0d84e496a8888462d3706ebd147d59dd02b369807",
@@ -10,5 +10,6 @@
   "transfer/data.json": "9c39c83ab2925c28bf17715b746515a69d7baff21f117b262eeb116bfec47115",
   "transfer/selfcheck.html": "ed6e25b9814ec35a9d1854839fab7175023266bfd76656dafad13eca11a74f76",
   "transfer/outlines.json": "8684b2bdda33eb01af7423ec9f3ac77649a4a762ebaceb2ca5baef0d6091e7fa",
-  "assets/mirror-094dac052852.js": "094dac05285205b6b8544cd5d33af88d0c5bc0a4064e62b36fa9a4a7d3e26053"
+  "assets/mirror-094dac052852.js": "094dac05285205b6b8544cd5d33af88d0c5bc0a4064e62b36fa9a4a7d3e26053",
+  "assets/mirror-4518b042011c.js": "4518b042011ce33a353c20f74339ea578053b45deefd8a4bcd9d9b41c22799c4"
 }

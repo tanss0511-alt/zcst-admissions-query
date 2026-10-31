@@ -1,7 +1,7 @@
 (()=>{
 'use strict';
 const q=id=>document.getElementById(id),origin='https://tanss0511-alt.github.io';
-const frame=q('gaokaoFrame'),frameURL=origin+'/gaokao-live/?embed=live-hub';
+const frame=q('gaokaoFrame'),frameURL=origin+'/gaokao-live/?embed=live-hub&v=20261031-inline';
 let system='zhuke',started=false,timedOut=false,timer,status=null,zhukePage='booking';
 function send(message){if(started)frame.contentWindow?.postMessage(message,origin)}
 function renderHub(){q('hubFrameStatus').textContent=status?(status.offline?'连接中断 · 显示上次数据':'已同步 '+new Date(status.savedAt).toLocaleTimeString('zh-CN',{timeZone:'Asia/Shanghai'})):timedOut?'连接未完成，请重试':'正在连接…';q('hubFrameStatus').className=status&&!status.offline?'muted':'muted hub-unavailable';q('hubFrameRefresh').textContent=timedOut?'重试':'刷新'}

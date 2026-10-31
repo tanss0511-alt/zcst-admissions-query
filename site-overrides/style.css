@@ -316,19 +316,20 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 
 /* Compact score and reading views. Preserve every metric and full text. */
 .province-tools{display:flex;flex-wrap:wrap;align-items:flex-start;gap:4px 8px;margin:3px 0 5px;min-width:0}
-.province-tools .province-options{flex:1 1 130px;min-width:0;margin:0;gap:4px}
-#province-plan-slot{flex:0 1 auto;min-width:0;max-width:100%;margin-left:auto}
-.province-plan-compact{margin:0;padding:0;border:1px solid #cbd9ec;border-radius:7px;background:#fff;min-width:142px;max-width:340px}
-.province-plan-compact>summary{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:6px 8px;min-height:34px;cursor:pointer;list-style:none;color:#284d80}
-.province-plan-compact>summary::-webkit-details-marker{display:none}
-.province-plan-compact>summary:after{content:'⌄';font-size:14px}
-.province-plan-compact[open]>summary:after{content:'⌃'}
-.province-plan-compact>summary>span{font-size:12px;line-height:1.3}
-.province-plan-compact>summary>b{font-size:19px;line-height:1.1;white-space:nowrap}
-.province-plan-compact>summary small{font-size:11px;font-weight:400;margin-left:2px}
-.province-plan-body{padding:0 7px 6px}.province-plan-body .province-plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.province-plan-body .province-plan-grid>div{padding:3px 4px;gap:1px}.province-plan-body h4{margin:4px 0 3px}
-.plan-source{display:block;text-align:right;font-size:11px;margin-top:4px;color:#2857a0}.plan-unavailable{display:block;font-size:11px;color:#647792;padding:7px 0}
+.province-tools .province-options{flex:0 1 auto;min-width:0;margin:0;gap:4px}
+#province-plan-slot{flex:1 1 0;min-width:0;max-width:100%}
+#province-plan-slot:empty{display:none}
+.province-plan-strip{display:flex;flex-wrap:wrap;align-items:center;gap:3px 9px;margin:0;padding:5px 8px;border:1px solid #cbd9ec;border-radius:7px;background:#fff;min-width:0}
+.plan-total{display:flex;align-items:baseline;gap:5px;color:#284d80;white-space:nowrap;font-size:12px;line-height:1.3}
+.plan-total>b{font-size:19px;line-height:1.1}
+.province-plan-strip small{font-size:10px;font-weight:400;margin-left:2px}
+.plan-items{display:flex;flex:1 1 180px;flex-wrap:wrap;gap:3px 8px;min-width:0}
+.plan-group{display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 8px;min-width:0}
+.plan-group-title{font-size:11px;line-height:1.4;color:#284d80}
+.plan-item{display:inline-flex;align-items:baseline;gap:3px;font-size:11px;line-height:1.4;color:#526987}
+.plan-item>b{font-size:13px;color:#254e8e;white-space:nowrap;font-variant-numeric:tabular-nums}
+.province-plan-strip .plan-source{margin-left:auto;font-size:10px;line-height:1.4;color:#2857a0;white-space:nowrap}
+.plan-unavailable{display:block;font-size:11px;color:#647792;padding:7px 0;text-align:right}
 .score-card{padding:7px}.score-card h3{margin:0 0 4px;line-height:1.25}
 .score-card .score-all{gap:4px 7px;margin:3px 0 0}
 .score-card .score-all>div{margin:0;padding:0;line-height:1.2;min-width:0}
@@ -362,8 +363,8 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .policy-detail h2{margin:0 0 5px}.policy-detail section{padding:5px 0}.policy-detail h3{margin:2px 0 3px;line-height:1.3}.policy-detail p{line-height:1.5;margin:3px 0}
 .policy-sources{display:flex;gap:5px 12px;flex-wrap:wrap;margin-top:7px;font-size:12px}
 @media(max-width:599px){
- .province-tools{gap:4px;margin-top:2px}.province-plan-compact{min-width:134px;max-width:225px}
- .province-plan-compact>summary{padding:5px 6px}.province-plan-compact>summary>span{font-size:11px}
+ .province-tools{gap:4px;margin-top:2px}.province-plan-strip{padding:5px 6px;gap:3px 6px}
+ .plan-total{font-size:11px}.plan-items,.plan-group{gap:2px 6px}
  .catalog-scores .score-card{padding:6px}.catalog-scores .score-card .score-all strong{font-size:14px}
  .catalog-scores .score-card .score-all span{font-size:10px}.catalog-scores .score-card .score-all{gap:3px 5px}
  .major-career{padding:7px}.major-sections details{padding:6px 7px}.major-sections p,.career-full p,.career-official{font-size:12px;line-height:1.5}

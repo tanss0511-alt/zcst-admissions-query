@@ -229,3 +229,64 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 #region-range .field label{font-size:11px;line-height:1.2;white-space:nowrap}
 #region-range select{min-width:0;width:100%;height:36px;min-height:36px;padding:4px;font-size:16px}
 @media(max-width:359px){#region-range .field label{font-size:10px}}
+
+/* Scores keep their labels; color adds a second comparison cue. */
+.score-all .metric-low strong,.tr-metrics .metric-low dd{color:#0b6b5b}
+.score-all .metric-high strong,.tr-metrics .metric-high dd{color:#b14808}
+.score-all .metric-rank strong,.tr-metrics .metric-rank dd{color:#6f42a7}
+.province-plan{border:1px solid #d8e4ee;border-radius:8px;padding:7px;background:#fff;margin:5px 0 7px}
+.province-plan header{display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.province-plan h3{font-size:13px;margin:0 0 5px}.province-plan h3 b{font-size:20px;color:#1c4e9f;font-variant-numeric:tabular-nums}
+.province-plan a{font-size:10px;white-space:nowrap;color:#1c4e9f}
+.province-plan h4{font-size:12px;margin:6px 0 3px}
+.province-plan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}
+.province-plan-grid>div{min-width:0;background:#f3f6fb;border-radius:4px;padding:4px 5px;display:flex;flex-direction:column;gap:2px}
+.province-plan-grid span{font-size:10px;color:#526987;line-height:1.25}.province-plan-grid b{font-size:15px;color:#254e8e;line-height:1.1}.province-plan-grid b small{font-size:10px;font-weight:400;margin-left:3px}
+.plan-caption{display:block;font-size:10px;color:#657895;margin-top:4px}
+#score-overview{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+#score-overview>.score-section-heading{grid-column:1/-1}
+#score-overview .score-card{padding:6px;align-self:stretch}
+#score-overview .score-card h3{line-height:1.25;margin-bottom:2px}
+#score-overview .score-card .score-all{gap:2px 3px;margin-top:3px}
+#score-overview .score-all span{line-height:1.15}
+#score-overview .score-all strong{line-height:1.2;white-space:nowrap;overflow-wrap:normal}
+#score-overview[data-count="1"] .score-card{grid-column:1/-1}
+#score-overview[data-count="1"] .score-all{grid-template-columns:repeat(4,minmax(0,1fr))}
+.college-profile-grid,.tr-grid,.micro-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;align-items:start}
+.college-profile-grid .catalog-card,.micro-grid .catalog-card{padding:7px;gap:4px;width:100%;height:auto}
+.college-profile-grid .catalog-card b{font-size:14px;line-height:1.35}
+.college-profile-grid .catalog-open{margin-top:0}
+.tr-grid .tr-card{padding:7px}.tr-grid .tr-card-title{margin-bottom:4px}
+.tr-grid .tr-card-label strong{font-size:14px;line-height:1.3}
+.tr-grid .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}
+.tr-grid .tr-requirement{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.catalog-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin:5px 0 8px}
+.catalog-tabs button{min-width:0;min-height:42px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px 4px;border:1px solid #ccdcec;border-radius:7px;padding:5px 3px;background:#fff;color:#345374;line-height:1.25}
+.catalog-tabs b{font-size:21px;line-height:1}.catalog-tabs span{font-size:12px}
+.catalog-tabs .active{color:#fff;background:#1c4e9f;border-color:#1c4e9f}
+.micro-heading{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:5px 0}.micro-heading h2{font-size:14px;margin:0}.micro-heading a{font-size:11px;color:#1c4e9f}
+.micro-grid>.empty{grid-column:1/-1}
+.micro-detail{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px}
+.micro-detail dl{margin:0}.micro-detail dl>div{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px;padding:7px 0;border-bottom:1px solid #edf1f7;font-size:14px;line-height:1.5}.micro-detail dt{color:#657895}.micro-detail dd{margin:0}
+@media(max-width:599px){
+ #score-overview .score-card{padding:5px}#score-overview .score-card h3{font-size:12px}
+ #score-overview .score-all span{font-size:10px}#score-overview .score-all strong{font-size:12px}
+ .college-profile-grid .catalog-card,.micro-grid .catalog-card{padding:6px 5px}
+ .college-profile-grid .catalog-card b,.micro-grid .catalog-card b{font-size:12px;line-height:1.4}
+ .college-profile-grid .catalog-card small,.micro-grid .catalog-card small{font-size:10px;line-height:1.35}
+ .college-profile-grid .catalog-open,.micro-grid .catalog-open{font-size:10px;line-height:1.3}
+ .tr-grid .tr-card{padding:5px}.tr-grid .tr-card-label strong{font-size:12px;line-height:1.4}
+ .tr-grid .tr-card-label small{font-size:10px;line-height:1.3}.tr-grid .tr-card-arrow{font-size:12px}
+ .tr-grid .tr-proposal-count{font-size:10px;padding:3px;gap:3px}.tr-grid .tr-proposal-count b{font-size:17px}
+ .tr-grid .tr-metrics>div{padding:3px 2px}.tr-grid .tr-metrics dt{font-size:10px;line-height:1.2;white-space:nowrap}
+ .tr-grid .tr-metrics dd{font-size:13px;margin-top:2px;white-space:nowrap;overflow-wrap:normal}
+ .tr-grid .tr-requirement,.tr-grid .tr-link,.tr-grid .tr-muted{font-size:10px;line-height:1.35}
+ .tr-grid .tr-link{min-height:32px}.tr-grid .tr-requirement b{font-size:10px}
+ .catalog-tabs span{font-size:11px}.catalog-tabs b{font-size:20px}
+}
+@media(max-width:359px){
+ #score-overview:not([data-count="1"]) .score-card .score-all{grid-template-columns:minmax(0,1fr);gap:2px}
+ #score-overview:not([data-count="1"]) .score-all strong{font-size:14px}
+ .tr-grid .tr-metrics dt{font-size:9px}.tr-grid .tr-metrics dd{font-size:12px}
+ .catalog-tabs button{gap:2px}.catalog-tabs span{font-size:10px}
+}

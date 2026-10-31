@@ -1,1 +1,14 @@
-{"index.html": "dfd0e3480b060431d45d8c22f370a6e9f8877f3b48c3fd827c0b3b6f97c03a79", "style.css": "9eea89deba272c5cc42e451906dd6c4e231700b3d24527b881169db070d6714a", "catalog/majors.json": "e1b9ace55526ad5a31a379d51e6a86ed7318b74e2afd0a167ef5d031817b003e", "catalog/innovation-2026.png": "ae29ce6a56a15a00dc63d8ac07f84114eb14d97130d7f8c0db227859df795c23", "zhuke-live/index.html": "478b5e8573c9e1d003a6c5b0d84e496a8888462d3706ebd147d59dd02b369807", "assets/mirror-08aec1c80113.js": "08aec1c801136db5c968a07aeeaf6704fde4782433b10ed30c7dbebfb7ef31e9"}
+{
+  "index.html": "11a551f5079b85aa371102445f83c25cad1e28a964735d52c286fc1747294869",
+  "style.css": "feddaf05e7d26dbe74e71a921cbad43d8499ccfa39cec4f675a9ff499a787703",
+  "catalog/majors.json": "e1b9ace55526ad5a31a379d51e6a86ed7318b74e2afd0a167ef5d031817b003e",
+  "catalog/innovation-2026.png": "ae29ce6a56a15a00dc63d8ac07f84114eb14d97130d7f8c0db227859df795c23",
+  "zhuke-live/index.html": "478b5e8573c9e1d003a6c5b0d84e496a8888462d3706ebd147d59dd02b369807",
+  "assets/mirror-08aec1c80113.js": "08aec1c801136db5c968a07aeeaf6704fde4782433b10ed30c7dbebfb7ef31e9",
+  "transfer/consultation.png": "3f3e5bc431dfccd68dda520dc09a763ee7852f00e8a11cd7c0298dc64a964c35",
+  "transfer/selfcheck.js": "89ae628032e1f550029c9d072e861c2e5a2adb4cccd24da850d9bbaf5ced8f3e",
+  "transfer/data.json": "9c39c83ab2925c28bf17715b746515a69d7baff21f117b262eeb116bfec47115",
+  "transfer/selfcheck.html": "ed6e25b9814ec35a9d1854839fab7175023266bfd76656dafad13eca11a74f76",
+  "transfer/outlines.json": "8684b2bdda33eb01af7423ec9f3ac77649a4a762ebaceb2ca5baef0d6091e7fa",
+  "assets/mirror-094dac052852.js": "094dac05285205b6b8544cd5d33af88d0c5bc0a4064e62b36fa9a4a7d3e26053"
+}

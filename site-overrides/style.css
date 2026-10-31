@@ -206,11 +206,26 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .province-score-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
 .province-score-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 .province-score-grid .score-card{padding:6px;align-self:stretch}
-.province-score-grid .score-all{gap:5px 3px}
+.province-score-grid .score-card h3{line-height:1.25;margin-bottom:2px}
+.province-score-grid .score-all{gap:2px 3px;margin-top:3px}
+.province-score-grid .score-all span{line-height:1.15}
 .province-score-grid .score-all strong{white-space:nowrap;overflow-wrap:normal}
 .policy-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
 .policy-tabs button{font-size:12px;line-height:1.35;padding:7px 3px;min-height:40px;overflow-wrap:anywhere}
 .policy-detail .policy-contact{display:block;width:fit-content;background:#edf3fc;padding:7px 9px;border-radius:6px;text-decoration:none;font-weight:600;color:#174ca3}
-@media(max-width:600px){.province-score-grid .score-card{padding:5px}.province-score-grid .score-card h3{font-size:12px;line-height:1.35}.province-score-grid .score-all span{font-size:10px}.province-score-grid .score-all strong{font-size:13px;line-height:1.45}}
-@media(max-width:359px){.province-score-grid:not([data-count="1"]):not([data-count="2"]) .score-all{grid-template-columns:minmax(0,1fr);gap:5px}.province-score-grid:not([data-count="1"]):not([data-count="2"]) .score-all strong{font-size:14px}}
+.province-score-grid .score-all strong{line-height:1.2}
+@media(max-width:600px){.province-score-grid .score-card{padding:5px}.province-score-grid .score-card h3{font-size:12px}.province-score-grid .score-all span{font-size:10px}.province-score-grid .score-all strong{font-size:13px}}
+@media(max-width:359px){.province-score-grid:not([data-count="1"]):not([data-count="2"]) .score-all{grid-template-columns:minmax(0,1fr);gap:2px}.province-score-grid:not([data-count="1"]):not([data-count="2"]) .score-all strong{font-size:14px}}
 @media(min-width:360px) and (max-width:389px){.province-score-grid:not([data-count="1"]):not([data-count="2"]) .score-all strong{font-size:12px}}
+
+/* Keep school search and its year controls together without reducing tap targets. */
+.compact-hero:has(.home-total){margin-bottom:5px}
+#region-search{margin-bottom:6px}
+#region-search .search-shell{padding:3px 6px;gap:6px;border-radius:10px}
+#region-search .search-shell input{padding:6px 0;font-size:16px;min-height:36px}
+#region-search .search-shell .btn{min-height:40px;padding:6px 12px}
+#region-range{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:6px 0;padding:5px 7px;border-radius:10px}
+#region-range .field{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:4px}
+#region-range .field label{font-size:11px;line-height:1.2;white-space:nowrap}
+#region-range select{min-width:0;width:100%;height:36px;min-height:36px;padding:4px;font-size:16px}
+@media(max-width:359px){#region-range .field label{font-size:10px}}

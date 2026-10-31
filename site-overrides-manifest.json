@@ -1,7 +1,7 @@
 {
-  "index.html": "9e70361fc41988e2729328b7f903113724ad054c3011a99a00a96dafbe04721f",
-  "style.css": "70e3201da9febeaacfb49d08032e907516a6a8baa494cfdd855bff240db44e1b",
-  "catalog/majors.json": "24495f513bd2d579dd12dc40d584899155b02e5b1f2fd7b4e6b6ca5b35b7b26e",
+  "index.html": "ede077acb96eddfe81af2b6161ede3ebff673c2d7ae38ad640be99448eb88c16",
+  "style.css": "6b547c05a9f1febbf17cc0b77b7d35074aa015933a7b2c8b86423cecd777819e",
+  "catalog/majors.json": "fd9c5807234506c18cafaa97a5e0572d240d5ffd9545a2c99cfdc98e7836ce94",
   "catalog/innovation-2026.png": "ae29ce6a56a15a00dc63d8ac07f84114eb14d97130d7f8c0db227859df795c23",
   "zhuke-live/index.html": "cae78051a57fab1a0f88ee2bea00c0381f69d2cb8074734f9f4f01e9f8c3d696",
   "assets/mirror-08aec1c80113.js": "08aec1c801136db5c968a07aeeaf6704fde4782433b10ed30c7dbebfb7ef31e9",
@@ -21,5 +21,6 @@
   "scores/province-plans-2026.png": "fabfcfa6bb67aa37f31e94326fda1933c1fda68cb93876d97bd84e34eeb7c02b",
   "catalog/micro.json": "9467f24ae7b82ab6d207d7461fd43580e81da969c9c87b34865119ffb8f00b67",
   "catalog/micro-2026.png": "c9228a8057db24b55466f6d40c5d6ff21c28507641a8358f81ad0d366ead62a1",
-  "assets/mirror-150c49dadd14.js": "150c49dadd14be52f705d6715b5e9540627b198854af64214ca104296ffcb82f"
+  "assets/mirror-150c49dadd14.js": "150c49dadd14be52f705d6715b5e9540627b198854af64214ca104296ffcb82f",
+  "assets/mirror-4b89fd579b85.js": "4b89fd579b85eb92696ba1f1195f2f4ac19eb5f184adc081a9a7e273ddf3d27b"
 }

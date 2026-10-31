@@ -290,3 +290,26 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
  .tr-grid .tr-metrics dt{font-size:9px}.tr-grid .tr-metrics dd{font-size:12px}
  .catalog-tabs button{gap:2px}.catalog-tabs span{font-size:10px}
 }
+/* Source-backed graduate destinations: text labels and color both carry meaning. */
+.major-career{margin:8px 0;background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px;min-width:0}
+.major-career>header{display:flex;align-items:baseline;justify-content:space-between;gap:6px;margin:0 0 6px}
+.major-career>header h2{font-size:17px;margin:0;line-height:1.3}
+.major-career>header span{font-size:11px;color:#60748b;text-align:right}
+.career-group{margin:6px 0 0;padding:7px 8px;border-radius:6px;min-width:0}
+.career-group h3{font-size:12px;line-height:1.3;margin:0 0 4px}
+.career-group ul{list-style:none;display:flex;flex-wrap:wrap;gap:4px 6px;margin:0;padding:0}
+.career-group li{max-width:100%;font-size:13px;line-height:1.4;overflow-wrap:anywhere;border-radius:4px;padding:2px 5px;font-weight:650;background:#ffffffc9}
+.career-unit{color:#116253;background:#e8f5f0}
+.career-university{color:#66309d;background:#f2eafa}
+.career-partner{color:#87521a;background:#fff3df}
+.career-direction{color:#284b70;background:#f1f5fa}
+.career-direction li{font-size:12px;font-weight:500;padding:1px 4px}
+.career-full{margin-top:7px;border-top:1px solid #e7edf4;padding-top:3px}
+.career-full summary{font-size:13px;padding:7px 0;cursor:pointer;color:#405a7c}
+.career-full p,.career-official{font-size:13px;line-height:1.65;margin:5px 0;overflow-wrap:anywhere;white-space:pre-line}
+.career-highlight-unit{color:#116253}.career-highlight-university{color:#66309d;background:#f2eafa}.career-highlight-partner{color:#87521a}
+.career-source{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:4px;font-size:11px;color:#60748b}
+.career-source .btn{font-size:12px;padding:5px 8px;min-height:32px}
+.career-source a{padding:6px 0;color:#24559b;font-size:12px}
+.career-reader-title h1{font-size:20px;margin:8px 0 4px}.career-reader-title p{font-size:12px;color:#60748b;margin:0 0 8px}
+@media(max-width:599px){.major-career{padding:8px;margin:6px 0}.major-career>header h2{font-size:16px}.career-group{padding:6px}.career-group li{font-size:12px}.career-direction li{font-size:11px}}

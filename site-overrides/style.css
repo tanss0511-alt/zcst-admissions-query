@@ -373,3 +373,11 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
  .department-directory .college-phone b{font-size:11px}.department-directory .college-phone small,.department-directory .college-phone span,.department-directory .contact-location{font-size:10px;line-height:1.3}
  .department-directory .department-help{font-size:10px;overflow-wrap:anywhere}.policy-tabs button{font-size:12px}
 }
+
+/* Broadcast-friendly emphasis without changing source text. */
+.reading-course{color:#175c88;background:#edf6fc;border-radius:3px;padding:0 2px;line-height:1.65}
+.reading-key{color:#145e51;background:#e5f3ed;border-radius:3px;padding:0 2px}
+.reading-innovation{color:#8b4b0a;background:#fff0d5;border-radius:3px;padding:0 2px}
+.reading-school{color:#67389a;background:#f0e9fb;border-radius:3px;padding:0 3px}
+.score-card .score-all .metric-over{background:#fff0ce;border:1px solid #f2d18b;border-radius:5px;padding:3px 4px}
+.score-card .score-all .metric-over span{color:#814600;font-weight:700}.score-card .score-all .metric-over strong{color:#9b4900;font-weight:800}

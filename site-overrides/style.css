@@ -381,3 +381,11 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .reading-school{color:#67389a;background:#f0e9fb;border-radius:3px;padding:0 3px}
 .score-card .score-all .metric-over{background:#fff0ce;border:1px solid #f2d18b;border-radius:5px;padding:3px 4px}
 .score-card .score-all .metric-over span{color:#814600;font-weight:700}.score-card .score-all .metric-over strong{color:#9b4900;font-weight:800}
+
+/* Vertical policy selector and direct innovation reading. */
+.policy-layout{display:grid;grid-template-columns:145px minmax(0,1fr);gap:8px;align-items:start}
+.policy-layout .policy-tabs{display:flex;flex-direction:column;gap:4px;margin:0;position:sticky;top:6px}
+.policy-layout .policy-tabs button{width:100%;min-height:40px;padding:7px 5px;line-height:1.35;white-space:normal}
+.policy-layout .policy-detail{min-width:0;margin:0;overflow-wrap:anywhere}
+.innovation-content p{margin:4px 0 0}
+@media(max-width:599px){.policy-layout{grid-template-columns:82px minmax(0,1fr);gap:5px}.policy-layout .policy-tabs button{font-size:12px;padding:7px 4px}.policy-layout .policy-detail{padding:8px}.policy-layout .policy-detail h2{font-size:16px}.policy-layout .policy-detail h3{font-size:13px}.policy-layout .policy-detail p{font-size:12px}}

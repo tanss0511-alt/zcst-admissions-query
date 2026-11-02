@@ -389,3 +389,20 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .policy-layout .policy-detail{min-width:0;margin:0;overflow-wrap:anywhere}
 .innovation-content p{margin:4px 0 0}
 @media(max-width:599px){.policy-layout{grid-template-columns:82px minmax(0,1fr);gap:5px}.policy-layout .policy-tabs button{font-size:12px;padding:7px 4px}.policy-layout .policy-detail{padding:8px}.policy-layout .policy-detail h2{font-size:16px}.policy-layout .policy-detail h3{font-size:13px}.policy-layout .policy-detail p{font-size:12px}}
+
+/* Source-backed micro and college details, compact phone reading. */
+.micro-detail dl{margin:0 0 8px}.micro-detail dl>div{padding:4px 0}
+.micro-facts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;margin:8px 0}
+.micro-facts section{background:#eef4ff;border-radius:9px;padding:8px;min-width:0}
+.micro-facts section:nth-child(2){grid-column:1/-1;grid-row:2}
+.micro-facts h2,.micro-section h2,.micro-brochure h2,.college-section h2{font-size:14px;margin:0 0 4px;color:#214e86}
+.micro-facts p,.micro-section p,.college-section p{font-size:14px;line-height:1.55;margin:0;overflow-wrap:anywhere}
+.micro-section,.college-section{margin:0;padding:9px 0;border-bottom:1px solid #e5ebf3}
+.college-section:last-of-type{border:0}.micro-section .reading-course{line-height:1.65}
+.micro-brochure{display:flex;align-items:center;gap:12px;padding:10px 0;min-width:0}
+.micro-brochure img{display:block;width:132px;height:132px;max-width:100%;image-rendering:pixelated}
+.micro-brochure>div{flex:1;min-width:0}.micro-brochure p,.micro-brochure a,.detail-source{font-size:12px;line-height:1.5}
+.micro-date-note{font-size:12px;line-height:1.45;background:#fff7e8;padding:7px;border-radius:6px}
+.micro-detail .innovation-links{gap:6px;margin-top:8px}.micro-detail .btn{font-size:12px;padding:6px 9px;min-height:34px}
+.college-profile{padding:10px 12px}.college-profile .detail-source{display:inline-block;margin-top:7px}
+@media(min-width:700px){.micro-section p,.college-section p{font-size:15px}.micro-facts{grid-template-columns:1fr 2fr 1fr}.micro-facts section:nth-child(2){grid-row:auto;grid-column:auto}}

@@ -499,3 +499,39 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
  .tr-prerequisite-compare .tr-exam-reference{grid-column:1/-1;grid-row:2;padding:8px}
  .tr-exam-reference h2{font-size:15px}
 }
+/* Compact transfer detail: keep the draft scope beside Back, and long fields readable. */
+.tr-detail-topbar{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:3px}
+.transfer .tr-detail-topbar .back-nav{flex:none;margin:0;min-height:36px;padding:5px 8px}
+.tr-draft-inline{max-width:32em;margin:0;color:#526b91;font-size:11px;line-height:1.35;text-align:right;text-wrap:pretty}
+.tr-detail-view .tr-heading{margin-bottom:3px}
+.tr-proposed-college{font-size:13px;line-height:1.35;margin:0 0 4px}
+.tr-proposal-summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 8px;padding:5px 6px}
+.tr-proposal-summary>.tr-exam-badge{grid-column:3;grid-row:1;justify-self:end}
+.tr-proposal-summary>.tr-plan-growth{display:flex;flex-wrap:wrap;justify-self:start;align-items:baseline;gap:2px 5px;white-space:normal;color:#286c50;background:#e4f3eb;border:1px solid #c5e4d3;border-radius:4px;padding:3px 5px;font-size:11px;line-height:1.3}
+.tr-plan-growth strong{font-size:15px;white-space:nowrap;color:#126744}
+.tr-prerequisite-compare .tr-proposed-requirements{padding:7px 8px}
+.tr-prerequisite-compare .tr-proposed-requirements h2{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 6px;font-size:14px;line-height:1.3;margin:0 0 4px}
+.tr-prerequisite-compare .tr-proposed-requirements h2 small{display:inline;margin:0;font-size:11px}
+.tr-prerequisite-compare .tr-proposed-requirements .tr-full-text{font-size:13px;line-height:1.45;margin:0;overflow-wrap:break-word;text-wrap:pretty}
+.tr-detail-fields>div,.tr-exam-reference .tr-detail-fields>div{grid-template-columns:7em minmax(0,1fr);align-items:baseline;gap:3px 6px;padding:4px 0;font-size:13px;line-height:1.45}
+.tr-detail-fields dt{white-space:nowrap;font-size:12px}
+.tr-detail-fields dd{min-width:0;line-height:1.45;overflow-wrap:break-word;text-wrap:pretty}
+.tr-detail-fields>div.tr-field-wide,.tr-exam-reference .tr-detail-fields>div.tr-field-wide{grid-template-columns:minmax(0,1fr);gap:2px}
+.tr-field-wide dt{font-weight:600}
+.tr-detail-view .tr-sources{gap:4px 10px;margin-top:6px;font-size:11px}
+.tr-detail-view .tr-exam-scope{margin:2px 0 4px;line-height:1.35}
+@media(max-width:600px){
+ .transfer .tr-detail-topbar .back-nav{font-size:12px;padding:5px 7px}
+ .tr-detail-topbar{gap:5px}
+ .tr-draft-inline{font-size:10px;max-width:20em}
+ .tr-proposal-summary{grid-template-columns:minmax(0,1fr) auto;gap:3px 5px}
+ .tr-proposal-summary>.tr-exam-badge{grid-column:2}
+ .tr-proposal-summary>.tr-plan-growth{grid-column:1/-1;grid-row:2;font-size:11px;padding:2px 5px}
+ .tr-plan-growth strong{font-size:14px}
+ .tr-prerequisite-compare .tr-proposed-requirements{padding:6px}
+ .tr-prerequisite-compare .tr-proposed-requirements h2{font-size:13px;margin-bottom:3px}
+ .tr-prerequisite-compare .tr-proposed-requirements .tr-full-text{font-size:12px;line-height:1.4}
+ .tr-detail-fields>div,.tr-exam-reference .tr-detail-fields>div{font-size:12px;line-height:1.4;padding:4px 0}
+ .tr-detail-fields dt{font-size:11px}
+ .tr-detail-fields dd{line-height:1.4}
+}

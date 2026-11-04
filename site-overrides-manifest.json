@@ -1,6 +1,6 @@
 {
-  "index.html": "1dda3c0c7c5b8c2d2bea6f0bd4e457fd65f693c47eb0ebe5a868c1e61e84a16a",
-  "style.css": "6df85343b6795eec6d97affc01c2a487d456316098b4b57e52d4bc933b886e23",
+  "index.html": "b9b0b9ff90c211f51e1930047cef2fa9d816e7c5bc51b7ac40efae07fb870726",
+  "style.css": "b685284d03854faa48fb66ad90b78e0da217037012a4b2b501901bcbc31f1718",
   "catalog/majors.json": "ef7a34fb3b5b0f8ba1906c0e83c5203db0800404e417ed0814d29e9b3d791154",
   "catalog/innovation-2026.png": "ae29ce6a56a15a00dc63d8ac07f84114eb14d97130d7f8c0db227859df795c23",
   "zhuke-live/index.html": "e1ad0353c6627e00f27a9e2f2225e3e3c562740b92ba5072722202abe76f84b5",
@@ -74,5 +74,6 @@
   "reports/cdbd369f9cdce18184b3/report.docx": "cdbd369f9cdce18184b384665d13a63be099a63435910a0da0aa6774ebcc8d46",
   "reports/cdbd369f9cdce18184b3/page-1.jpg": "e3f7e305a1cc0ae611a41423c1297416ae4b8c65b81788734f727447b6632eba",
   "transfer/prerequisites-2026.json": "0338ceca12b7199d5b4e5fc0efc9f39f8496a700d75515f2c0e40cdcb83017ea",
-  "assets/mirror-f0e175941fa2.js": "f0e175941fa253170eea53c80b68d80ff7b2bbd3ed35523fb83b846dc1499514"
+  "assets/mirror-f0e175941fa2.js": "f0e175941fa253170eea53c80b68d80ff7b2bbd3ed35523fb83b846dc1499514",
+  "assets/mirror-85d369f77d82.js": "85d369f77d82cc7952d85b2b1c3ecb4d7c5a4d931bbcbf4b3391925bd8d50e23"
 }

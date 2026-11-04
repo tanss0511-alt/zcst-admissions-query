@@ -457,8 +457,8 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 @media(max-width:600px){.tr-grid .tr-card-title{padding:5px 4px}.tr-grid .tr-card-title .tr-card-arrow{font-size:15px}.tr-history-reference .tr-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}.tr-history-reference .tr-metrics dd{font-size:16px}.tr-history-grid.has-directions{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.has-directions .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.has-directions .tr-metrics dd{font-size:14px}.tr-history-heading h2{font-size:14px}.tr-history-reference .tr-metrics>div{padding:4px}}
 /* Shared, source-backed professional information within transfer details. */
 .tr-prerequisite-compare .tr-proposed-requirements{grid-column:1;grid-row:1}
-.tr-prerequisite-compare .tr-professional-intro{grid-column:1;grid-row:2}
-.tr-prerequisite-compare .tr-prerequisite-reference{grid-column:2;grid-row:1/span 2}
+.tr-prerequisite-compare .tr-professional-intro{grid-column:1;grid-row:3}
+.tr-prerequisite-compare .tr-prerequisite-reference{grid-column:2;grid-row:1/span 3}
 .tr-professional-intro h2{font-size:16px;margin:0 0 5px;color:#1b3357}
 .tr-profile-scope,.tr-profile-empty{font-size:11px;line-height:1.45;color:#65728a;margin:0 0 5px}
 .tr-profile-section{padding:6px 0;border-top:1px solid #e9edf3;min-width:0}
@@ -471,9 +471,31 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .tr-profile-section .reading-key,.tr-profile-section .reading-school,.tr-profile-section .reading-innovation{padding:1px 2px}
 .tr-profile-section .reading-course{display:inline;padding:1px 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 @media(max-width:600px){
- .tr-prerequisite-compare .tr-professional-intro{grid-column:1/-1;grid-row:2}
+ .tr-prerequisite-compare .tr-professional-intro{grid-column:1/-1;grid-row:3}
  .tr-prerequisite-compare .tr-prerequisite-reference{grid-column:2;grid-row:1}
  .tr-prerequisite-compare .tr-professional-intro{padding:8px}
  .tr-professional-intro h2{font-size:15px}
  .tr-profile-section p{font-size:13px;line-height:1.55}
+}
+/* Visible exam categories and a separate, year-labelled historical reference. */
+.tr-exam-badge{display:inline-flex;align-items:center;max-width:100%;font-size:17px;font-weight:800;line-height:1.35;padding:3px 7px;border:1px solid transparent;border-radius:5px;white-space:normal}
+.tr-exam-provincial{color:#174fa1;background:#e1edff;border-color:#b8d0f3}
+.tr-exam-school{color:#9b460a;background:#fff0d9;border-color:#efc28a}
+.tr-exam-other{color:#53627a;background:#edf1f7;border-color:#d4dce9}
+.tr-grid .tr-exam-badge{font-size:15px;padding:3px 5px;margin:2px 0}
+.tr-card-label .tr-exam-badge{align-self:flex-start}
+.tr-prerequisite-compare .tr-exam-reference{grid-column:1;grid-row:2}
+.tr-exam-reference h2{font-size:16px;line-height:1.4;margin:0 0 5px}
+.tr-exam-scope,.tr-exam-reference-code{font-size:11px;line-height:1.45;color:#65728a;margin:4px 0}
+.tr-exam-direction{display:block;font-size:12px;font-weight:600;margin:5px 0 3px;color:#36577f}
+#tr-exam-reference-record{width:100%;min-width:0;font-size:13px;min-height:36px;padding:5px}
+.tr-exam-reference .tr-detail-fields>div{grid-template-columns:76px minmax(0,1fr);gap:6px;padding:5px 0;font-size:13px}
+.tr-exam-reference .tr-sources{font-size:11px;line-height:1.5}
+.tr-exam-subjects dd{display:flex;flex-wrap:wrap;gap:3px}
+.tr-subject{display:inline-block;font-size:13px;line-height:1.4;color:#224e85;background:#edf3fc;border-radius:4px;padding:3px 5px}
+@media(max-width:600px){
+ .tr-exam-badge{font-size:16px;padding:3px 6px}
+ .tr-grid .tr-exam-badge{font-size:14px;padding:3px 4px}
+ .tr-prerequisite-compare .tr-exam-reference{grid-column:1/-1;grid-row:2;padding:8px}
+ .tr-exam-reference h2{font-size:15px}
 }

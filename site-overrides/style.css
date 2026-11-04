@@ -406,3 +406,28 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .micro-detail .innovation-links{gap:6px;margin-top:8px}.micro-detail .btn{font-size:12px;padding:6px 9px;min-height:34px}
 .college-profile{padding:10px 12px}.college-profile .detail-source{display:inline-block;margin-top:7px}
 @media(min-width:700px){.micro-section p,.college-section p{font-size:15px}.micro-facts{grid-template-columns:1fr 2fr 1fr}.micro-facts section:nth-child(2){grid-row:auto;grid-column:auto}}
+/* 2027 proposal and independently sourced 2026 prerequisite reference. */
+.tr-prerequisite-compare{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:start}
+.tr-prerequisite-compare .tr-detail-panel{min-width:0;margin:0;padding:9px}
+.tr-prerequisite-compare h2{font-size:16px;line-height:1.4;margin:0 0 8px;overflow-wrap:anywhere}
+.tr-prerequisite-compare h2 small{display:block;color:#61728b;font-size:12px;font-weight:400;margin-top:2px}
+.tr-prerequisite-compare .tr-full-text{font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.tr-prerequisite-reference{border-top:3px solid #3d648f}
+.tr-prerequisite-label,.tr-prerequisite-context,.tr-prerequisite-note,.tr-prerequisite-missing{font-size:12px;line-height:1.4;margin:6px 0;color:#566b88}
+.tr-prerequisite-label{display:block;margin:0 0 3px}
+.tr-prerequisite-reference select{display:block;width:100%;max-width:100%;min-width:0;min-height:36px;padding:5px;font-size:13px}
+.tr-prerequisite-context{color:#24496f;font-weight:600}
+.tr-prerequisite-missing{color:#855017;background:#fff4df;padding:5px;border-radius:4px}
+.tr-prerequisite-search{display:flex;gap:4px;margin:7px 0}
+.tr-prerequisite-search input{flex:1;width:0;min-width:0;padding:6px;font-size:13px;min-height:36px}
+.tr-prerequisite-search button{padding:4px 6px;min-width:36px;font-size:12px;color:#31567f;background:#eff4fa;border:1px solid #cfdaea;border-radius:5px}
+.tr-prerequisite-status{display:flex;flex-wrap:wrap;gap:3px 8px;align-items:center;justify-content:space-between;font-size:12px;line-height:1.5;padding:5px 6px;border-radius:4px}
+.tr-prerequisite-status.is-allowed{background:#e8f4ef;color:#146a4d}
+.tr-prerequisite-status.is-denied{background:#fcecec;color:#9b2533}
+.tr-prerequisite-list{list-style:none;max-height:330px;overflow-y:auto;overscroll-behavior:contain;padding:0;margin:5px 0;border:1px solid #e4eaf2;border-radius:5px;scrollbar-width:thin}
+.tr-prerequisite-list li{padding:7px 8px;font-size:13px;line-height:1.4;border-bottom:1px solid #e9eef5;overflow-wrap:anywhere}
+.tr-prerequisite-list li:nth-child(even){background:#f6f8fc}
+.tr-prerequisite-list li:last-child{border:0}
+.tr-prerequisite-empty{font-size:13px;line-height:1.5;margin:8px 0;color:#536681}
+.tr-prerequisite-source{display:inline-block;font-size:12px;line-height:1.6;padding:4px 0}
+@media(max-width:600px){.tr-prerequisite-compare{gap:5px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.tr-prerequisite-compare .tr-detail-panel{padding:6px}.tr-prerequisite-compare h2{font-size:14px;margin-bottom:6px}.tr-prerequisite-compare .tr-full-text{font-size:13px}.tr-prerequisite-search{gap:3px}.tr-prerequisite-search input{font-size:12px}.tr-prerequisite-search button{min-height:36px;padding:3px 5px}.tr-prerequisite-list{max-height:280px}.tr-prerequisite-list li{font-size:12px;padding:6px}.tr-prerequisite-reference select{font-size:12px}}

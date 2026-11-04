@@ -431,12 +431,12 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .tr-prerequisite-empty{font-size:13px;line-height:1.5;margin:8px 0;color:#536681}
 .tr-prerequisite-source{display:inline-block;font-size:12px;line-height:1.6;padding:4px 0}
 @media(max-width:600px){.tr-prerequisite-compare{gap:5px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.tr-prerequisite-compare .tr-detail-panel{padding:6px}.tr-prerequisite-compare h2{font-size:14px;margin-bottom:6px}.tr-prerequisite-compare .tr-full-text{font-size:13px}.tr-prerequisite-search{gap:3px}.tr-prerequisite-search input{font-size:12px}.tr-prerequisite-search button{min-height:36px;padding:3px 5px}.tr-prerequisite-list{max-height:280px}.tr-prerequisite-list li{font-size:12px;padding:6px}.tr-prerequisite-reference select{font-size:12px}}
-/* Tappable transfer major headings, and 2026 scores beneath the 2027 proposal. */
-.tr-grid .tr-card-title{padding:6px;border:1px solid #d9e6f7;border-radius:6px;background:#edf4ff;transition:background .15s,border-color .15s}
-.tr-grid .tr-card-title .tr-card-label strong{color:#1b539b}
-.tr-grid .tr-card-title .tr-card-arrow{color:#1b539b;font-weight:750;font-size:19px}
-.tr-grid .tr-card-title:hover,.tr-grid .tr-card-title:active{background:#dfecff;border-color:#99b8e1}
-.tr-grid .tr-card-title:focus-visible{outline:2px solid #2864b5;outline-offset:2px}
+/* Tappable rose transfer major headings, and 2026 scores beneath the 2027 proposal. */
+.tr-grid .tr-card-title{padding:6px;border:1px solid #f2cad9;border-radius:6px;background:#fff0f5;transition:background .15s,border-color .15s}
+.tr-grid .tr-card-title .tr-card-label strong{color:#95345f}
+.tr-grid .tr-card-title .tr-card-arrow{color:#95345f;font-weight:750;font-size:19px}
+.tr-grid .tr-card-title:hover,.tr-grid .tr-card-title:active{background:#ffe3ed;border-color:#d99ab4}
+.tr-grid .tr-card-title:focus-visible{outline:2px solid #b34472;outline-offset:2px}
 .tr-history-reference{border-top:1px solid #e0e7f1;margin-top:7px;padding-top:7px}
 .tr-history-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:2px 8px;margin-bottom:3px}
 .tr-history-heading h2{font-size:15px;line-height:1.4;margin:0}
@@ -455,3 +455,25 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .tr-new-major{display:flex;gap:5px 8px;align-items:center;flex-wrap:wrap;font-size:12px;color:#61718a}
 .tr-new-major strong{color:#176753;background:#e8f4ed;padding:3px 7px;border-radius:5px;font-size:13px}
 @media(max-width:600px){.tr-grid .tr-card-title{padding:5px 4px}.tr-grid .tr-card-title .tr-card-arrow{font-size:15px}.tr-history-reference .tr-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}.tr-history-reference .tr-metrics dd{font-size:16px}.tr-history-grid.has-directions{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.has-directions .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.has-directions .tr-metrics dd{font-size:14px}.tr-history-heading h2{font-size:14px}.tr-history-reference .tr-metrics>div{padding:4px}}
+/* Shared, source-backed professional information within transfer details. */
+.tr-prerequisite-compare .tr-proposed-requirements{grid-column:1;grid-row:1}
+.tr-prerequisite-compare .tr-professional-intro{grid-column:1;grid-row:2}
+.tr-prerequisite-compare .tr-prerequisite-reference{grid-column:2;grid-row:1/span 2}
+.tr-professional-intro h2{font-size:16px;margin:0 0 5px;color:#1b3357}
+.tr-profile-scope,.tr-profile-empty{font-size:11px;line-height:1.45;color:#65728a;margin:0 0 5px}
+.tr-profile-section{padding:6px 0;border-top:1px solid #e9edf3;min-width:0}
+.tr-profile-section h3,.tr-profile-section summary{font-size:13px;font-weight:700;line-height:1.4;color:#315d88;margin:0 0 4px}
+.tr-profile-section summary{cursor:pointer;margin:0}
+.tr-profile-section p{font-size:13px;line-height:1.6;overflow-wrap:anywhere;white-space:pre-line;margin:3px 0 0}
+.tr-profile-innovation h3{color:#8b5518}
+.tr-profile-innovation .class-tags{gap:3px}
+.tr-profile-innovation .class-tag{font-size:11px;padding:2px 4px}
+.tr-profile-section .reading-key,.tr-profile-section .reading-school,.tr-profile-section .reading-innovation{padding:1px 2px}
+.tr-profile-section .reading-course{display:inline;padding:1px 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+@media(max-width:600px){
+ .tr-prerequisite-compare .tr-professional-intro{grid-column:1/-1;grid-row:2}
+ .tr-prerequisite-compare .tr-prerequisite-reference{grid-column:2;grid-row:1}
+ .tr-prerequisite-compare .tr-professional-intro{padding:8px}
+ .tr-professional-intro h2{font-size:15px}
+ .tr-profile-section p{font-size:13px;line-height:1.55}
+}

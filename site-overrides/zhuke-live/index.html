@@ -33,7 +33,7 @@ function showPage(page){if(window.hubSelect)window.hubSelect('zhuke',false);if(!
 const $=id=>document.getElementById(id);let rows=[],online=false,busy=false,loading=false;
 let refreshTask=null,lastReadAttempt=0,dataRevision=0;
 const snapshotKey='zhuke-schedule-preview-v1';
-function restorePreview(){try{const cached=JSON.parse(sessionStorage.getItem(snapshotKey)||'null');if(!cached||!Number.isFinite(cached.at)||Date.now()-cached.at<0||Date.now()-cached.at>1800000||!Array.isArray(cached.slots)||!Array.isArray(cached.bookings))return;fixedSlots=cached.slots;rows=cached.bookings;hasLoaded=true;lastUpdated=new Date(cached.at).toLocaleTimeString('zh-CN',{timeZone:'Asia/Shanghai'});$('connection').textContent='显示上次排班 · 正在同步最新数据…'}catch{}}
+function restorePreview(){try{const cached=JSON.parse(sessionStorage.getItem(snapshotKey)||'null');if(!cached||!Number.isFinite(cached.at)||Date.now()-cached.at<0||Date.now()-cached.at>1800000||!Array.isArray(cached.slots)||!Array.isArray(cached.bookings))return;fixedSlots=cached.slots;rows=cached.bookings;hasLoaded=true;loading=true;lastUpdated=new Date(cached.at).toLocaleTimeString('zh-CN',{timeZone:'Asia/Shanghai'});$('connection').textContent='显示上次排班 · 正在同步最新数据…'}catch{}}
 function savePreview(){try{sessionStorage.setItem(snapshotKey,JSON.stringify({at:Date.now(),slots:fixedSlots,bookings:rows}))}catch{}}
 let receipts={};try{receipts=JSON.parse(localStorage.getItem('zhuke-receipts')||'{}')}catch{};
 function participants(r){return [r.teacher,r.co_teacher].filter(Boolean)}
@@ -80,7 +80,7 @@ function bookForTeam(team){selectBookingTeam(team);const chosen=[...$('date').op
 
 let bookingSucceeded=false;
 $('form').addEventListener('change',()=>{if(bookingSucceeded){bookingSucceeded=false;$('message').textContent='';renderSlots()}});
-function renderSlots(){const error=timeError();$('submit').disabled=bookingSucceeded||!online||busy||!!error;$('submit').textContent=bookingSucceeded?'已报名成功':busy?'正在提交…':online?(completedMode()?'确认补登记（已完成）':'确认报名'):'数据库未连接';$('timeHint').textContent=error||(completedMode()?'请仅登记实际已完成的直播，保存后直接归档并计入统计。已有报名请在待直播中结束该场，勿重复补录。':'每场限一条报名；双人直播请选择同组搭档。')}
+function renderSlots(){const error=timeError();$('submit').disabled=bookingSucceeded||!online||busy||!!error;$('submit').textContent=bookingSucceeded?'已报名成功':busy?'正在提交…':online?(completedMode()?'确认补登记（已完成）':'确认报名'):loading?'正在同步排班…':'报名服务未连接';$('timeHint').textContent=error||(completedMode()?'请仅登记实际已完成的直播，保存后直接归档并计入统计。已有报名请在待直播中结束该场，勿重复补录。':'每场限一条报名；双人直播请选择同组搭档。')}
 function isUnfinished(r){return r.status!=='已结束'&&!r.ended_at}
 function canManage(r){return isUnfinished(r)}
 function prepareRebooking(r){
@@ -140,7 +140,7 @@ if(!hasLoaded){$('countFreshness').textContent='统计尚未加载，请点击�
 const valid=rows.filter(r=>r.status!=='已取消'),team=$('countGroup').value;
 const all=Object.values(groups).flat().map(name=>{const mine=valid.filter(r=>participants(r).includes(name)),done=mine.filter(r=>!isUnfinished(r)).length;return {name,total:mine.length,done,pending:mine.length-done}}),max=Math.max(1,...all.map(r=>r.total));
 const list=all.filter(r=>(groups[team]||[]).includes(r.name)).sort((a,b)=>b.total-a.total);
-$('countFreshness').textContent=team+' · '+list.length+' 位老师 · '+(online?'更新于 ':'连接中断，显示上次数据 · ')+lastUpdated;
+$('countFreshness').textContent=team+' · '+list.length+' 位老师 · '+(online?'更新于 ':loading?'正在同步，显示上次数据 · ':'连接中断，显示上次数据 · ')+lastUpdated;
 for(const r of list){const row=el('div',undefined,'teacher-chart-row'),top=el('div',undefined,'row'),track=el('div',undefined,'teacher-track'),done=el('div',undefined,'teacher-done'),pending=el('div',undefined,'teacher-pending');top.append(el('strong',r.name),el('span','累计 '+r.total+' 场'));done.style.width=r.done/max*100+'%';pending.style.width=r.pending/max*100+'%';track.append(done,pending);track.setAttribute('role','img');track.setAttribute('aria-label',r.name+'：已完成'+r.done+'场，待直播'+r.pending+'场，累计'+r.total+'场');row.append(top,track,el('p','已完成 '+r.done+' · 待直播 '+r.pending,'muted'));target.append(row)}
 $('countScale').textContent='三组使用相同刻度：0—'+max+' 场。';
 }
@@ -149,13 +149,13 @@ let slotDetailId=null;
 function openSlotDetail(id){const r=rows.find(x=>x.id===id);if(!r)return;slotDetailId=id;$('slotDetailTitle').textContent=r.date+' '+r.slot;$('slotDetailBody').replaceChildren(bookingCard(r));if(!$('slotDetailDialog').open)$('slotDetailDialog').showModal()}
 $('slotDetailClose').onclick=()=>$('slotDetailDialog').close();$('slotDetailDialog').addEventListener('close',()=>{slotDetailId=null});
 function slotTile(r,archived=false){const tile=el('article',undefined,'slot-tile '+(archived?'archive-tile':'pending-tile'));tile.dataset.booking=r.id;tile.setAttribute('aria-label',r.date+' '+r.slot+' '+participants(r).join('、'));tile.append(el('strong',dateLabel(r.date).replace('月','/').replace('日',' '),'slot-date'));const time=el('div',undefined,'slot-time');r.slot.split(/[—–－-]/).forEach((t,i)=>time.append(el('span',(i?'–':'')+t.trim())));tile.append(time);if(!archived)tile.append(el('p',teamOf(r.teacher)||r.team,'slot-team'));tile.append(el('p',participants(r).join('、'),'slot-people'));const view=el('button',archived?'查看详情':'查看 / 管理');view.type='button';view.onclick=()=>openSlotDetail(r.id);tile.append(view);return tile}
-function renderPendingPreview(){const target=$('pendingPreview');target.replaceChildren();const pending=rows.filter(isUnfinished);$('pendingTitle').textContent=hasLoaded?'待直播 · '+pending.length+' 场':'待直播';if(!hasLoaded){target.append(el('p','正在等待最新报名数据…','muted'));return}if(!online)target.append(el('p','连接中断，以下为上次读取的数据','notice error'));if(!pending.length)target.append(el('p','暂无待直播报名','muted'));for(const r of pending)target.append(slotTile(r));if(slotDetailId){const r=rows.find(x=>x.id===slotDetailId);if(r){$('slotDetailTitle').textContent=r.date+' '+r.slot;$('slotDetailBody').replaceChildren(bookingCard(r))}else $('slotDetailDialog').close()}}
+function renderPendingPreview(){const target=$('pendingPreview');target.replaceChildren();const pending=rows.filter(isUnfinished);$('pendingTitle').textContent=hasLoaded?'待直播 · '+pending.length+' 场':'待直播';if(!hasLoaded){target.append(el('p','正在等待最新报名数据…','muted'));return}if(!online)target.append(el('p',loading?'正在同步最新数据，以下为上次排班':'连接中断，以下为上次读取的数据',loading?'notice':'notice error'));if(!pending.length)target.append(el('p','暂无待直播报名','muted'));for(const r of pending)target.append(slotTile(r));if(slotDetailId){const r=rows.find(x=>x.id===slotDetailId);if(r){$('slotDetailTitle').textContent=r.date+' '+r.slot;$('slotDetailBody').replaceChildren(bookingCard(r))}else $('slotDetailDialog').close()}}
 function archiveRecords(){const range=$('archiveRange').value,today=todayCN(),monday=weekStart(today);return rows.filter(r=>!isUnfinished(r)&&r.status!=='已取消'&&(range==='week'?r.date>=monday&&r.date<=addDays(monday,6):range==='month'?r.date.slice(0,7)===today.slice(0,7):true))}
 function renderArchive(){
 const records=archiveRecords(),chart=$('archiveChart'),metrics=$('archiveMetrics');chart.replaceChildren();metrics.replaceChildren();
 if(!hasLoaded){$('archiveFreshness').textContent=online?'正在读取直播数据…':'数据尚未加载，请点击刷新。';$('archiveScale').textContent='';chart.setAttribute('aria-label','直播数据尚未加载');return records}
 const range=$('archiveRange').value,today=todayCN(),dates=records.map(r=>r.date).sort(),scope=range==='week'?weekStart(today)+' 至 '+addDays(weekStart(today),6):range==='month'?today.slice(0,7)+' 月':dates.length?dates[0]+' 至 '+dates[dates.length-1]:'全部历史';
-$('archiveFreshness').textContent=scope+' · '+(online?'更新于 ':'连接中断，显示上次数据 · ')+lastUpdated;
+$('archiveFreshness').textContent=scope+' · '+(online?'更新于 ':loading?'正在同步，显示上次数据 · ':'连接中断，显示上次数据 · ')+lastUpdated;
 for(const [label,value] of [['已完成 / 场',records.length],['参与老师 / 人',new Set(records.flatMap(participants)).size],['双人直播 / 场',records.filter(r=>r.co_teacher).length]]){const box=el('div',undefined,'archive-metric');box.append(el('strong',String(value)),el('span',label));metrics.append(box)}
 const totals=Object.keys(groups).map(team=>({team,count:records.filter(r=>(teamOf(r.teacher)||r.team)===team).length}));const unknown=records.filter(r=>!Object.keys(groups).includes(teamOf(r.teacher)||r.team)).length;if(unknown)totals.push({team:'其他／未分组',count:unknown});const max=Math.max(1,...totals.map(x=>x.count));
 chart.setAttribute('aria-label',totals.map(x=>x.team+'：'+x.count+'场').join('；'));

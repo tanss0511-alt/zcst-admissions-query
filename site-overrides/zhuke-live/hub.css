@@ -17,3 +17,22 @@ body[data-system=gaokao]{background:#faf6f0}body[data-system=gaokao]>header{back
 
 /* Compact vertical rhythm, November update */
 #bookingPage section,#archivePage>section{padding:8px;margin-bottom:6px}#bookingPage h2{font-size:16px;margin:0 0 5px}#bookingPage p{margin-top:4px;margin-bottom:4px}#bookingPage .row{gap:5px}#bookingPage label{margin-top:5px;margin-bottom:3px;font-size:12px}#bookingPage select,#bookingPage input,#bookingPage textarea{padding:6px 7px;font-size:12px}#bookingPage .stats{gap:5px;margin:6px 0}#bookingPage .stats>div{padding:7px}.pending-front{margin-top:5px;padding-top:4px}#pendingPreview,.archive-grid{row-gap:4px}.slot-tile{padding-top:4px;padding-bottom:4px;gap:2px}.slot-tile p{line-height:1.2}.slot-tile button{margin-top:1px;min-height:26px;padding:3px 0}#archivePage .archive-group{margin:6px 0}#archiveChart .overview-row{margin:6px 0}#archivePage h3{margin:5px 0}.archive-metrics{margin:5px 0 6px}.archive-metric{padding:5px 3px}#countsPage section>.row{justify-content:flex-end;margin-bottom:4px}
+
+/* Keep the weekly schedule compact; archive details open only when requested. */
+#bookingPage .week-front .sync-row{margin:2px 0;min-height:28px}
+#bookingPage .week-front .sync-row p{margin:0;font-size:11px;line-height:1.25}
+#bookingPage .week-front .sync-row button{min-height:28px;padding:4px 8px;font-size:12px;line-height:1.25}
+#bookingPage #rotation{padding:5px 7px;margin:3px 0;font-size:12px;line-height:1.35}
+#bookingPage .week-front .stats{align-items:start;margin:4px 0;gap:5px}
+#bookingPage .week-front .stat{padding:6px;line-height:1.25}
+#bookingPage .week-front .stat p{margin:2px 0;line-height:1.3}
+#bookingPage .week-front .stat .group-times{margin:2px 0;font-size:11px;line-height:1.3}
+#bookingPage .week-front .stat>b{margin-top:3px;font-size:14px;line-height:1.3}
+#bookingPage .week-front .stat .muted{font-size:11px;line-height:1.35}
+#bookingPage .week-front .stat>details{margin:2px 0 3px;font-size:11px;line-height:1.3}
+#bookingPage .week-front .stat summary{padding:2px 0;font-size:11px;line-height:1.3}
+#bookingPage .week-front .stat>button{margin-top:3px;min-height:32px;padding:5px 2px;font-size:12px;line-height:1.25}
+#archivePage details.archive-group{margin:5px 0;padding:0;border:1px solid #d5e4ed;border-radius:6px;background:#f7fafc}
+#archivePage .archive-group>summary{padding:8px;font-size:13px;line-height:1.3}
+#archivePage .archive-group[open]>summary{border-bottom:1px solid #d5e4ed;margin-bottom:6px}
+#archivePage .archive-group>.archive-grid{padding:0 6px 6px}

@@ -1,6 +1,6 @@
 {
-  "index.html": "920a405a648e9a8f2427eaadf1acacbfb411c345140f29dd22abd7bd25fe1c8d",
-  "style.css": "c8150d5aa8f7f98ed2d46b9cf17745f17683f51c3172de6db8b0d59b687ceeea",
+  "index.html": "371bb3ba10de209981ad607c83b88fc158ccd56a69678e2657a5392c8f4e9444",
+  "style.css": "290725813d28f96fbc934e6a94d6cee47c18faa29b3f7fee01df23d376b808d6",
   "catalog/majors.json": "577f30083449e4770b3abae8eaedf843519d15db71c9793c87b66ed528a6986e",
   "catalog/innovation-2026.png": "ae29ce6a56a15a00dc63d8ac07f84114eb14d97130d7f8c0db227859df795c23",
   "zhuke-live/index.html": "72f1c680b7f31305a522fd513290aec374bc5d4665eb5711d288a7fdb687ea4a",
@@ -9,7 +9,6 @@
   "transfer/data.json": "9c39c83ab2925c28bf17715b746515a69d7baff21f117b262eeb116bfec47115",
   "transfer/selfcheck.html": "e2f56961b37d9cc05441d78b012b978ef4379f09e003f026aa4fec4e426f7c93",
   "transfer/outlines.json": "8684b2bdda33eb01af7423ec9f3ac77649a4a762ebaceb2ca5baef0d6091e7fa",
-  "assets/mirror-094dac052852.js": "094dac05285205b6b8544cd5d33af88d0c5bc0a4064e62b36fa9a4a7d3e26053",
   "assets/mirror-4518b042011c.js": "4518b042011ce33a353c20f74339ea578053b45deefd8a4bcd9d9b41c22799c4",
   "assets/mirror-000ac19d674b.js": "000ac19d674b6fc13eb3a4cf7b6354750ffa2fc42207782aef6e622de95e441e",
   "assets/mirror-3114b965fe36.js": "3114b965fe3648023f585fed6109e4cae2b2431e176e03aba1e4958cdd2f8437",
@@ -102,5 +101,6 @@
   "letters/preview/bfa35449f81a4ca0b0ec7289.webp": "52016a719f6a7ed1a3d9d09c3b79a1dc4b3ce05f24145ba92849be0920bd2ce7",
   "letters/preview/d7a1ea88f3687b1f6965d97f.webp": "0e5da624f7d94d3fd5b87211ecd32a4806952609f5309b937cefe35930938e48",
   "letters/preview/ffef707fa677ff6e7ccfbf7b.webp": "30696ff1360746ff28f78e5ffe76ade2d5c335fa6175a12576f7b06414446e4b",
-  "assets/mirror-e96ffbe76671.js": "e96ffbe7667142a15c2f42b5ef20fe2cbd40f5401368b312328c23b7cd8a998b"
+  "assets/mirror-e96ffbe76671.js": "e96ffbe7667142a15c2f42b5ef20fe2cbd40f5401368b312328c23b7cd8a998b",
+  "assets/mirror-c3832ba1d240.js": "c3832ba1d2400412cc7f4c661bf590fb97b12b12e4619cc8b744685c161a3457"
 }

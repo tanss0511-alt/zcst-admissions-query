@@ -717,12 +717,13 @@ main{max-width:var(--page-width);padding:6px 12px 18px}
 .province-tools{display:block;margin:3px 0 6px}
 .province-tools .province-options{display:block;width:100%;margin:0;padding:6px 8px;border:1px solid var(--line);border-radius:9px;background:#fff}
 .province-directory-link{display:inline-flex;align-items:center;min-height:32px;margin:0 0 3px;padding:3px 5px;border:0;border-radius:5px;background:transparent;color:#285996;font-size:12px;font-weight:650}
-.province-groups{display:grid;grid-template-columns:minmax(0,1fr);gap:3px}
-.province-group{display:grid;grid-template-columns:30px minmax(0,1fr);align-items:start;gap:4px;min-width:0;padding-top:3px;border-top:1px solid #eef2f7}
-.province-group-label{font-size:11px;line-height:32px;font-weight:600;color:#7a899b}
-.province-group-buttons{display:flex;flex-wrap:wrap;gap:3px;min-width:0}
-.province-group-buttons .btn{min-width:40px;min-height:32px;margin:0;padding:4px 7px;border:1px solid transparent;border-radius:5px;font-size:13px;line-height:1.3;white-space:nowrap;box-shadow:none}
-.province-group-buttons .btn.soft{color:#365775;background:#f1f5fa}
+.province-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;align-items:start}
+.province-group{display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:6px;min-width:0;padding:8px;border:1px solid #e0e8f2;border-radius:7px;background:#f6f9fd}
+.province-group-label{display:flex;align-items:center;gap:5px;font-size:12px;line-height:1.35;font-weight:700;color:#4c6688}
+.province-group-label::before{content:"";width:3px;height:11px;border-radius:2px;background:#7398c9}
+.province-group-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;min-width:0}
+.province-group-buttons .btn{width:100%;min-width:0;min-height:32px;margin:0;padding:4px 3px;border:1px solid #e4eaf2;border-radius:5px;font-size:13px;line-height:1.3;white-space:nowrap;box-shadow:none;text-align:center}
+.province-group-buttons .btn.soft{color:#365775;background:#fff;border-color:#e4eaf2}
 .province-group-buttons .btn.primary{color:#fff;background:#23549a;border-color:#23549a}
 .province-directory-link:hover,.province-group-buttons .btn.soft:hover{background:#e3edfa}
 .province-directory-link:focus-visible,.province-group-buttons .btn:focus-visible{outline:2px solid #538bd9;outline-offset:1px}
@@ -746,15 +747,15 @@ main{max-width:var(--page-width);padding:6px 12px 18px}
 .letter-card{margin:6px 0;padding:8px 10px;border-radius:8px}.letter-toolbar{gap:6px;margin:6px 0;padding:5px 0}
 .year-block{margin:5px 0}.year-block>summary{padding:8px 10px}.year-body{padding:7px 10px}
 .score-results .empty,.catalog-grid>.empty,#score-results>.empty,.tr-grid>.empty{padding:20px 10px;border-radius:8px}
-@media(min-width:900px){.province-groups{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px}.province-group[data-province-region="华东"]{grid-column:1/-1}}
+@media(min-width:640px){.province-groups{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}}
 @media(max-width:600px){
  main{padding:5px 8px 14px}.topbar{height:50px;padding:0 8px}.school-logo{width:180px;padding:4px 6px}
  .module-nav{padding:5px 8px;gap:3px}.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{font-size:11px;min-height:44px;padding:4px 2px;line-height:1.3}
  .back-nav,.transfer .back-nav{font-size:12px;min-height:34px;padding:5px 8px;margin-bottom:4px}
  .score-title h1,.transfer h1,.major-heading h1,.compact-hero h1{font-size:18px}
  .score-search,.transfer .score-search,.search-shell input,.tr-prerequisite-search input,.tr-finder-search input{font-size:16px}
- .province-tools .province-options{padding:4px 5px}.province-group{grid-template-columns:25px minmax(0,1fr);gap:3px;padding-top:2px}.province-group-label{font-size:10px}
- .province-group-buttons .btn{font-size:12px;min-width:36px;padding:4px 6px}.province-groups{gap:2px}.province-directory-link{font-size:11px;margin-bottom:2px}
+ .province-tools .province-options{padding:5px}.province-group{padding:6px;gap:5px}.province-group-label{font-size:11px}
+ .province-group-buttons{gap:3px}.province-group-buttons .btn{font-size:11px;min-width:0;padding:4px 2px}.province-groups{gap:6px}.province-directory-link{font-size:11px;margin-bottom:4px}
  .tr-prerequisite-compare .tr-prerequisite-reference{grid-column:2;grid-row:1/span 2}
  .tr-prerequisite-compare .tr-exam-reference{grid-column:1;grid-row:2;padding:6px}
  .tr-prerequisite-compare .tr-exam-reference .tr-detail-fields>div{grid-template-columns:minmax(0,1fr);gap:2px}

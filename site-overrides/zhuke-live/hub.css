@@ -36,3 +36,9 @@ body[data-system=gaokao]{background:#faf6f0}body[data-system=gaokao]>header{back
 #archivePage .archive-group>summary{padding:8px;font-size:13px;line-height:1.3}
 #archivePage .archive-group[open]>summary{border-bottom:1px solid #d5e4ed;margin-bottom:6px}
 #archivePage .archive-group>.archive-grid{padding:0 6px 6px}
+
+/* More upcoming slots per row, with dates and names kept readable. */
+#pendingPreview{grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+#pendingPreview .slot-tile{padding:4px 2px}
+@media(max-width:600px){#pendingPreview{grid-template-columns:repeat(5,minmax(0,1fr))}#pendingPreview .slot-team{font-size:10px}#pendingPreview .slot-time{font-size:10px}#pendingPreview .slot-date{font-size:10px}}
+@media(max-width:359px){#pendingPreview{grid-template-columns:repeat(4,minmax(0,1fr))}}

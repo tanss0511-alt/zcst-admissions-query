@@ -41,7 +41,29 @@ function save(){localStorage.setItem('zhuke-receipts',JSON.stringify(receipts))}
 function dateLabel(d){return d.slice(5).replace('-','月')+'日 周'+['日','一','二','三','四','五','六'][new Date(d+'T12:00:00+08:00').getUTCDay()]}
 function start(d,s){return new Date(d+'T'+s.slice(0,5)+':00+08:00').getTime()}
 function el(tag,text,cls){let n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n}
-async function rpc(name,data={}){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),18000);try{const r=await fetch(API+name,{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify(data),signal:controller.signal});const result=await r.json();if(!r.ok)throw Error(result.message||'服务暂不可用');return result}finally{clearTimeout(timer)}}
+const readRPCs=new Set(['live_slots','live_schedule','live_history']);
+const apiRoutes=[...new Set([new URL(API,location.href).href,'https://zhuke-teacher-live.pages.dev/api/','https://chic-kangaroo-9eb457.netlify.app/api/'])];
+let activeAPI=apiRoutes[0];
+async function requestRPC(base,name,data,timeout){
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);
+ try{
+  let response;try{response=await fetch(base+name,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:controller.signal})}catch(error){error.retryable=true;throw error}
+  let result;try{result=await response.json()}catch{const error=Error('报名服务暂时无法响应');error.retryable=true;throw error}
+  if(!response.ok){const error=Error(result?.message||'服务暂不可用');error.retryable=response.status>=500||[404,408,429].includes(response.status);throw error}
+  if(name==='live_slots'&&(!Array.isArray(result?.slots)||!Array.isArray(result?.bookings))){const error=Error('排班数据暂未读取完整');error.retryable=true;throw error}
+  return result;
+ }finally{clearTimeout(timer)}
+}
+async function rpc(name,data={}){
+ // Only read requests may switch routes. Never replay a mutation after an uncertain response.
+ if(!readRPCs.has(name))return requestRPC(activeAPI,name,data,18000);
+ const routes=[activeAPI,...apiRoutes.filter(base=>base!==activeAPI)];let lastError;
+ for(let i=0;i<routes.length;i++){
+  if(i&&name==='live_slots'){$('connection').textContent='正在通过备用线路读取最新排班…';$('connection').className='muted'}
+  try{const result=await requestRPC(routes[i],name,data,8000);activeAPI=routes[i];return result}catch(error){lastError=error;if(!error.retryable)throw error}
+ }
+ throw lastError;
+}
 for(const g of Object.keys(groups))$('bookingTeam').add(new Option(g,g));
 function renderTeachers(){const team=$('bookingTeam').value,old=$('teacher').value;$('teacher').replaceChildren(new Option(team?'请选择本场实际主播老师':'请先选择所属小组',''));for(const name of groups[team]||[])$('teacher').add(new Option(name,name));$('teacher').disabled=!team;if((groups[team]||[]).includes(old))$('teacher').value=old;const rule={'陈闪荣组':'周四9:00—10:00、周五上午两场','谭霜霜组':'周一至周三9:00—10:00','杜一鸣组':'周一至周三10:30—11:30'};$('groupHint').textContent=team?team+'：'+rule[team]+'；轮值周另有周四10:30—11:30机动场。转交场次以本周排班为准，下方列本组可预约日期。':'先选小组，即可查看本组可报名的日期和时段。';renderPartner()}
 function selectBookingTeam(team){$('bookingTeam').value=team;renderTeachers();renderDates()}
@@ -136,15 +158,16 @@ async function refresh(force=true){
   if(refreshTask){await refreshTask;if(!force)return;return refresh(true)}
   if(!force&&Date.now()-lastReadAttempt<10000)return;
   lastReadAttempt=Date.now();loading=true;$('refresh').disabled=true;
-  refreshTask=(async()=>{try{const data=await rpc('live_slots');if(!Array.isArray(data.slots)||!Array.isArray(data.bookings))throw Error('返回数据格式异常');fixedSlots=data.slots;hasLoaded=true;lastUpdated=new Date().toLocaleTimeString('zh-CN',{timeZone:'Asia/Shanghai'});rows=data.bookings.sort((a,b)=>(a.date+' '+a.slot).localeCompare(b.date+' '+b.slot));online=true;$('connection').textContent='更新于 '+new Date().toLocaleTimeString('zh-CN')+' · 点击刷新同步';$('connection').className='muted'}catch(e){online=false;$('connection').textContent='数据库连接失败，当前不能报名。'+(rows.length?'下面为上次读取的排班。':'')+' 请检查网络后点击刷新。';$('connection').className='notice error'}finally{loading=false;renderDates();if(editing){renderDates(true);editSlots()}render()}})();
+  refreshTask=(async()=>{try{const data=await rpc('live_slots');if(!Array.isArray(data.slots)||!Array.isArray(data.bookings))throw Error('返回数据格式异常');fixedSlots=data.slots;hasLoaded=true;lastUpdated=new Date().toLocaleTimeString('zh-CN',{timeZone:'Asia/Shanghai'});rows=data.bookings.sort((a,b)=>(a.date+' '+a.slot).localeCompare(b.date+' '+b.slot));online=true;$('connection').textContent='更新于 '+new Date().toLocaleTimeString('zh-CN')+' · 点击刷新同步';$('connection').className='muted'}catch(e){online=false;$('connection').textContent='暂时无法连接报名服务，当前不能报名。'+(hasLoaded?'下面保留上次读取的排班。':'')+' 请点击刷新重试。';$('connection').className='notice error'}finally{loading=false;renderDates();if(editing){renderDates(true);editSlots()}render()}})();
   try{await refreshTask}finally{refreshTask=null;$('refresh').disabled=false}
 }
 $('timeMode').onchange=()=>{ $('date').value='';renderDates()};$('editTimeMode').onchange=()=>renderDates(true);for(const id of ['specialStart','specialEnd'])$(id).oninput=renderSlots;for(const id of ['editSpecialStart','editSpecialEnd'])$(id).oninput=editSlots;
 $('bookingTeam').onchange=()=>{renderTeachers();renderDates()};$('teacher').onchange=()=>{renderPartner();renderSlots()};$('mode').onchange=renderPartner;
-$('date').onchange=()=>fillSlots();$('slot').onchange=renderSlots;$('week').onchange=render;$('refresh').onclick=()=>refresh(false);
+$('date').onchange=()=>fillSlots();$('slot').onchange=renderSlots;$('week').onchange=render;$('refresh').onclick=()=>refresh(true);
 $('form').onsubmit=async e=>{e.preventDefault();if(!online||busy)return;if(timeError()){$('message').textContent=timeError();return}const pair=$('mode').value==='pair',teacher=$('teacher').value,partner=pair?$('partner').value:null;if(!teamOf(teacher)||(pair&&(!partner||partner===teacher||teamOf(partner)!==teamOf(teacher)))){$('message').textContent='请选择本人姓名；双人直播还需选择同组的另一位老师。';return}if(completedMode()&&!confirm('确认所选场次已实际完成直播？补登记后将直接计入已结束归档和老师统计。'))return;let receipt=crypto.randomUUID(),payload={p_teacher:teacher,p_co_teacher:partner,p_date:$('date').value,p_slot:timeSlot(),p_topic:$('topic').value.trim(),p_support:$('support').value.trim(),p_receipt:receipt};if(completedMode())payload.p_completed=true;if(specialMode())payload.p_original_slot=selectedOriginal()?.id;try{localStorage.setItem('zhuke-pending',JSON.stringify(payload))}catch{$('message').textContent='当前浏览器无法保存报名信息，请退出无痕模式或更换浏览器。';return}busy=true;renderSlots();$('message').textContent='正在保存，请稍候…';try{let result=await bookingRpc(payload);receipts[result.id]=receipt;save();localStorage.removeItem('zhuke-pending');bookingSucceeded=true;$('message').textContent=payload.p_completed?'补登记成功！已计入已结束归档、小组和老师场次统计。':'报名成功！如需调整，可在前方待直播列表中点击“修改”。';$('topic').value='';$('support').value=''}catch(e){$('message').textContent='暂未确认报名结果：'+e.message+'。请先刷新核对；系统会尝试恢复本次提交。'}finally{busy=false;await refresh()}};
 
 async function recover(){let p;try{p=JSON.parse(localStorage.getItem('zhuke-pending')||'null')}catch{}if(!p)return;try{const r=await bookingRpc(p);receipts[r.id]=p.p_receipt;save();localStorage.removeItem('zhuke-pending');$('message').textContent=p.p_completed?'已恢复上次补登记，已计入已结束归档和统计。':'已恢复上次报名。如需调整，可在前方待直播列表中点击“取消报名”。';await refresh()}catch{}}
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){render();if(!online&&!busy&&!loading)refresh(false)}});
+window.addEventListener('online',()=>{if(!document.hidden&&!online&&!busy&&!loading)refresh(false)});
 for(let i=0;i<13;i++){const d=addDays(TERM_START,i*7);$('week').add(new Option('第'+(i+1)+'周 · '+dateLabel(d)+'—'+dateLabel(addDays(d,4)),d))}const w=weekStart(todayCN());$('week').value=w<TERM_START?TERM_START:w>addDays(TERM_START,84)?addDays(TERM_START,84):w;renderTeachers();renderDates();showPage(location.hash.slice(1));refresh().then(recover);
 </script><script src="./hub.js?v=6fe2e520bb16"></script></body></html>

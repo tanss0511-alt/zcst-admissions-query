@@ -168,19 +168,22 @@ main{padding-top:12px}.detail-head{display:block;margin:6px 0}.detail-head h2{fo
 .transfer .score-search{padding:9px 10px;font-size:15px;margin:5px 0;min-height:38px}
 .tr-filters{display:flex;gap:5px;margin:5px 0}.tr-filters select{min-width:0;flex:1;width:0;font-size:12px;padding:7px 2px;border:1px solid #cad7e9;border-radius:6px;background:white;color:#1c355b}.tr-filters button{padding:6px;flex:none}
 .tr-result-count{font-size:12px;margin:8px 0;color:#5c6e88}.tr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
-.tr-card{min-width:0;background:white;border:1px solid #dbe3ee;border-radius:9px;padding:10px}
-.tr-card-title{display:flex;align-items:start;justify-content:space-between;gap:5px;width:100%;min-height:36px;text-align:left;border:0;background:none;padding:0;color:#1b3357;font-size:15px;line-height:1.35;overflow-wrap:anywhere}.tr-card-title>span{color:#527fb7}
+
+.tr-card-title>span{color:#527fb7}
 .tr-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:8px 0;gap:5px}.tr-metrics>div{min-width:0;background:#f1f5fc;padding:6px;border-radius:5px}.tr-metrics dt{font-size:11px;color:#566d8e;line-height:1.4}.tr-metrics dd{margin:2px 0 0;font-size:17px;font-weight:750;color:#1a4b9f;line-height:1.2;overflow-wrap:anywhere}
-.tr-link{display:block;color:#1d54a3;background:none;border:0;text-align:left;padding:7px 0 0;font-size:12px;line-height:1.4;min-height:32px}
+
 .tr-proposal-count{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px;background:#f0f4fc;padding:6px;border-radius:6px;font-size:12px}.tr-proposal-count b{font-size:19px;color:#1a4b9f}
-.tr-requirement{font-size:12px;line-height:1.5;margin:7px 0;white-space:pre-line;overflow-wrap:anywhere}.tr-requirement b{display:block;color:#52688b;font-size:11px;margin-bottom:3px}
+
+
 .tr-more{display:block;width:100%;margin:12px 0}.tr-detail-panel{background:#fff;border:1px solid #dae3f0;border-radius:9px;padding:12px;margin:9px 0}.tr-full-text{white-space:pre-line;font-size:14px;line-height:1.65}
 .tr-detail-fields{margin:0}.tr-detail-fields>div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;padding:9px 0;border-bottom:1px solid #edf1f7;font-size:14px}.tr-detail-fields dt{color:#687c98}.tr-detail-fields dd{margin:0;white-space:pre-line;overflow-wrap:anywhere}
 .tr-sources{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;margin-top:12px}.tr-detail-actions{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
 .tr-dialog{padding:12px;max-width:440px}.tr-dialog h2{font-size:19px}.tr-dialog>button:first-child{float:right}.tr-dialog input{width:100%;min-width:0;padding:9px;font-size:13px;margin:10px 0}.tr-qr{display:block;width:100%;max-width:330px;margin:15px auto;image-rendering:pixelated}
 .tr-selfcheck .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tr-selfcheck label{font-size:13px;min-width:0}.tr-selfcheck select{display:block;width:100%;min-width:0;max-width:100%;font-size:13px;margin:5px 0}.tr-selfcheck small{font-size:11px;display:block}.tr-selfcheck .panel{padding:12px}.tr-selfcheck .button,.tr-selfcheck .text-button{border:1px solid #b9cae3;background:#edf3ff;padding:8px;border-radius:7px;margin-top:10px;color:#19478d}.tr-selfcheck .faq-list article{padding:9px 0;border-bottom:1px solid #dbe4f1}.tr-selfcheck .faq-list h3{font-size:14px;margin:5px 0}.tr-selfcheck p{font-size:13px;line-height:1.6}.tr-selfcheck .policy-links,.tr-selfcheck .source-links{display:flex;gap:10px;flex-wrap:wrap;font-size:12px}.tr-selfcheck .privacy{color:#637897}
 .tr-reader{background:white;border:1px solid #dbe4f1;padding:12px;font-size:14px;line-height:1.7;overflow-wrap:anywhere}.tr-reader img{max-width:100%;height:auto}.tr-reader table{border-collapse:collapse;table-layout:fixed;width:100%;font-size:12px}.tr-reader td,.tr-reader th{border:1px solid #d9e0eb;padding:3px;overflow-wrap:anywhere}.tr-reader pre{white-space:pre-wrap}.tr-reader h1{font-size:20px}.tr-reader h2{font-size:18px}.tr-reader h3{font-size:16px}
-@media(max-width:600px){.module-nav{gap:4px;padding:6px}.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{font-size:11px;min-height:50px;padding:6px 2px;line-height:1.4}.tr-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.tr-card{padding:8px}.tr-card-title{font-size:14px}.tr-card .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.tr-card .tr-metrics>div{padding:5px}.tr-card .tr-metrics dd{font-size:16px}.transfer h1{font-size:18px}.tr-detail-fields>div{grid-template-columns:72px minmax(0,1fr);font-size:13px}.tr-selfcheck .form-grid{grid-template-columns:1fr}.tr-aux button{flex:1;padding:6px 3px;font-size:11px}}
+@media(max-width:600px){.module-nav{gap:4px;padding:6px}.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{font-size:11px;min-height:50px;padding:6px 2px;line-height:1.4}.tr-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+
+.tr-card .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.tr-card .tr-metrics>div{padding:5px}.tr-card .tr-metrics dd{font-size:16px}.transfer h1{font-size:18px}.tr-detail-fields>div{grid-template-columns:72px minmax(0,1fr);font-size:13px}.tr-selfcheck .form-grid{grid-template-columns:1fr}.tr-aux button{flex:1;padding:6px 3px;font-size:11px}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* Compact reading on phones and tablets; content determines card height. */
@@ -188,11 +191,22 @@ main{padding-top:12px}.detail-head{display:block;margin:6px 0}.detail-head h2{fo
 .module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{padding:5px 3px;min-height:44px;border-radius:7px}
 main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.portal-title{margin:3px 0 6px}.score-search{margin:5px 0 8px;padding:9px 10px}.score-count,.score-subtitle{margin-top:6px;margin-bottom:5px}
 .transfer .back-nav{margin-bottom:5px}.tr-heading{gap:2px 9px;margin-bottom:3px}.transfer h1{margin:3px 0}.tr-notice{margin:5px 0;padding:5px 8px}.tr-aux,.tr-batches{margin:5px 0;gap:4px}.tr-result-count{margin:6px 0}.tr-grid{gap:6px}
-.tr-card{padding:8px;border-radius:8px}.tr-card-title{min-height:0;align-items:center;margin:0 0 5px;gap:4px;line-height:1.35}.tr-card-title .tr-card-label{display:flex;flex-direction:column;gap:3px;min-width:0;color:var(--ink)}.tr-card-label strong{display:block;font-size:14px;line-height:1.4}.tr-card-label small{display:block;font-size:11px;font-weight:400;line-height:1.4;color:#657895}.tr-card-arrow{flex:none}.tr-proposal-count{gap:3px;align-items:center;padding:4px 5px;font-size:11px;border-radius:5px}.tr-proposal-count span{white-space:nowrap}.tr-proposal-count b{font-size:18px}.tr-requirement{margin:5px 0;line-height:1.45}.tr-requirement b{margin-bottom:2px}.tr-link{padding-top:4px;min-height:30px}.tr-metrics{margin:5px 0;gap:4px}.tr-metrics>div{padding:4px 5px}.tr-detail-panel{padding:9px;margin:6px 0}.tr-detail-fields>div{padding:7px 0}.tr-detail-actions{margin:7px 0}.tr-full-text{margin:5px 0}
+
+
+
+
+
+.tr-proposal-count{gap:3px;align-items:center;padding:4px 5px;font-size:11px;border-radius:5px}.tr-proposal-count span{white-space:nowrap}.tr-proposal-count b{font-size:18px}
+
+
+.tr-metrics{margin:5px 0;gap:4px}.tr-metrics>div{padding:4px 5px}.tr-detail-panel{padding:9px;margin:6px 0}.tr-detail-fields>div{padding:7px 0}.tr-detail-actions{margin:7px 0}.tr-full-text{margin:5px 0}
 .college-directory{align-items:start;gap:6px}.college-directory .college-contact{align-self:start;padding:7px;border-radius:8px}.college-contact header{margin-bottom:5px;align-items:flex-start;gap:4px}.college-directory .college-contact header{flex-wrap:nowrap}.college-contact header strong{line-height:1.4}.college-directory .college-contact header a{font-size:10px;line-height:1.4}.college-directory .college-phone{gap:1px;padding:4px 5px;line-height:1.4;border-radius:5px}.college-directory .college-phone b{font-size:13px;line-height:1.45}.college-directory .college-phone small,.college-directory .college-phone span{font-size:11px;line-height:1.4}.contact-location{margin:4px 0 0;font-size:11px;line-height:1.4;color:#65758c;overflow-wrap:anywhere}.department-group+.department-group{margin-top:6px}.department-group.contact-solo{grid-template-columns:minmax(0,1fr)}.department-group.contact-solo .college-phones{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}.department-help{display:block;font-size:11px;line-height:1.4}.college-directory .score-count{margin:3px 0;font-size:11px}
 .catalog-grid,.college-profile-grid{align-items:start}.catalog-card{gap:3px;padding:7px 6px}.college-profile-grid .catalog-card{padding:8px;gap:4px}.catalog-open{margin-top:2px}.major-innovation{padding:8px;margin:7px 0}.major-heading h1{margin-bottom:5px}.major-sections details{padding:8px;margin:4px 0}.major-innovation p,.major-sections p{margin:5px 0;line-height:1.65}.college-profile{padding:9px;margin:7px 0}.college-profile p{margin-bottom:6px}.policy-detail{padding:9px}.policy-detail section{padding:6px 0}.policy-year-note{margin:5px 0;padding:6px 8px}.policy-tabs{margin:5px 0}
-@media(max-width:600px){.module-nav{padding:3px 6px;gap:4px}.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{min-height:46px;padding:4px 2px;line-height:1.35;font-size:11px}.tr-card{padding:7px}.tr-card .tr-metrics>div{padding:4px}.tr-aux button,.tr-batches button{min-height:32px}.college-directory .college-contact header{flex-wrap:wrap;gap:2px}.college-directory .college-contact header strong{flex-basis:100%;font-size:13px}.college-directory .college-contact header a{font-size:10px}.score-card{padding:7px}.score-card h3{margin-bottom:5px}.college-profile-grid .catalog-card b{font-size:13px}}
-@media(min-width:600px) and (max-width:1024px){main{padding-left:14px;padding-right:14px}.tr-grid,.college-directory,.college-profile-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.catalog-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.tr-card-label strong{font-size:15px}.tr-card-label small{font-size:12px}.tr-card .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{font-size:13px;min-height:44px}.college-directory .college-contact{padding:8px}}
+@media(max-width:600px){.module-nav{padding:3px 6px;gap:4px}.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{min-height:46px;padding:4px 2px;line-height:1.35;font-size:11px}
+.tr-card .tr-metrics>div{padding:4px}.tr-aux button,.tr-batches button{min-height:32px}.college-directory .college-contact header{flex-wrap:wrap;gap:2px}.college-directory .college-contact header strong{flex-basis:100%;font-size:13px}.college-directory .college-contact header a{font-size:10px}.score-card{padding:7px}.score-card h3{margin-bottom:5px}.college-profile-grid .catalog-card b{font-size:13px}}
+@media(min-width:600px) and (max-width:1024px){main{padding-left:14px;padding-right:14px}.tr-grid,.college-directory,.college-profile-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.catalog-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+.tr-card .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{font-size:13px;min-height:44px}.college-directory .college-contact{padding:8px}}
 @media(min-width:1025px){.tr-grid,.college-directory,.college-profile-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.catalog-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
 
 .module-nav .nav-year{display:block;white-space:nowrap}
@@ -256,10 +270,11 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .college-profile-grid .catalog-card,.micro-grid .catalog-card{padding:7px;gap:4px;width:100%;height:auto}
 .college-profile-grid .catalog-card b{font-size:14px;line-height:1.35}
 .college-profile-grid .catalog-open{margin-top:0}
-.tr-grid .tr-card{padding:7px}.tr-grid .tr-card-title{margin-bottom:4px}
-.tr-grid .tr-card-label strong{font-size:14px;line-height:1.3}
+
+
+
 .tr-grid .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}
-.tr-grid .tr-requirement{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+
 .catalog-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin:5px 0 8px}
 .catalog-tabs button{min-width:0;min-height:42px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px 4px;border:1px solid #ccdcec;border-radius:7px;padding:5px 3px;background:#fff;color:#345374;line-height:1.25}
 .catalog-tabs b{font-size:21px;line-height:1}.catalog-tabs span{font-size:12px}
@@ -275,13 +290,16 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
  .college-profile-grid .catalog-card b,.micro-grid .catalog-card b{font-size:12px;line-height:1.4}
  .college-profile-grid .catalog-card small,.micro-grid .catalog-card small{font-size:10px;line-height:1.35}
  .college-profile-grid .catalog-open,.micro-grid .catalog-open{font-size:10px;line-height:1.3}
- .tr-grid .tr-card{padding:5px}.tr-grid .tr-card-label strong{font-size:12px;line-height:1.4}
- .tr-grid .tr-card-label small{font-size:10px;line-height:1.3}.tr-grid .tr-card-arrow{font-size:12px}
+
+
+
+
  .tr-grid .tr-proposal-count{font-size:10px;padding:3px;gap:3px}.tr-grid .tr-proposal-count b{font-size:17px}
  .tr-grid .tr-metrics>div{padding:3px 2px}.tr-grid .tr-metrics dt{font-size:10px;line-height:1.2;white-space:nowrap}
  .tr-grid .tr-metrics dd{font-size:13px;margin-top:2px;white-space:nowrap;overflow-wrap:normal}
  .tr-grid .tr-requirement,.tr-grid .tr-link,.tr-grid .tr-muted{font-size:10px;line-height:1.35}
- .tr-grid .tr-link{min-height:32px}.tr-grid .tr-requirement b{font-size:10px}
+
+
  .catalog-tabs span{font-size:11px}.catalog-tabs b{font-size:20px}
 }
 @media(max-width:359px){
@@ -431,12 +449,11 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .tr-prerequisite-empty{font-size:13px;line-height:1.5;margin:8px 0;color:#536681}
 .tr-prerequisite-source{display:inline-block;font-size:12px;line-height:1.6;padding:4px 0}
 @media(max-width:600px){.tr-prerequisite-compare{gap:5px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.tr-prerequisite-compare .tr-detail-panel{padding:6px}.tr-prerequisite-compare h2{font-size:14px;margin-bottom:6px}.tr-prerequisite-compare .tr-full-text{font-size:13px}.tr-prerequisite-search{gap:3px}.tr-prerequisite-search input{font-size:12px}.tr-prerequisite-search button{min-height:36px;padding:3px 5px}.tr-prerequisite-list{max-height:280px}.tr-prerequisite-list li{font-size:12px;padding:6px}.tr-prerequisite-reference select{font-size:12px}}
-/* Tappable rose transfer major headings, and 2026 scores beneath the 2027 proposal. */
-.tr-grid .tr-card-title{padding:6px;border:1px solid #f2cad9;border-radius:6px;background:#fff0f5;transition:background .15s,border-color .15s}
-.tr-grid .tr-card-title .tr-card-label strong{color:#95345f}
-.tr-grid .tr-card-title .tr-card-arrow{color:#95345f;font-weight:750;font-size:19px}
-.tr-grid .tr-card-title:hover,.tr-grid .tr-card-title:active{background:#ffe3ed;border-color:#d99ab4}
-.tr-grid .tr-card-title:focus-visible{outline:2px solid #b34472;outline-offset:2px}
+
+
+
+
+
 .tr-history-reference{border-top:1px solid #e0e7f1;margin-top:7px;padding-top:7px}
 .tr-history-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:2px 8px;margin-bottom:3px}
 .tr-history-heading h2{font-size:15px;line-height:1.4;margin:0}
@@ -454,7 +471,9 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
 .tr-history-missing{color:#855017}
 .tr-new-major{display:flex;gap:5px 8px;align-items:center;flex-wrap:wrap;font-size:12px;color:#61718a}
 .tr-new-major strong{color:#176753;background:#e8f4ed;padding:3px 7px;border-radius:5px;font-size:13px}
-@media(max-width:600px){.tr-grid .tr-card-title{padding:5px 4px}.tr-grid .tr-card-title .tr-card-arrow{font-size:15px}.tr-history-reference .tr-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}.tr-history-reference .tr-metrics dd{font-size:16px}.tr-history-grid.has-directions{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.has-directions .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.has-directions .tr-metrics dd{font-size:14px}.tr-history-heading h2{font-size:14px}.tr-history-reference .tr-metrics>div{padding:4px}}
+@media(max-width:600px){
+
+.tr-history-reference .tr-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:3px}.tr-history-reference .tr-metrics dd{font-size:16px}.tr-history-grid.has-directions{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.has-directions .tr-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.has-directions .tr-metrics dd{font-size:14px}.tr-history-heading h2{font-size:14px}.tr-history-reference .tr-metrics>div{padding:4px}}
 /* Shared, source-backed professional information within transfer details. */
 .tr-prerequisite-compare .tr-proposed-requirements{grid-column:1;grid-row:1}
 .tr-prerequisite-compare .tr-professional-intro{grid-column:1;grid-row:3}
@@ -688,34 +707,42 @@ main{padding-top:8px}.topbar{gap:8px}.back-nav{margin:2px 0 6px}.score-title,.po
  .progression-students li{padding:5px 6px}
 }
 
-/* Shared compact public layout: aligned surfaces, readable controls, regional wayfinding. */
-:root{--page-width:1040px;--ink:#20334d;--muted:#63758a;--line:#dce5ef;--bg:#f5f7fb;--soft:#edf3fc}
-body{background:var(--bg)}
-main{max-width:var(--page-width);padding:6px 12px 18px}
-.topbar{height:54px;padding:0 max(12px,calc((100vw - 1016px)/2));gap:8px}
-.school-logo{width:195px;border-radius:6px}
-.module-nav{max-width:var(--page-width);margin:0 auto;padding:6px 12px;gap:4px;grid-template-columns:repeat(5,minmax(0,1fr))}
-.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{min-height:44px;border-radius:7px;padding:5px 3px;border:1px solid #dae3ef;box-shadow:none;background:#fff;color:#3b526f;line-height:1.3}
-.module-nav .nav-score{background:#edf4ff;color:#27599c}
-.module-nav .nav-intro{background:#edf5f4;color:#326c68}
-.module-nav button[data-module^="transfer-"]{background:#f0f1fa;color:#4b5888}
-.module-nav button.active,.module-nav .nav-score.active,.module-nav .nav-intro.active,.module-nav .nav-contact.active,.module-nav .policy-entry.active,.module-nav button[data-module^="transfer-"].active{color:#fff;background:#23549a;border-color:#23549a;box-shadow:0 2px 4px #21477418}
-.back-nav,.transfer .back-nav{display:inline-flex;align-items:center;width:auto;min-width:0;min-height:36px;margin:1px 0 5px;padding:5px 9px;border:1px solid #b9cde7;border-radius:7px;background:#edf3fd;font-size:13px;line-height:1.3;gap:6px}
-.back-nav svg{width:19px;height:19px}
-.score-title{margin:1px 0 5px;gap:6px;min-width:0}
-.score-title h1,.transfer h1,.major-heading h1{font-size:21px;line-height:1.3;margin:2px 0}
+
+/* Shared public layout. One spacing system; source text and data stay intact. */
+:root{--blue:#23549a;--blue2:#376bb0;--ink:#223650;--muted:#65758a;--line:#dce4ee;--bg:#f5f7fa;--soft:#edf3fc;--page-width:1040px;--surface-radius:8px;--content-gap:5px}
+body{background:var(--bg);padding-bottom:calc(54px + env(safe-area-inset-bottom,0px))}
+main{max-width:var(--page-width);min-height:0;padding:6px 12px 12px}
+.topbar{height:52px;padding:0 max(12px,calc((100vw - 1016px)/2));gap:8px;border-color:var(--line)}
+.school-logo{width:190px;border-radius:6px;padding:4px 6px}
+.module-nav{max-width:var(--page-width);margin:0 auto;padding:5px 12px;gap:4px;grid-template-columns:repeat(5,minmax(0,1fr))}
+.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{min-height:44px;border-radius:7px;padding:4px 3px;border:1px solid var(--line);box-shadow:none;background:#fff;color:#425771;font-size:12px;line-height:1.3}
+.module-nav .nav-score{background:#eef4fc;color:#315d98}
+.module-nav .nav-intro{background:#f1f6f6;color:#3b6464}
+.module-nav button[data-module^="transfer-"]{background:#f2f3fa;color:#505e87}
+.module-nav button.active,.module-nav .nav-score.active,.module-nav .nav-intro.active,.module-nav .nav-contact.active,.module-nav .policy-entry.active,.module-nav button[data-module^="transfer-"].active{color:#fff;background:var(--blue);border-color:var(--blue);box-shadow:0 1px 3px #233c5d12}
+.back-nav,.transfer .back-nav{display:inline-flex;align-items:center;width:auto;min-width:0;min-height:32px;margin:0 0 4px;padding:4px 8px;border:1px solid #c3d3e8;border-radius:6px;background:#f0f5fc;font-size:12px;line-height:1.3;gap:5px}
+.back-nav svg{width:17px;height:17px}
+.catalog-back,.tr-detail-topbar{gap:5px;align-items:center;margin:0 0 4px}
+.home-dock{padding:4px 10px calc(4px + env(safe-area-inset-bottom,0px));border-color:var(--line);box-shadow:0 -1px 5px #233c5d08}
+.home-dock-link{min-height:40px;max-width:240px;gap:6px;border-radius:7px;font-size:14px;line-height:1.3;background:var(--blue)}
+.home-dock-link svg{width:18px;height:18px}
+.score-title,.tr-heading{margin:0 0 4px;gap:4px 8px;min-width:0}
+.score-title h1,.transfer h1,.major-heading h1,.portal-title,.compact-hero h1{font-size:21px;line-height:1.3;margin:2px 0;color:var(--ink)}
+.score-title h1{min-width:0;overflow-wrap:break-word}
 .score-title label{font-size:12px}
-.score-title select{min-height:36px;padding:4px 6px;border-radius:7px}
-.score-search,.transfer .score-search{min-height:40px;margin:4px 0 6px;padding:7px 10px;border-color:#cbd9e9;border-radius:8px;box-shadow:0 1px 2px #263b5505}
-.search-shell{border-radius:9px;box-shadow:none;padding:5px 7px;gap:6px;margin-bottom:6px}
-.search-shell input{padding:5px 0}.search-shell .btn{padding:6px 10px;min-height:36px}
-.section-heading{margin:9px 0 5px;gap:7px}.section-heading h2{font-size:17px}
-.compact-hero{margin:3px 0 5px}.compact-hero h1{font-size:21px;line-height:1.35}
-.filterbar{border-radius:8px;margin:6px 0;padding:7px 9px;gap:6px}.field{gap:3px}
-.score-tabs,.tr-batches{gap:4px;margin:5px 0}.score-tabs button{min-height:36px;padding:6px 4px;border-radius:7px}
-.score-section-heading{margin:7px 0 5px}.special-count{padding:5px 7px;gap:6px}.special-count strong{font-size:24px}
-.province-tools{display:block;margin:3px 0 6px}
-.province-tools .province-options{display:block;width:100%;margin:0;padding:6px 8px;border:1px solid var(--line);border-radius:9px;background:#fff}
+.score-title select{min-height:34px;padding:4px 6px;border-radius:6px}
+.score-search,.transfer .score-search{min-height:40px;margin:4px 0 5px;padding:7px 9px;font-size:16px;border-color:#cbd7e5;border-radius:7px;box-shadow:none}
+.search-shell{border-radius:8px;box-shadow:none;padding:4px 6px;gap:5px;margin-bottom:5px}
+.search-shell input{padding:4px 0}.search-shell .btn{padding:5px 9px;min-height:36px}
+.section-heading{margin:8px 0 4px;gap:6px}.section-heading h2{font-size:16px;line-height:1.35}
+.compact-hero,.compact-hero:has(.home-total){margin:2px 0 4px;gap:6px}
+.filterbar{border-radius:7px;margin:5px 0;padding:6px 8px;gap:5px}.field{gap:3px}
+.score-tabs,.tr-batches{gap:4px;margin:4px 0}.score-tabs button{min-height:34px;padding:5px 4px;border-radius:6px}
+.score-section-heading{margin:5px 0 4px}.score-subtitle{margin:5px 0 4px;font-size:15px;line-height:1.35}
+.score-count,.score-subtitle,.tr-result-count{line-height:1.4}.score-count,.tr-result-count{margin:4px 0;color:var(--muted)}
+.special-count{padding:4px 6px;gap:5px;border-radius:6px}.special-count strong{font-size:23px}
+.province-tools{display:block;margin:3px 0 5px}
+.province-tools .province-options{display:block;width:100%;margin:0;padding:6px;border:1px solid var(--line);border-radius:8px;background:#fff}
 .province-directory-link{display:inline-flex;align-items:center;min-height:32px;margin:0 0 3px;padding:3px 5px;border:0;border-radius:5px;background:transparent;color:#285996;font-size:12px;font-weight:650}
 .province-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;align-items:stretch}
 .province-group{display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:4px;min-width:0;padding:6px;border:1px solid #e0e8f2;border-radius:6px;background:#f6f9fd}
@@ -726,52 +753,126 @@ main{max-width:var(--page-width);padding:6px 12px 18px}
 .province-group[data-province-region="华东"]{grid-column:1/-1;grid-template-columns:36px minmax(0,1fr);align-items:center}
 .province-group[data-province-region="华东"] .province-group-buttons{grid-template-columns:repeat(7,minmax(0,1fr))}
 .province-group-buttons .btn.soft{color:#365775;background:#fff;border-color:#e4eaf2}
-.province-group-buttons .btn.primary{color:#fff;background:#23549a;border-color:#23549a}
+.province-group-buttons .btn.primary{color:#fff;background:var(--blue);border-color:var(--blue)}
 .province-directory-link:hover,.province-group-buttons .btn.soft:hover{background:#e3edfa}
 .province-directory-link:focus-visible,.province-group-buttons .btn:focus-visible{outline:2px solid #538bd9;outline-offset:1px}
-#province-plan-slot:not(:empty){margin-top:5px}.province-plan-strip{border-color:#d5e0ef;background:#fafcff}
-.score-card,.catalog-card,.tr-card,.college-contact,.city-visual,.year-overview,.tr-detail-panel,.policy-detail,.major-career,.college-profile{border-color:var(--line);border-radius:8px;box-shadow:0 1px 2px #1d345305}
-.score-card h3{color:#293e5c}.score-card .score-all{gap:4px 6px}
-.catalog-card:hover,.school-card:hover{box-shadow:none;transform:none;border-color:#92afd5;background:#fafcff}
+#province-plan-slot:not(:empty){margin-top:4px}.province-plan-strip{border-color:#d5e0ef;background:#fafcff;padding:5px 7px}
+.score-card,.catalog-card,.tr-card,.college-contact,.city-visual,.year-overview,.tr-detail-panel,.policy-detail,.major-career,.college-profile,.micro-detail{border-color:var(--line);border-radius:var(--surface-radius);box-shadow:0 1px 2px #233c5d05}
+.score-card{padding:6px}.score-card h3{color:#293e5c;line-height:1.35;margin:0 0 3px}
+.score-card .score-all,.catalog-scores .score-card .score-all{gap:4px 6px;margin:3px 0 0}
+.score-card .score-all span{line-height:1.25}.score-card .score-all strong{line-height:1.25;margin-top:1px}
+.score-card .score-all .metric-over{padding:3px 4px;border-radius:5px}
+.province-score-grid .score-all .metric-over,#score-overview .score-all .metric-over{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:4px}
+.province-score-grid .metric-over span,#score-overview .metric-over span{white-space:nowrap}
+.catalog-scores{margin:3px 0 4px;gap:5px}.catalog-scores>section>.score-subtitle{margin:0 0 3px}
+.catalog-card:hover,.school-card:hover{box-shadow:none;transform:none;border-color:#9fb7d3;background:#fafcff}
 .catalog-card:focus-visible,.school-card:focus-visible{outline:2px solid #538bd9;outline-offset:1px}
-.catalog-filters{gap:5px;margin-bottom:5px}.catalog-grid,.college-profile-grid,.tr-grid{gap:5px}
-.college-contact header{margin-bottom:4px}.college-phone{border-radius:5px}
-.major-career>header h2,.major-innovation h2,.tr-professional-intro h2{font-size:16px;line-height:1.35}
-.major-innovation,.major-career,.major-sections details,.college-profile{margin:5px 0}
-.major-sections p,.major-innovation p,.college-profile p,.policy-detail p{line-height:1.5}
-.policy-detail section{padding:5px 0}.policy-layout{gap:6px}
-.tr-list-top,.tr-list-top.has-finder{padding:8px;gap:7px 10px;border-radius:8px;box-shadow:none}
-.tr-finder-entry{min-height:46px;padding:7px 8px;border-radius:7px}
-.tr-detail-panel{margin:5px 0;padding:8px}.tr-prerequisite-compare{gap:6px}
-.tr-prerequisite-compare .tr-detail-panel{margin:0}
-.tr-proposal-count,.tr-metrics>div{border-radius:5px}
-.city-visual{padding:10px 12px}.city-bar{min-height:38px;padding:5px 2px}.city-bar-label{margin-bottom:4px}
-.letter-card{margin:6px 0;padding:8px 10px;border-radius:8px}.letter-toolbar{gap:6px;margin:6px 0;padding:5px 0}
-.year-block{margin:5px 0}.year-block>summary{padding:8px 10px}.year-body{padding:7px 10px}
-.score-results .empty,.catalog-grid>.empty,#score-results>.empty,.tr-grid>.empty{padding:20px 10px;border-radius:8px}
+.catalog-filters{gap:5px;margin-bottom:4px}.catalog-grid,.college-profile-grid,.micro-grid,.tr-grid{gap:5px;align-items:start}
+.catalog-card,.college-profile-grid .catalog-card,.micro-grid .catalog-card{padding:7px;gap:3px;height:auto;min-height:0}
+.catalog-card b{line-height:1.35}.catalog-card small{line-height:1.35}.catalog-open{margin-top:0;line-height:1.4}
+.catalog-tabs{margin:4px 0 5px;gap:4px}.catalog-tabs button{min-height:38px;padding:4px}.catalog-tabs b{font-size:20px}
+.major-heading{margin:2px 0 4px}.major-heading h1{margin:2px 0}
+.major-career>header h2,.major-innovation h2,.tr-professional-intro h2{font-size:16px;line-height:1.35;margin:0 0 4px}
+.major-innovation,.major-career,.major-sections details,.college-profile,.micro-detail{margin:5px 0;padding:7px 8px}
+.major-sections p,.major-innovation p,.college-profile p,.policy-detail p,.career-full p,.career-official,.tr-full-text{line-height:1.5;margin:3px 0}
+.major-sections summary{padding:2px 0;line-height:1.4}.career-full{margin-top:4px;padding-top:3px}.career-full summary{padding:3px 0}
+.career-group{padding:5px 6px;margin-top:4px}.career-group h3{margin-bottom:3px}.career-group ul{gap:3px 4px}
+.college-section{padding:4px 0}.college-section h2{margin:0 0 3px;line-height:1.35}
+.major-source{padding:6px 0;margin-top:4px}.source-page-links{margin:4px 0;gap:4px}
+.micro-detail dl>div{padding:5px 0;gap:5px;line-height:1.45}
+.college-directory,.college-directory.department-directory{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;align-items:start}
+.college-directory .college-contact,.department-directory .college-contact{height:auto;min-height:0;align-self:start;padding:6px;margin:0}
+.college-contact header,.college-directory .college-contact header{display:flex;flex-direction:column;align-items:start;gap:2px;margin-bottom:4px}
+.college-contact header strong{line-height:1.35;overflow-wrap:break-word}
+.college-directory .college-phones{grid-template-columns:minmax(0,1fr);gap:3px}
+.college-directory .college-phone{min-width:0;padding:4px;gap:1px;line-height:1.35;border-radius:5px;background:#f1f5fa}
+.college-directory .college-phone b{font-family:Arial,sans-serif;font-variant-numeric:tabular-nums;font-size:13px;line-height:1.35;white-space:nowrap;color:var(--blue)}
+.college-directory .college-phone small,.college-directory .college-phone span,.contact-location{font-size:11px;line-height:1.35}
+.contact-location{margin:3px 0 0}.department-help{overflow-wrap:anywhere}
+.policy-detail{padding:7px 8px}.policy-detail section{padding:4px 0}.policy-layout{gap:5px}
+.policy-year-note{padding:5px 7px;margin:4px 0;font-size:12px;line-height:1.45}
+.policy-layout .policy-tabs{gap:4px}.policy-layout .policy-tabs button{min-height:36px;padding:5px 4px;border-radius:6px}
+.tr-list-toolbar{gap:4px;margin:0 0 4px}.tr-list-toolbar .tr-aux button{min-height:32px;padding:4px 7px}
+.tr-list-top,.tr-list-top.has-finder{padding:7px;gap:6px 8px;margin-bottom:5px;border-radius:8px;box-shadow:none;background:#fff}
+.tr-list-top h1{font-size:21px;margin:0 0 3px}.tr-list-stats{gap:1px 6px}.tr-list-top .tr-notice{margin-top:3px}
+.tr-finder-entry{min-height:44px;padding:6px 7px;border-radius:6px}.tr-consult-inline button{padding:3px;border-radius:6px}
+.tr-filters{gap:4px;margin:4px 0}.tr-filters select{min-height:34px;padding:5px 3px}.tr-result-count{margin:4px 0}
+.tr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;align-items:start;grid-auto-flow:row}
+.tr-grid .tr-card{display:flex;flex-direction:column;align-self:start;gap:4px;min-width:0;min-height:0;padding:7px;background:#fff;border:1px solid var(--line);border-radius:8px}
+.tr-card-title{display:flex;align-items:center;justify-content:space-between;gap:4px;width:100%;min-width:0;min-height:0;margin:0;text-align:left;line-height:1.35;overflow-wrap:break-word}
+.tr-grid .tr-card-title{padding:5px;border:1px solid #edcbd8;border-radius:6px;background:#fff1f6;margin:0;transition:background .15s,border-color .15s}
+.tr-card-title .tr-card-label{display:flex;flex-direction:column;gap:2px;min-width:0;color:var(--ink)}
+.tr-card-label strong,.tr-grid .tr-card-label strong{font-size:14px;line-height:1.35;color:#963b61}
+.tr-card-label small{display:block;font-size:11px;line-height:1.35;font-weight:400;color:var(--muted)}
+.tr-card-arrow{flex:none}.tr-grid .tr-card-title .tr-card-arrow{color:#963b61;font-size:18px;font-weight:700}
+.tr-grid .tr-card-title:hover,.tr-grid .tr-card-title:active{background:#ffe6ef;border-color:#d89bb3}
+.tr-grid .tr-card-title:focus-visible{outline:2px solid #b34472;outline-offset:2px}
+.tr-grid .tr-proposal-count{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2px 4px;margin:0;padding:4px 5px;font-size:11px;line-height:1.3;border-radius:5px;background:#f1f5fb;min-width:0}
+.tr-grid .tr-proposal-count b{font-size:20px;line-height:1.15;font-variant-numeric:tabular-nums}
+.tr-grid .tr-proposal-count span{white-space:normal}.tr-grid .tr-exam-badge{font-size:14px;padding:2px 4px;margin:0;white-space:nowrap}
+.tr-requirement,.tr-grid .tr-requirement{display:block;min-height:0;margin:0;font-size:12px;line-height:1.4;overflow:visible;overflow-wrap:break-word;white-space:normal}
+.tr-requirement b,.tr-grid .tr-requirement b{display:block;margin:0 0 2px;font-size:11px;line-height:1.35;color:#5c708e}
+.tr-requirement p{margin:0;line-height:1.4;white-space:pre-line;overflow-wrap:break-word}
+.tr-link,.tr-grid .tr-link{display:flex;align-items:center;min-height:28px;margin:0;padding:3px 0;border:0;background:none;text-align:left;color:var(--blue);font-size:12px;line-height:1.35;white-space:normal}
+.tr-grid .tr-card>.tr-muted{margin:0;padding:2px 0;font-size:11px;line-height:1.4}
+.tr-grid .tr-card-wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,140px);align-items:start;column-gap:6px}
+.tr-card-wide .tr-requirement,.tr-card-wide>.tr-link,.tr-card-wide>.tr-muted{grid-column:1/-1}
+.tr-grid .tr-metrics{margin:0;gap:4px}.tr-grid .tr-metrics>div{padding:4px}.tr-grid .tr-metrics dt{line-height:1.25}.tr-grid .tr-metrics dd{line-height:1.25;margin-top:1px}
+.tr-detail-panel{margin:5px 0;padding:7px 8px}.tr-prerequisite-compare{gap:5px}.tr-prerequisite-compare .tr-detail-panel{margin:0}
+.tr-history-reference{margin-top:5px;padding-top:5px}.tr-history-heading{margin-bottom:3px;gap:2px 6px}.tr-history-code{margin:2px 0}
+.tr-detail-actions{margin:5px 0;gap:5px}.tr-detail-fields>div{padding:4px 0;gap:3px 5px}
+.tr-prerequisite-list{margin:4px 0}.tr-prerequisite-list li{padding:5px 6px}.tr-prerequisite-search{margin:4px 0;gap:4px}
+.tr-finder-fields{padding:7px}.tr-finder-search{margin:3px 0 5px}.tr-finder-tabs{padding:3px;margin:4px 0;gap:4px}
+.tr-finder-tabs button{padding:5px 4px;min-height:34px}.tr-finder-examples,.tr-finder-suggestions{margin:4px 0 2px;gap:4px}
+.tr-finder-card{padding:6px}.tr-finder-requirement{margin-top:4px;line-height:1.4}.tr-finder-grid{gap:5px}
+.tr-selfcheck .check-layout .panel{padding:8px}.tr-selfcheck .form-grid{gap:6px}.tr-selfcheck .faq-list article{padding:5px 0}
+.tr-reader{padding:8px;line-height:1.5}.tr-reader p{margin:4px 0}
+.city-visual{padding:8px}.city-bar{min-height:36px;padding:4px 2px}.city-bar-label{margin-bottom:3px}.city-chart{gap:3px 12px}
+.summary-grid{gap:6px;margin:5px 0}.year-overview{padding:7px 8px}.annual-grid{gap:5px;margin-top:4px}
+.detail-head{margin:4px 0}.school-subline{margin:3px 0 4px}.school-grid{gap:5px;align-items:start}
+.school-grid .school-result-card{align-self:start;min-height:0;padding:6px;gap:3px}.school-card small{margin-top:2px}
+.year-block{margin:4px 0}.year-block>summary{min-height:38px;padding:7px 8px}.year-body{padding:6px 8px}
+.year-body .roster-list{gap:0 6px}.year-body .student{padding:5px 4px;gap:2px}.roster-title{margin:0;min-height:28px}.pagination{margin-top:6px}
+.letter-card,.city-report-card{margin:5px 0;padding:7px 8px;gap:5px}.letter-card .actions,.city-report-card .actions{gap:4px}
+.letter-toolbar{gap:5px;margin:5px 0;padding:4px 0}.letter-toolbar .btn,.city-report-card .btn{min-height:34px;padding:5px 7px}
+.report-heading h2,.letter-heading h2{margin:4px 0;font-size:18px}.report-pages figure{margin:5px 0}.letter-canvas{margin-top:5px}
+.score-results .empty,.catalog-grid>.empty,#score-results>.empty,.tr-grid>.empty{padding:18px 8px;border-radius:8px}
 @media(min-width:900px){.province-group[data-province-region="华北"] .province-group-buttons,.province-group[data-province-region="西南"] .province-group-buttons,.province-group[data-province-region="西北"] .province-group-buttons{grid-template-columns:repeat(5,minmax(0,1fr))}}
 @media(max-width:600px){
- main{padding:5px 8px 14px}.topbar{height:50px;padding:0 8px}.school-logo{width:180px;padding:4px 6px}
- .module-nav{padding:5px 8px;gap:3px}.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{font-size:11px;min-height:44px;padding:4px 2px;line-height:1.3}
- .back-nav,.transfer .back-nav{font-size:12px;min-height:34px;padding:5px 8px;margin-bottom:4px}
- .score-title h1,.transfer h1,.major-heading h1,.compact-hero h1{font-size:18px}
+ main{padding:5px 8px 10px}.topbar{height:48px;padding:0 8px}.school-logo{width:180px;padding:4px 6px}
+ .module-nav{padding:4px 8px;gap:3px}.module-nav button,.module-nav button.school-entry,.module-nav button.policy-entry{font-size:11px;min-height:44px;padding:4px 2px;line-height:1.3}
+ .back-nav,.transfer .back-nav{font-size:12px;min-height:32px;padding:4px 7px;margin-bottom:3px}
+ .score-title h1,.transfer h1,.major-heading h1,.compact-hero h1,.portal-title{font-size:18px;line-height:1.35}
  .score-search,.transfer .score-search,.search-shell input,.tr-prerequisite-search input,.tr-finder-search input{font-size:16px}
+ .score-title label{font-size:11px}.score-title select{min-height:34px}
  .province-tools .province-options{padding:5px}.province-group{padding:5px;gap:4px}.province-group-label{font-size:11px}
  .province-group-buttons{gap:3px}.province-group-buttons .btn{font-size:12px;min-width:0;padding:4px 1px}.province-groups{gap:4px}.province-directory-link{font-size:11px;margin-bottom:3px}
+ .catalog-card,.college-profile-grid .catalog-card,.micro-grid .catalog-card{padding:6px;gap:3px}.catalog-card b{font-size:12px}.catalog-card small{font-size:10px}
+ .major-sections p,.major-innovation p,.college-profile p,.policy-detail p,.career-full p,.career-official{font-size:12px;line-height:1.5}
+ .college-directory .college-contact{padding:6px 4px}.college-directory .college-phone{padding:4px 2px}.college-directory .college-phone b{font-size:11px}
+ .college-directory .college-phone small,.college-directory .college-phone span,.college-directory .contact-location{font-size:10px}
+ .college-contact header strong{font-size:12px}.college-contact header a{font-size:10px}
+ .tr-grid .tr-card{padding:6px;gap:4px}.tr-grid .tr-card-title{padding:5px 4px}.tr-grid .tr-card-label strong{font-size:12px;line-height:1.35}
+ .tr-grid .tr-card-label small{font-size:10px;line-height:1.3}.tr-grid .tr-card-title .tr-card-arrow{font-size:15px}
+ .tr-grid .tr-proposal-count{padding:4px 3px;font-size:10px;gap:2px}.tr-grid .tr-proposal-count b{font-size:18px}.tr-grid .tr-exam-badge{font-size:13px;padding:2px 3px}
+ .tr-grid .tr-requirement{font-size:11px;line-height:1.4}.tr-grid .tr-requirement b{font-size:10px}.tr-grid .tr-link{font-size:11px;line-height:1.35;padding:3px 0}
+ .tr-grid .tr-card-wide{grid-template-columns:minmax(0,1fr) minmax(0,112px)}.tr-card-wide .tr-requirement{font-size:12px}
+ .tr-grid .tr-metrics{gap:3px}.tr-grid .tr-metrics>div{padding:3px 2px}.tr-grid .tr-metrics dt{font-size:10px}.tr-grid .tr-metrics dd{font-size:13px}
+ .tr-list-top,.tr-list-top.has-finder{grid-template-columns:minmax(0,1fr) 76px;padding:6px;gap:5px}.tr-list-top h1{font-size:17px;margin-bottom:3px}
+ .tr-list-top .tr-finder-entry{min-height:36px;padding:5px 6px}.tr-list-top .tr-notice{font-size:10px;line-height:1.4}
  .tr-prerequisite-compare .tr-prerequisite-reference{grid-column:2;grid-row:1/span 2}
  .tr-prerequisite-compare .tr-exam-reference{grid-column:1;grid-row:2;padding:6px}
  .tr-prerequisite-compare .tr-exam-reference .tr-detail-fields>div{grid-template-columns:minmax(0,1fr);gap:2px}
  .tr-prerequisite-compare .tr-exam-reference h2{font-size:13px}
  .tr-prerequisite-compare .tr-exam-reference .btn{width:100%;max-width:100%;white-space:normal;font-size:12px;line-height:1.35;padding:5px 4px}
  .tr-prerequisite-compare .tr-professional-intro{grid-column:1/-1;grid-row:3}
- .tr-finder-entry{min-height:40px}
- .city-visual{padding:8px}.city-chart{gap:3px 12px}.letter-card{gap:5px;padding:7px 8px}
- .college-contact header strong{line-height:1.35}.policy-layout{gap:5px}
+ .school-grid .school-result-card{padding:5px;gap:3px}.school-subline{gap:4px}.year-body{padding:6px}
+ .letter-card{padding:6px 7px;gap:4px}.letter-card .btn{min-height:34px;padding:5px 6px}
+ .policy-layout{gap:5px}.policy-layout .policy-detail{padding:6px}.policy-layout .policy-tabs button{min-height:36px;padding:5px 3px}
 }
 @media(max-width:479px){
  .province-group-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}
  .province-group-buttons [data-score-province="黑龙江"],.province-group[data-province-region="华中"] .btn:last-child,.province-group[data-province-region="华南"] .btn,.province-group[data-province-region="华北"] .btn:last-child,.province-group[data-province-region="西南"] .btn:last-child,.province-group[data-province-region="西北"] .btn:last-child{grid-column:1/-1}
- .province-group[data-province-region="华东"]{grid-template-columns:32px minmax(0,1fr);gap:2px}
- .province-group[data-province-region="华东"] .province-group-buttons{gap:2px}
+ .province-group[data-province-region="华东"]{grid-template-columns:32px minmax(0,1fr);gap:2px}.province-group[data-province-region="华东"] .province-group-buttons{gap:2px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}

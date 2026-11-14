@@ -745,22 +745,44 @@ main{max-width:var(--page-width);min-height:0;padding:6px 12px 12px}
 .province-tools .province-options{display:block;width:100%;margin:0;padding:6px;border:1px solid var(--line);border-radius:8px;background:#fff}
 .province-directory-link{display:inline-flex;align-items:center;min-height:32px;margin:0 0 3px;padding:3px 5px;border:0;border-radius:5px;background:transparent;color:#285996;font-size:12px;font-weight:650}
 .province-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;align-items:stretch}
-.province-group{display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:4px;min-width:0;padding:6px;border:1px solid #e0e8f2;border-radius:6px;background:#f6f9fd}
-.province-group-label{display:flex;align-items:center;gap:5px;font-size:12px;line-height:1.35;font-weight:700;color:#4c6688}
-.province-group-label::before{content:"";width:3px;height:11px;border-radius:2px;background:#7398c9}
+.province-group{
+ --region-surface:#e6eefb;--region-edge:#c5d6ec;--region-ink:#365981;--region-accent:#6c90bc;
+ display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:4px;min-width:0;padding:6px;
+ border:1px solid var(--region-edge);border-radius:6px;background:var(--region-surface)
+}
+.province-group[data-province-region="华北"],.province-group[data-province-region="西南"],.province-group[data-province-region="西北"]{
+ --region-surface:#e5f2ec;--region-edge:#c3dace;--region-ink:#365d50;--region-accent:#6a9985
+}
+.province-group-label{display:flex;align-items:center;gap:5px;font-size:12px;line-height:1.35;font-weight:700;color:var(--region-ink)}
+.province-group-label::before{content:"";width:3px;height:11px;border-radius:2px;background:var(--region-accent)}
 .province-group-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;min-width:0}
 .province-group-buttons .btn{width:100%;min-width:0;min-height:32px;margin:0;padding:4px 2px;border:1px solid #e4eaf2;border-radius:5px;font-size:13px;line-height:1.3;white-space:nowrap;box-shadow:none;text-align:center}
-.province-group[data-province-region="华东"]{grid-column:1/-1;grid-template-columns:36px minmax(0,1fr);align-items:center}
+.province-group[data-province-region="华东"]{
+ --region-surface:#faf0df;--region-edge:#e3d1b1;--region-ink:#705630;--region-accent:#ac8854;
+ grid-column:1/-1;grid-template-columns:36px minmax(0,1fr);align-items:center
+}
 .province-group[data-province-region="华东"] .province-group-buttons{grid-template-columns:repeat(7,minmax(0,1fr))}
-.province-group-buttons .btn.soft{color:#365775;background:#fff;border-color:#e4eaf2}
+.province-group-buttons .btn.soft{color:var(--region-ink);background:rgba(255,255,255,.82);border-color:var(--region-edge)}
 .province-group-buttons .btn.primary{color:#fff;background:var(--blue);border-color:var(--blue)}
-.province-directory-link:hover,.province-group-buttons .btn.soft:hover{background:#e3edfa}
+.province-directory-link:hover{background:#e3edfa}
+.province-group-buttons .btn.soft:hover{background:#fff;border-color:var(--region-accent)}
 .province-directory-link:focus-visible,.province-group-buttons .btn:focus-visible{outline:2px solid #538bd9;outline-offset:1px}
 #province-plan-slot:not(:empty){margin-top:4px}.province-plan-strip{border-color:#d5e0ef;background:#fafcff;padding:5px 7px}
 .score-card,.catalog-card,.tr-card,.college-contact,.city-visual,.year-overview,.tr-detail-panel,.policy-detail,.major-career,.college-profile,.micro-detail{border-color:var(--line);border-radius:var(--surface-radius);box-shadow:0 1px 2px #233c5d05}
 .score-card{padding:6px}.score-card h3{color:#293e5c;line-height:1.35;margin:0 0 3px}
 .score-card .score-all,.catalog-scores .score-card .score-all{gap:4px 6px;margin:3px 0 0}
 .score-card .score-all span{line-height:1.25}.score-card .score-all strong{line-height:1.25;margin-top:1px}
+/* Score cards list the lower rank first. Transfer cards list the higher rank after the minimum score. */
+.score-all,.tr-metrics{--rank-surface:#f0ebf7;--rank-label:#5e526f}
+.score-card .score-all>.metric-rank,.score-card .score-all>.metric-rank+div{
+ background:var(--rank-surface);border-radius:4px;padding:1px 2px
+}
+.tr-metrics>div.metric-rank,.tr-metrics>.metric-low+div{background:var(--rank-surface)}
+.score-all>.metric-rank>span,.score-all>.metric-rank+div>span,.tr-metrics>.metric-rank>dt,.tr-metrics>.metric-low+div>dt{color:var(--rank-label)}
+@media(max-width:599px){
+ .gd-major-grid .score-all>.metric-rank{border-radius:4px 4px 0 0;box-shadow:0 4px 0 var(--rank-surface)}
+ .gd-major-grid .score-all>.metric-rank+div{border-radius:0 0 4px 4px}
+}
 .score-card .score-all .metric-over{padding:3px 4px;border-radius:5px}
 .province-score-grid .score-all .metric-over,#score-overview .score-all .metric-over{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:4px}
 .province-score-grid .metric-over span,#score-overview .metric-over span{white-space:nowrap}

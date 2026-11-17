@@ -929,10 +929,14 @@ main{max-width:var(--page-width);min-height:0;padding:6px 12px 12px}
 }
 
 /* Shared reading views, including the embedded transfer consultation profile. */
-.major-sections .major-reasons{margin:5px 0;padding:7px 8px;background:#fff;border:1px solid var(--line);border-radius:var(--surface-radius)}
-.major-reasons h2{margin:0 0 4px;font-size:15px;line-height:1.35}
-.reason-table{border-collapse:collapse;table-layout:fixed;width:100%;font-size:13px;line-height:1.5;color:var(--ink)}
-.reason-index{width:2.25em}.reason-table :is(td,th){vertical-align:top;padding:5px 6px;border:0}
+.innovation-card>b,.class-tags>.class-tag{color:#693d80;background:#f3edf7}
+.innovation-card>b{max-width:100%;padding:0 3px;border-radius:4px}
+.major-sections .major-reasons{margin:4px 0;padding:5px 6px;background:#fff;border:1px solid var(--line);border-radius:var(--surface-radius)}
+.major-reasons h2{margin:0 0 3px;font-size:14px;line-height:1.3}
+.tr-profile-section.major-reasons{padding:4px 0}
+.tr-profile-section.major-reasons h3{margin-bottom:3px}
+.reason-table{border-collapse:collapse;table-layout:fixed;width:100%;font-size:12px;line-height:1.4;color:var(--ink)}
+.reason-index{width:2.05em}.reason-table :is(td,th){vertical-align:top;padding:2px 4px;border:0}
 .reason-table tbody tr{background:white}.reason-table tbody tr:nth-child(even){background:#f0f4f9}
 .reason-table th[scope=row]{text-align:center;color:#4e6684;font-variant-numeric:tabular-nums;padding-inline:2px}
 .reason-table td{overflow-wrap:anywhere;white-space:pre-line}.reason-auto-number::before{content:attr(data-number)}

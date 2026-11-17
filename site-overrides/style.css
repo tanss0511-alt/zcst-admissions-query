@@ -783,9 +783,10 @@ main{max-width:var(--page-width);min-height:0;padding:6px 12px 12px}
  .gd-major-grid .score-all>.metric-rank{border-radius:4px 4px 0 0;box-shadow:0 4px 0 var(--rank-surface)}
  .gd-major-grid .score-all>.metric-rank+div{border-radius:0 0 4px 4px}
 }
-.score-card .score-all .metric-over{padding:3px 4px;border-radius:5px}
-.province-score-grid .score-all .metric-over,#score-overview .score-all .metric-over{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:4px}
-.province-score-grid .metric-over span,#score-overview .metric-over span{white-space:nowrap}
+.score-card .score-all .metric-over{display:flex;align-items:baseline;justify-content:space-between;gap:2px;padding:2px 4px;border-radius:5px}
+.score-card .score-all .metric-over>span,.score-card .score-all .metric-over>strong{white-space:nowrap;margin:0}
+.score-card .metric-over .score-unit{font-size:.76em;font-weight:600;color:inherit;margin-left:2px}
+.province-score-grid .score-all .metric-over,#score-overview .score-all .metric-over{grid-column:1/-1}
 .catalog-scores{margin:3px 0 4px;gap:5px}.catalog-scores>section>.score-subtitle{margin:0 0 3px}
 .catalog-card:hover,.school-card:hover{box-shadow:none;transform:none;border-color:#9fb7d3;background:#fafcff}
 .catalog-card:focus-visible,.school-card:focus-visible{outline:2px solid #538bd9;outline-offset:1px}
@@ -926,3 +927,44 @@ main{max-width:var(--page-width);min-height:0;padding:6px 12px 12px}
  .gaokao-qr-link strong{font-size:12px}
  .college-profile-grid .catalog-card .college-major-list{font-size:11px;gap:2px 3px}
 }
+
+/* Shared reading views, including the embedded transfer consultation profile. */
+.major-sections .major-reasons{margin:5px 0;padding:7px 8px;background:#fff;border:1px solid var(--line);border-radius:var(--surface-radius)}
+.major-reasons h2{margin:0 0 4px;font-size:15px;line-height:1.35}
+.reason-table{border-collapse:collapse;table-layout:fixed;width:100%;font-size:13px;line-height:1.5;color:var(--ink)}
+.reason-index{width:2.25em}.reason-table :is(td,th){vertical-align:top;padding:5px 6px;border:0}
+.reason-table tbody tr{background:white}.reason-table tbody tr:nth-child(even){background:#f0f4f9}
+.reason-table th[scope=row]{text-align:center;color:#4e6684;font-variant-numeric:tabular-nums;padding-inline:2px}
+.reason-table td{overflow-wrap:anywhere;white-space:pre-line}.reason-auto-number::before{content:attr(data-number)}
+.reason-table .reason-group th{background:#e4edf6;color:#315678;text-align:left}
+.catalog-major-card{container-type:inline-size}
+.catalog-major-identity{width:100%;min-width:0;display:grid;grid-template-areas:"name" "college";text-align:left;align-items:start;row-gap:2px}
+.catalog-major-identity.has-badge{grid-template-areas:"name badge" "college college";grid-template-columns:minmax(0,1fr) auto;column-gap:3px}
+.catalog-major-identity>b{grid-area:name;min-width:0}.catalog-major-identity>small{grid-area:college}
+.catalog-major-identity .class-tag{grid-area:badge;justify-self:end;white-space:nowrap;font-size:10px;line-height:1.35;padding:1px 3px}
+.catalog-major-identity .major-phrase{white-space:nowrap}
+.hmt-summary,.hmt-score-heading,.hmt-admitted{display:flex;align-items:baseline;justify-content:space-between;gap:3px}
+.hmt-summary strong{white-space:nowrap;color:#214e81}.hmt-admitted{white-space:nowrap;color:#365a7a;background:#eef4fa;border-radius:4px;padding:1px 4px;font-size:11px}
+.hmt-admitted b{font-size:14px}.hmt-score-heading h3{margin:0}
+.major-score-grid.hmt-score-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gd-major-grid .score-card,.catalog-scores .score-card{container-type:inline-size}
+@media(max-width:599px){
+ .catalog-major-identity.has-badge.long-title{display:block}.has-badge.long-title>b{display:block}
+ .has-badge.long-title>.class-tag{float:right;margin:1px 0 0 3px}
+ .gd-major-grid .score-all>.metric-over,.gd-major-grid .score-all>.metric-line,.catalog-scores .score-all>.metric-over,.catalog-scores .score-all>.metric-line{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between}
+ .catalog-scores>section:only-child .score-all{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:359px){
+ .catalog-card.catalog-major-card{padding:5px 4px}
+ .catalog-major-identity.has-badge.medium-title{display:block}.has-badge.medium-title>b{display:block}
+ .has-badge.medium-title>.class-tag{float:right;margin:1px 0 0 3px}
+ .score-card .score-all .metric-over{padding-inline:2px}
+}
+@container(max-width:153px){
+ .catalog-major-identity.has-badge.long-title{display:block}.has-badge.long-title>b{display:block}
+ .has-badge.long-title>.class-tag{float:right;margin:1px 0 0 3px}
+}
+@container(max-width:190px){
+ .score-all>.metric-over,.score-all>.metric-line{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between}
+}
+@container(max-width:390px){.catalog-scores>section:only-child .score-all{grid-template-columns:repeat(2,minmax(0,1fr))}}

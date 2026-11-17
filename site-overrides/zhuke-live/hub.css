@@ -23,6 +23,25 @@ body[data-system=gaokao]{background:#faf6f0}body[data-system=gaokao]>header{back
 #bookingPage .week-front .sync-row p{margin:0;font-size:11px;line-height:1.25}
 #bookingPage .week-front .sync-row button{min-height:28px;padding:4px 8px;font-size:12px;line-height:1.25}
 #bookingPage #rotation{padding:5px 7px;margin:3px 0;font-size:12px;line-height:1.35}
+#bookingPage #rotation.rotation-assigned {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px 12px;
+  padding: 7px 10px;
+  border-inline-start: 4px solid #45c3a5;
+  background: #104e54;
+  color: #fff;
+}
+#rotation .rotation-heading {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+#rotation .rotation-label { color: #bdf7e9; font-size: 13px; font-weight: 650; white-space: nowrap; }
+#rotation .rotation-team { font-size: 17px; font-weight: 750; white-space: nowrap; }
+#rotation .rotation-when { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
 #bookingPage .week-front .stats{align-items:start;margin:4px 0;gap:5px}
 #bookingPage .week-front .stat{padding:6px;line-height:1.25}
 #bookingPage .week-front .stat p{margin:2px 0;line-height:1.3}

@@ -1,6 +1,361 @@
 {
-  "version": "12e35a8f655edc7b",
+  "version": "3f06f6184bfa2dfa",
   "entries": [
+    {
+      "id": "lin-haili-tsinghua",
+      "kind": "postgraduate",
+      "genre": "硕士录取案例",
+      "title": "林海丽：在职备考，走进清华大学",
+      "studentName": "林海丽",
+      "college": "旅游与公共管理学院",
+      "major": "社会工作",
+      "year": 2024,
+      "stage": "2024年获清华大学硕士录取",
+      "targets": [
+        {
+          "name": "清华大学",
+          "aliases": [
+            "清华",
+            "THU"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "硕士录取案例",
+        "2024年获清华大学硕士录取"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 320,
+      "revision": "49e96d84a4d387b1"
+    },
+    {
+      "id": "hu-yang-pku",
+      "kind": "postgraduate",
+      "genre": "硕士录取案例",
+      "title": "胡洋：从音乐表演走向北大歌剧表演",
+      "studentName": "胡洋",
+      "college": "音乐舞蹈学院",
+      "major": "音乐表演",
+      "year": null,
+      "stage": "报道确认获北京大学硕士录取",
+      "targets": [
+        {
+          "name": "北京大学",
+          "aliases": [
+            "北大",
+            "PKU"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "硕士录取案例",
+        "报道确认获北京大学硕士录取"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 321,
+      "revision": "e1feb9b161f1c72a"
+    },
+    {
+      "id": "wang-zixuan-pku",
+      "kind": "postgraduate",
+      "genre": "博士深造案例",
+      "title": "王子旋：从英语专业到北大博士",
+      "studentName": "王子旋",
+      "college": "外国语学院",
+      "major": "英语",
+      "year": null,
+      "stage": "2025年返校报道中的北京大学博士校友",
+      "targets": [
+        {
+          "name": "北京大学",
+          "aliases": [
+            "北大",
+            "PKU"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "博士深造案例",
+        "2025年返校报道中的北京大学博士校友"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 315,
+      "revision": "b23d2350fff6ec62"
+    },
+    {
+      "id": "chen-siyu-jlu-buaa",
+      "kind": "postgraduate",
+      "genre": "硕博深造案例",
+      "title": "陈思雨：393分上岸吉大，继续北航读博",
+      "studentName": "陈思雨",
+      "college": null,
+      "major": "应用化学",
+      "year": 2022,
+      "stage": "2022年吉大硕士录取；2026年报道时北航博士在读",
+      "targets": [
+        {
+          "name": "吉林大学",
+          "aliases": [
+            "吉大",
+            "JLU"
+          ],
+          "scope": "domestic985"
+        },
+        {
+          "name": "北京航空航天大学",
+          "aliases": [
+            "北航",
+            "BUAA"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "硕博深造案例",
+        "2022年吉大硕士录取；2026年报道时北航博士在读"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 323,
+      "revision": "f653568661cd5f40"
+    },
+    {
+      "id": "lin-guolin-jlu-sjtu",
+      "kind": "postgraduate",
+      "genre": "硕博深造案例",
+      "title": "林国霖：吉大硕士，再获上海交大博士录取",
+      "studentName": "林国霖",
+      "college": "外国语学院",
+      "major": "英语",
+      "year": null,
+      "stage": "吉大硕士阶段学习；2025年学院报道获上海交大博士录取",
+      "targets": [
+        {
+          "name": "上海交通大学",
+          "aliases": [
+            "上海交大",
+            "上交",
+            "SJTU"
+          ],
+          "scope": "domestic985"
+        },
+        {
+          "name": "吉林大学",
+          "aliases": [
+            "吉大",
+            "JLU"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "硕博深造案例",
+        "吉大硕士阶段学习；2025年学院报道获上海交大博士录取"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 321,
+      "revision": "41cc75a98af24eea"
+    },
+    {
+      "id": "chen-jiazheng-hit",
+      "kind": "postgraduate",
+      "genre": "硕士录取案例",
+      "title": "陈嘉政：日语专业跨考哈工大，初试396分",
+      "studentName": "陈嘉政",
+      "college": "外国语学院",
+      "major": "日语",
+      "year": 2025,
+      "stage": "2025年考入哈尔滨工业大学硕士",
+      "targets": [
+        {
+          "name": "哈尔滨工业大学",
+          "aliases": [
+            "哈工大",
+            "HIT"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "硕士录取案例",
+        "2025年考入哈尔滨工业大学硕士"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 325,
+      "revision": "73b8e96835b3f77f"
+    },
+    {
+      "id": "liang-junxuan-scut",
+      "kind": "postgraduate",
+      "genre": "博士去向介绍",
+      "title": "梁俊轩：从珠科走向华南理工博士阶段",
+      "studentName": "梁俊轩",
+      "college": null,
+      "major": null,
+      "year": null,
+      "stage": "2026年学校报道时华南理工大学博士在读",
+      "targets": [
+        {
+          "name": "华南理工大学",
+          "aliases": [
+            "华工",
+            "华南理工",
+            "SCUT"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "博士去向介绍",
+        "2026年学校报道时华南理工大学博士在读"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 312,
+      "revision": "0e6dbd51e2882aef"
+    },
+    {
+      "id": "li-jinxian-sysu",
+      "kind": "postgraduate",
+      "genre": "硕博深造案例",
+      "title": "黎锦贤：从行政管理走向中山大学哲学博士",
+      "studentName": "黎锦贤",
+      "college": "旅游与公共管理学院",
+      "major": "行政管理",
+      "year": null,
+      "stage": "中山大学哲学博士毕业，2025年返校分享",
+      "targets": [
+        {
+          "name": "中山大学",
+          "aliases": [
+            "中大",
+            "SYSU"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "硕博深造案例",
+        "中山大学哲学博士毕业，2025年返校分享"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 319,
+      "revision": "04d92e67d0190f60"
+    },
+    {
+      "id": "huang-jin-ecnu",
+      "kind": "postgraduate",
+      "genre": "博士深造案例",
+      "title": "黄瑾：旅游管理出发，走向华东师大博士研究",
+      "studentName": "黄瑾",
+      "college": "旅游与公共管理学院",
+      "major": "旅游管理",
+      "year": null,
+      "stage": "2025年报道时华东师范大学博士在读",
+      "targets": [
+        {
+          "name": "华东师范大学",
+          "aliases": [
+            "华东师大",
+            "ECNU"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "博士深造案例",
+        "2025年报道时华东师范大学博士在读"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 313,
+      "revision": "9c2c94459d145e9e"
+    },
+    {
+      "id": "lu-zekai-joint-doctorate",
+      "kind": "postgraduate",
+      "genre": "联合培养博士案例",
+      "title": "卢泽凯：专升本之后，进入联合培养博士项目",
+      "studentName": "卢泽凯",
+      "college": null,
+      "major": "机械设计制造及其自动化",
+      "year": null,
+      "stage": "2026年报道时国防科大与南航联合培养博士生",
+      "targets": [
+        {
+          "name": "国防科技大学",
+          "aliases": [
+            "国防科大",
+            "国防科学技术大学",
+            "NUDT"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "联合培养博士案例",
+        "2026年报道时国防科大与南航联合培养博士生"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 319,
+      "revision": "f74f98049b20e1f1"
+    },
+    {
+      "id": "cai-sudan-jlu",
+      "kind": "postgraduate",
+      "genre": "硕士录取案例",
+      "title": "蔡素丹：英语专业读研吉大，再走向教学一线",
+      "studentName": "蔡素丹",
+      "college": "外国语学院",
+      "major": "英语",
+      "year": 2015,
+      "stage": "2015年吉大硕士录取；2018年硕士毕业",
+      "targets": [
+        {
+          "name": "吉林大学",
+          "aliases": [
+            "吉大",
+            "JLU"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "硕士录取案例",
+        "2015年吉大硕士录取；2018年硕士毕业"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 323,
+      "revision": "dea03c90e9f2b5b0"
+    },
+    {
+      "id": "jiang-kaili-jlu",
+      "kind": "postgraduate",
+      "genre": "硕士录取案例",
+      "title": "江凯丽：日语专业考入吉大，拓展研究与交流经历",
+      "studentName": "江凯丽",
+      "college": "外国语学院",
+      "major": "日语",
+      "year": 2015,
+      "stage": "2015年获吉林大学硕士录取",
+      "targets": [
+        {
+          "name": "吉林大学",
+          "aliases": [
+            "吉大",
+            "JLU"
+          ],
+          "scope": "domestic985"
+        }
+      ],
+      "keywords": [
+        "硕士录取案例",
+        "2015年获吉林大学硕士录取"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 322,
+      "revision": "4aef7c792d83d360"
+    },
     {
       "id": "cmu-computing-progression",
       "kind": "postgraduate",

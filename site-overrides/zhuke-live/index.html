@@ -26,12 +26,13 @@ function choices(edit=false){const team=edit?teamOf(editing?.teacher):$('booking
 function selectedOriginal(edit=false){return choices(edit).find(s=>s.date===$(edit?'editDate':'date').value&&s.slot===$(edit?'editSlot':'slot').value)}
 function showTimeMode(edit=false){const special=specialMode(edit);$(edit?'editSpecialFields':'specialFields').hidden=!special;for(const id of edit?['editSpecialStart','editSpecialEnd']:['specialStart','specialEnd']){$(id).disabled=!special;$(id).required=special}$(edit?'editSlotLabel':'slotLabel').textContent=special?'原定场次（计入任务）':edit?'固定时段':'4. 本组时段'}
 function timeError(edit=false){const date=$(edit?'editDate':'date').value,slot=timeSlot(edit),special=specialMode(edit),selected=selectedOriginal(edit);if(!date||!slot)return edit?'请选择日期和时段':!$('bookingTeam').value?'请先选小组':'请选择本组日期和时段';if(!/^([01][0-9]|2[0-3]):[0-5][0-9]—([01][0-9]|2[0-3]):[0-5][0-9]$/.test(slot)||slot.slice(0,5)>=slot.slice(6))return '请填写有效的开始、结束时间，结束须晚于开始';if(edit&&editing&&date===editing.date&&slot===editing.slot&&(!special||selected?.id===slotForBooking(editing)?.id))return '';if(!selected)return '请选择本人小组的原定场次';if(selected.booking_id&&selected.booking_id!==(edit?editing?.id:null))return '该原定场次已有报名，请在原报名上修改';if(!edit&&completedMode()){if(!slotEnded(selected))return '只能补登记已结束时段的直播';if(teamOf($('teacher').value)!==$('bookingTeam').value)return '请选择本组实际主播老师';return ''}if(start(date,slot)<=Date.now())return special?'实际开始时间须晚于现在':'该场次已开始，可选“特殊时间”改到当天稍后直播';if(!edit&&teamOf($('teacher').value)!==$('bookingTeam').value)return '请选择本组实际主播老师';return ''}
-function renderDates(edit=false){showTimeMode(edit);const input=$(edit?'editDate':'date'),old=input.value,special=specialMode(edit);const ds=[...new Set(choices(edit).filter(s=>(!edit&&completedMode()?slotEnded(s):special?s.date>=todayCN():start(s.date,s.slot)>Date.now())&&(!s.booking_id||(edit&&s.booking_id===editing?.id))).map(s=>s.date))];if(edit&&editing&&!ds.includes(editing.date))ds.push(editing.date);ds.sort();if(!edit&&completedMode())ds.reverse();input.replaceChildren();for(const d of ds)input.add(new Option(dateLabel(d),d));input.value=ds.includes(old)?old:ds[0]||'';input.disabled=!edit&&!$('bookingTeam').value;if(!ds.length)input.add(new Option(!edit&&!$('bookingTeam').value?'请先选小组':online?'暂无可预约日期':'正在读取场次',''));fillSlots(edit)}
+function renderDates(edit=false){showTimeMode(edit);const input=$(edit?'editDate':'date'),old=input.value,special=specialMode(edit);const ds=[...new Set(choices(edit).filter(s=>(!edit&&completedMode()?slotEnded(s):special?s.date>=todayCN():start(s.date,s.slot)>Date.now())&&(!s.booking_id||(edit&&s.booking_id===editing?.id))).map(s=>s.date))];if(edit&&editing&&!ds.includes(editing.date))ds.push(editing.date);ds.sort();if(!edit&&completedMode())ds.reverse();input.replaceChildren();for(const d of ds)input.add(new Option(dateLabel(d),d));input.value=ds.includes(old)?old:ds[0]||'';input.disabled=!edit&&!$('bookingTeam').value;if(!ds.length)input.add(new Option(!edit&&!$('bookingTeam').value?'请先选小组':online?'暂无可预约日期':loading?'正在读取场次':'排班暂未加载',''));fillSlots(edit)}
 function fillSlots(edit=false){const input=$(edit?'editSlot':'slot'),date=$(edit?'editDate':'date').value,old=input.value,special=specialMode(edit);input.replaceChildren();input.disabled=!edit&&!$('bookingTeam').value;let list=choices(edit).filter(s=>s.date===date);if(edit&&editing&&!special&&date===editing.date&&!list.some(s=>s.slot===editing.slot))list=[...list,{slot:editing.slot,date,booking_id:editing.id,legacy:true}];for(const s of list){const own=edit&&s.booking_id===editing?.id;const unavailable=!own&&((s.booking_id&&s.booking_id!==(edit?editing?.id:null))||(!edit&&completedMode()?!slotEnded(s):special?s.date<todayCN():start(date,s.slot)<=Date.now()));const o=new Option(s.slot+(s.legacy?'（原排班）':s.flex?'（机动场）':'')+(unavailable?'（不可预约）':''),s.slot);if(s.legacy||s.flex||unavailable)o.dataset.note='';o.disabled=!!unavailable;input.add(o)}const previous=[...input.options].find(o=>o.value===old&&!o.disabled);input.value=previous?old:([...input.options].find(o=>!o.disabled)?.value||'');if(!list.length)input.add(new Option('暂无本组场次',''));edit?editSlots():renderSlots()}
 function plannedHours(list){const n=list.reduce((sum,r)=>{const [a,b]=r.slot.split('—');return sum+Math.max(0,minutes(b)-minutes(a))},0);return String(Math.round(n/60*100)/100)}
 function showPage(page){if(window.hubSelect)window.hubSelect('zhuke',false);if(!['booking','archive','counts'].includes(page))page='booking';for(const name of ['booking','archive','counts']){document.getElementById(name+'Page').hidden=name!==page;document.getElementById(name+'Tab').setAttribute('aria-current',name===page?'page':'false')}history.replaceState(null,'','#'+page);window.scrollTo(0,0)}
-const $=id=>document.getElementById(id);let rows=[],online=false,busy=false,loading=false;
-let refreshTask=null,lastReadAttempt=0,dataRevision=0;
+const $=id=>document.getElementById(id);let rows=[],online=false,busy=false,loading=true;
+let refreshTask=null,refreshRevision=0,reconnectTimer,lastReadAttempt=0,dataRevision=0;
+let checkSavedBooking=true;
 const snapshotKey='zhuke-schedule-preview-v1';
 function restorePreview(){try{const cached=JSON.parse(sessionStorage.getItem(snapshotKey)||'null');if(!cached||!Number.isFinite(cached.at)||Date.now()-cached.at<0||Date.now()-cached.at>1800000||!Array.isArray(cached.slots)||!Array.isArray(cached.bookings))return;fixedSlots=cached.slots;rows=cached.bookings;hasLoaded=true;loading=true;lastUpdated=new Date(cached.at).toLocaleTimeString('zh-CN',{timeZone:'Asia/Shanghai'});$('connection').textContent='显示上次排班 · 正在同步最新数据…'}catch{}}
 function savePreview(){try{sessionStorage.setItem(snapshotKey,JSON.stringify({at:Date.now(),slots:fixedSlots,bookings:rows}))}catch{}}
@@ -61,7 +62,9 @@ async function requestRPC(base,name,data,timeout,signal){
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);
  const abort=()=>controller.abort();if(signal){signal.addEventListener('abort',abort,{once:true});if(signal.aborted)abort()}
  try{
-  let response;try{response=await fetch(base+name,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:controller.signal})}catch(error){error.retryable=true;throw error}
+  // The empty schedule lookup can use a CORS simple request. Both relays validate the JSON body.
+  const contentType=name==='live_slots'?'text/plain;charset=UTF-8':'application/json';
+  let response;try{response=await fetch(base+name,{method:'POST',headers:{'Content-Type':contentType},body:JSON.stringify(data),signal:controller.signal})}catch(error){error.retryable=true;throw error}
   let result;try{result=await response.json()}catch{const error=Error('报名服务暂时无法响应');error.retryable=true;throw error}
   if(!response.ok){const error=Error(result?.message||'服务暂不可用');error.retryable=response.status>=500||[404,408,429].includes(response.status);throw error}
   if(name==='live_slots'&&(!Array.isArray(result?.slots)||!Array.isArray(result?.bookings))){const error=Error('排班数据暂未读取完整');error.retryable=true;throw error}
@@ -77,7 +80,8 @@ async function rpc(name,data={}){
   const finish=(error,result,base)=>{if(settled)return;settled=true;clearTimeout(timer);for(const c of controllers)c.abort();if(error)return reject(error);activeAPI=base;try{localStorage.setItem('zhuke-read-route',JSON.stringify({base,at:Date.now()}))}catch{}resolve(result)};
   const launch=()=>{
    if(settled||next>=routes.length)return;clearTimeout(timer);const base=routes[next++],controller=new AbortController();controllers.push(controller);pending++;
-   requestRPC(base,name,data,8000,controller.signal).then(result=>finish(null,result,base)).catch(error=>{if(settled)return;pending--;lastError=error;if(!error.retryable)return finish(error);if(next<routes.length)launch();else if(!pending)finish(lastError)});
+   const timeout=name==='live_slots'?20000:8000; // The relays allow up to 15 seconds upstream, plus transit.
+   requestRPC(base,name,data,timeout,controller.signal).then(result=>finish(null,result,base)).catch(error=>{if(settled)return;pending--;lastError=error;if(!error.retryable)return finish(error);if(next<routes.length)launch();else if(!pending)finish(lastError)});
    if(next<routes.length)timer=setTimeout(launch,900);
   };launch();
  });
@@ -144,7 +148,7 @@ async function finishBooking(r){
 function bookingCard(r){const c=el('article',undefined,'card');c.append(el('span',r.status,'badge'),phrases('strong',[dateLabel(r.date),r.slot]),phrases('p',[...participants(r),r.co_teacher?'双人直播':'单人直播',teamOf(r.teacher)||r.team,'播客间，也可以室外'],' · '),el('p',r.topic));const original=slotForBooking(r);if(original&&taskTeam(original)!==original.team)c.append(el('p','跨组代播 · 原'+original.team+'的任务转交'+taskTeam(original),'notice'));if(original&&original.slot!==r.slot)c.append(el('p','特殊时间改播 · 原定 '+original.slot+'，仍计1场','notice'));if(!isCurrent(r))c.append(el('p',r.date>=TERM_START&&isUnfinished(r)?'原排班，待调整（不计入新周期目标）':'历史／例外场次（不计入新周期目标）','notice'));if(r.support)c.append(el('p','支持需求：'+r.support,'muted'));if(r.ended_at)c.append(el('p','结束登记：'+new Date(r.ended_at).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'}),'muted'));const actions=el('div',undefined,'actions');if(canManage(r)){const b=el('button',finishState.get(r.id)||'结束直播');b.disabled=busy||finishState.has(r.id)||!online||start(r.date,r.slot)>Date.now();b.onclick=()=>finishBooking(r);actions.append(b)}if(isUnfinished(r)){const edit=el('button','修改');edit.disabled=busy||finishState.has(r.id)||!online;edit.onclick=()=>openEdit(r);const cancel=el('button','取消报名');cancel.disabled=busy||finishState.has(r.id)||!online;cancel.onclick=()=>cancelBooking(r);const host=el('button',r.co_teacher?'修改主播／搭档':'改为双人');host.disabled=busy||finishState.has(r.id)||!online;host.onclick=()=>openHost(r,!r.co_teacher);actions.append(edit,host,cancel)}const history=el('button','修改记录'),body=el('div');body.hidden=true;history.onclick=async()=>{body.hidden=!body.hidden;if(body.hidden)return;history.disabled=true;body.replaceChildren(el('p','正在读取…','muted'));try{const items=await rpc('live_history',{p_id:r.id});body.replaceChildren();if(!items.length)body.append(el('p','暂无修改记录','muted'));for(const h of items){const entry=el('div',undefined,'history-entry');entry.append(el('b',new Date(h.changed_at).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})));for(const [key,label] of [['date','日期'],['slot','时段'],['topic','主题'],['support','支持需求'],['teacher','主播'],['co_teacher','搭档'],['team','任务小组']])if(h.before[key]!==h.after[key])entry.append(el('p',label+'：'+(h.before[key]||'未填写')+' → '+(h.after[key]||'未填写')));body.append(entry)}}catch(e){body.replaceChildren(el('p','读取失败：'+e.message,'muted'))}finally{history.disabled=false}};actions.append(history);c.append(actions,body);return c}
 function weekStart(d){const n=Math.floor((Date.parse(d+'T00:00:00Z')-Date.parse(TERM_START+'T00:00:00Z'))/604800000);return addDays(TERM_START,n*7)}
 function addDays(d,n){return new Date(Date.parse(d+'T00:00:00Z')+n*86400000).toISOString().slice(0,10)}
-function todayCN(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
+function todayCN(){return new Date(Date.now()+8*60*60*1000).toISOString().slice(0,10)}
 function renderTeacherCounts(){
 const target=$('counts');target.replaceChildren();
 if(!hasLoaded){$('countFreshness').textContent='统计尚未加载，请点击刷新。';$('countScale').textContent='';return}
@@ -174,7 +178,7 @@ function slotTile(r,archived=false){
  tile.append(view);
  return tile;
 }
-function renderPendingPreview(){const target=$('pendingPreview');target.replaceChildren();const pending=rows.filter(isUnfinished);$('pendingTitle').textContent=hasLoaded?'待直播 · '+pending.length+' 场':'待直播';if(!hasLoaded){target.append(el('p','正在等待最新报名数据…','muted'));return}if(!online)target.append(el('p',loading?'正在同步最新数据，以下为上次排班':'连接中断，以下为上次读取的数据',loading?'notice':'notice error'));if(!pending.length)target.append(el('p','暂无待直播报名','muted'));for(const r of pending)target.append(slotTile(r));if(slotDetailId){const r=rows.find(x=>x.id===slotDetailId);if(r){$('slotDetailTitle').replaceChildren(phrases('span',[r.date,r.slot]));$('slotDetailBody').replaceChildren(bookingCard(r))}else $('slotDetailDialog').close()}}
+function renderPendingPreview(){const target=$('pendingPreview');target.replaceChildren();const pending=rows.filter(isUnfinished);$('pendingTitle').textContent=hasLoaded?'待直播 · '+pending.length+' 场':'待直播';if(!hasLoaded){target.append(el('p',loading?'正在读取待直播场次…':'待直播场次暂未加载。','muted'));return}if(!online)target.append(el('p',loading?'正在同步最新数据，以下为上次排班':'连接中断，以下为上次读取的数据',loading?'notice':'notice error'));if(!pending.length)target.append(el('p','暂无待直播报名','muted'));for(const r of pending)target.append(slotTile(r));if(slotDetailId){const r=rows.find(x=>x.id===slotDetailId);if(r){$('slotDetailTitle').replaceChildren(phrases('span',[r.date,r.slot]));$('slotDetailBody').replaceChildren(bookingCard(r))}else $('slotDetailDialog').close()}}
 function archiveRecords(){const range=$('archiveRange').value,today=todayCN(),monday=weekStart(today);return rows.filter(r=>!isUnfinished(r)&&r.status!=='已取消'&&(range==='week'?r.date>=monday&&r.date<=addDays(monday,6):range==='month'?r.date.slice(0,7)===today.slice(0,7):true))}
 function renderArchive(){
 const records=archiveRecords(),chart=$('archiveChart'),metrics=$('archiveMetrics');chart.replaceChildren();metrics.replaceChildren();
@@ -200,19 +204,61 @@ if(flex){
  heading.append(el('span','本周机动场','rotation-label'),' ',el('strong',taskTeam(flex),'rotation-team'));
  rotation.replaceChildren(heading,' ',phrases('span',[dateLabel(flex.date),flex.slot],' ','rotation-when'));
 }else{
- rotation.textContent=hasLoaded?'本周未安排机动场。':'正在读取固定排班…';
+ rotation.textContent=hasLoaded?'本周未安排机动场。':loading?'正在读取固定排班…':'本周排班暂未加载。';
 }
+$('stats').hidden=!hasLoaded;
 $('stats').replaceChildren();for(const g of Object.keys(groups)){const target=fixedSlots.filter(s=>taskTeam(s)===g).length,wt=ws.filter(s=>taskTeam(s)===g).length,mine=current.filter(r=>teamOf(r.teacher)===g),wm=mine.filter(r=>weekStart(r.date)===week),done=mine.filter(r=>!isUnfinished(r)).length,wd=wm.filter(r=>!isUnfinished(r)).length,box=el('div',g,'stat');const ownSlots=ws.filter(s=>taskTeam(s)===g);for(const time of [...new Set(ownSlots.map(s=>s.slot))]){const dates=ownSlots.filter(s=>s.slot===time).map(s=>'周'+['日','一','二','三','四','五','六'][new Date(s.date+'T12:00:00+08:00').getUTCDay()]+(s.flex?'（机动）':''));const line=phrases('p',dates,'、','group-times');line.append(' ',el('span',time,'keep-unit'));box.append(line)}box.append(el('b','本周应播 '+wt+' 场'),phrases('p',['已报名 '+wm.length,'待直播 '+(wm.length-wd),'已完成 '+wd],' ','muted'));const period=el('details');period.append(el('summary','本周期累计进度'),el('b','本周期 '+done+' / '+target+' 场'),phrases('p',['已报名 '+mine.length,'待直播 '+(mine.length-done),'还需完成 '+Math.max(0,target-done)],' ','muted'));const bar=el('progress');bar.max=target||1;bar.value=done;bar.textContent=done+'/'+target;period.append(bar);box.append(period);const book=el('button','为本组报名');book.type='button';book.disabled=!online||busy;book.onclick=()=>bookForTeam(g);box.append(book);$('stats').append(box)}
 const list=$('schedule'),openGroups=new Set([...list.querySelectorAll('details[open]')].map(part=>part.dataset.team));list.replaceChildren();const shown=renderArchive(),known=Object.keys(groups),teams=known.concat(shown.some(r=>!known.includes(teamOf(r.teacher)||r.team))?['其他／未分组']:[]);for(const g of teams){const records=shown.filter(r=>g==='其他／未分组'?!known.includes(teamOf(r.teacher)||r.team):(teamOf(r.teacher)||r.team)===g).sort((a,b)=>(b.date+' '+b.slot).localeCompare(a.date+' '+a.slot));const part=el('details',undefined,'archive-group');part.dataset.team=g;part.open=openGroups.has(g);part.append(el('summary',g+' · '+records.length+' 场'));const grid=el('div',undefined,'archive-grid');if(!records.length)grid.append(el('p','暂无场次','muted'));for(const r of records)grid.append(slotTile(r,true));part.append(grid);list.append(part)}
 renderTeacherCounts();
 if(window.renderHub)window.renderHub();
 }
-async function refresh(force=true){
-  if(refreshTask){await refreshTask;if(!force)return;return refresh(true)}
-  if(!force&&Date.now()-lastReadAttempt<10000)return;
+function refresh(force=true,allowRetry=true){
+  if(refreshTask){
+    if(force&&refreshRevision!==dataRevision)return refreshTask.then(()=>refresh(true,allowRetry));
+    return refreshTask;
+  }
+  if(!force&&online&&Date.now()-lastReadAttempt<10000)return Promise.resolve();
+  clearTimeout(reconnectTimer);
   lastReadAttempt=Date.now();loading=true;$('refresh').disabled=true;
-  const revision=dataRevision;refreshTask=(async()=>{try{const data=await rpc('live_slots');if(revision!==dataRevision)return;if(!Array.isArray(data.slots)||!Array.isArray(data.bookings))throw Error('返回数据格式异常');fixedSlots=data.slots;hasLoaded=true;lastUpdated=new Date().toLocaleTimeString('zh-CN',{timeZone:'Asia/Shanghai'});rows=data.bookings.sort((a,b)=>(a.date+' '+a.slot).localeCompare(b.date+' '+b.slot));online=true;savePreview();$('connection').textContent='更新于 '+new Date().toLocaleTimeString('zh-CN')+' · 点击刷新同步';$('connection').className='muted'}catch(e){if(revision!==dataRevision)return;online=false;$('connection').textContent='暂时无法连接报名服务，当前不能报名。'+(hasLoaded?'下面保留上次读取的排班。':'')+' 请点击刷新重试。';$('connection').className='notice error'}finally{loading=false;renderDates();if(editing){renderDates(true);editSlots()}render()}})();
-  try{await refreshTask}finally{refreshTask=null;$('refresh').disabled=false}
+  const connection=$('connection'),revision=dataRevision;
+  refreshRevision=revision;
+  if(!online){
+    connection.textContent=hasLoaded?'显示上次排班 · 正在同步最新数据…':'正在读取最新排班…';
+    connection.className='muted';
+    renderDates();render();
+  }
+  refreshTask=(async()=>{
+    try{
+      const data=await rpc('live_slots');
+      if(revision!==dataRevision)return;
+      fixedSlots=data.slots;
+      rows=data.bookings.sort((a,b)=>(a.date+' '+a.slot).localeCompare(b.date+' '+b.slot));
+      lastUpdated=new Date().toLocaleTimeString('zh-CN',{timeZone:'Asia/Shanghai'});
+      hasLoaded=true;online=true;savePreview();
+      connection.textContent='更新于 '+lastUpdated+' · 点击刷新同步';
+      connection.className='muted';
+    }catch(error){
+      if(revision!==dataRevision)return;
+      online=false;
+      const retry=allowRetry&&error.retryable&&!document.hidden&&navigator.onLine!==false;
+      connection.textContent='暂时无法连接报名服务，当前不能报名。'+(hasLoaded?'以下为上次读取的排班。':'')+(retry?'稍后自动重试，也可点击刷新。':'请点击刷新重试。');
+      connection.className='notice error';
+      if(retry)reconnectTimer=setTimeout(()=>{
+        if(!online&&!busy&&!document.hidden&&navigator.onLine!==false)refresh(true,false);
+      },3000);
+    }finally{
+      loading=false;renderDates();
+      if(editing){renderDates(true);editSlots()}
+      render();
+    }
+  })().finally(()=>{
+    refreshTask=null;$('refresh').disabled=false;
+    if(checkSavedBooking&&online&&revision===dataRevision){
+      checkSavedBooking=false;
+      recover();
+    }
+  });
+  return refreshTask;
 }
 $('timeMode').onchange=()=>{ $('date').value='';renderDates()};$('editTimeMode').onchange=()=>renderDates(true);for(const id of ['specialStart','specialEnd'])$(id).oninput=renderSlots;for(const id of ['editSpecialStart','editSpecialEnd'])$(id).oninput=editSlots;
 $('bookingTeam').onchange=()=>{renderTeachers();renderDates()};$('teacher').onchange=()=>{renderPartner();renderSlots()};$('mode').onchange=renderPartner;
@@ -220,7 +266,7 @@ $('date').onchange=()=>fillSlots();$('slot').onchange=renderSlots;$('week').onch
 $('form').onsubmit=async e=>{e.preventDefault();if(!online||busy)return;if(timeError()){$('message').textContent=timeError();return}const pair=$('mode').value==='pair',teacher=$('teacher').value,partner=pair?$('partner').value:null;if(!teamOf(teacher)||(pair&&(!partner||partner===teacher||teamOf(partner)!==teamOf(teacher)))){$('message').textContent='请选择本人姓名；双人直播还需选择同组的另一位老师。';return}if(completedMode()&&!confirm('确认所选场次已实际完成直播？补登记后将直接计入已结束归档和老师统计。'))return;let receipt=crypto.randomUUID(),payload={p_teacher:teacher,p_co_teacher:partner,p_date:$('date').value,p_slot:timeSlot(),p_topic:$('topic').value.trim(),p_support:$('support').value.trim(),p_receipt:receipt};if(completedMode())payload.p_completed=true;if(specialMode())payload.p_original_slot=selectedOriginal()?.id;try{localStorage.setItem('zhuke-pending',JSON.stringify(payload))}catch{$('message').textContent='当前浏览器无法保存报名信息，请退出无痕模式或更换浏览器。';return}busy=true;renderSlots();$('message').textContent='正在保存，请稍候…';try{let result=await bookingRpc(payload);receipts[result.id]=receipt;save();localStorage.removeItem('zhuke-pending');bookingSucceeded=true;$('message').textContent=payload.p_completed?'补登记成功！已计入已结束归档、小组和老师场次统计。':'报名成功！如需调整，可在前方待直播列表中点击“修改”。';$('topic').value='';$('support').value=''}catch(e){$('message').textContent='暂未确认报名结果：'+e.message+'。请先刷新核对；系统会尝试恢复本次提交。'}finally{busy=false;await refresh()}};
 
 async function recover(){let p;try{p=JSON.parse(localStorage.getItem('zhuke-pending')||'null')}catch{}if(!p)return;try{const r=await bookingRpc(p);receipts[r.id]=p.p_receipt;save();localStorage.removeItem('zhuke-pending');$('message').textContent=p.p_completed?'已恢复上次补登记，已计入已结束归档和统计。':'已恢复上次报名。如需调整，可在前方待直播列表中点击“取消报名”。';await refresh()}catch{}}
-document.addEventListener('visibilitychange',()=>{if(!document.hidden){render();if(!online&&!busy&&!loading)refresh(false)}});
-window.addEventListener('online',()=>{if(!document.hidden&&!online&&!busy&&!loading)refresh(false)});
-for(let i=0;i<13;i++){const d=addDays(TERM_START,i*7);$('week').add(new Option('第'+(i+1)+'周 · '+dateLabel(d)+'—'+dateLabel(addDays(d,4)),d))}const w=weekStart(todayCN());$('week').value=w<TERM_START?TERM_START:w>addDays(TERM_START,84)?addDays(TERM_START,84):w;restorePreview();renderTeachers();renderDates();render();showPage(location.hash.slice(1));refresh().then(recover);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){render();if(!online&&!busy&&!loading&&navigator.onLine!==false)refresh(false)}});
+window.addEventListener('online',()=>{if(!document.hidden&&!online&&!busy&&!loading)refresh(true)});
+for(let i=0;i<13;i++){const d=addDays(TERM_START,i*7);$('week').add(new Option('第'+(i+1)+'周 · '+dateLabel(d)+'—'+dateLabel(addDays(d,4)),d))}const w=weekStart(todayCN());$('week').value=w<TERM_START?TERM_START:w>addDays(TERM_START,84)?addDays(TERM_START,84):w;restorePreview();renderTeachers();renderDates();render();showPage(location.hash.slice(1));refresh();
 </script><script src="./hub.js?v=6fe2e520bb16"></script></body></html>

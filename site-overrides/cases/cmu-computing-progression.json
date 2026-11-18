@@ -1,0 +1,85 @@
+{
+  "id": "cmu-computing-progression",
+  "kind": "postgraduate",
+  "genre": "升学去向介绍",
+  "title": "从珠科走向卡内基梅隆大学",
+  "studentName": null,
+  "college": "计算机学院",
+  "major": null,
+  "year": null,
+  "stage": "官方记载的往届升学去向",
+  "targets": [
+    {
+      "name": "卡内基梅隆大学",
+      "aliases": [
+        "卡梅",
+        "CMU",
+        "Carnegie Mellon University",
+        "美国卡内基梅隆大学"
+      ],
+      "scope": "overseas",
+      "rank": {
+        "system": "QS世界大学排名",
+        "edition": 2027,
+        "value": 55,
+        "sourceId": "qs"
+      },
+      "inclusion": "user-specified"
+    }
+  ],
+  "keywords": [
+    "美国",
+    "计算机",
+    "海外升学",
+    "研究生"
+  ],
+  "reviewedAt": "2026-11-18",
+  "sourceNote": "官网未披露对应学生姓名、具体专业及升学年份；本篇为升学去向介绍。",
+  "paragraphs": [
+    {
+      "label": "升学去向",
+      "text": "家长们，今天分享一个珠科学子的海外升学去向：美国卡内基梅隆大学。计算机学院官方介绍明确列出，学生升学录取的国外大学包括卡内基梅隆大学。按照QS世界大学排名2027版，它位列第55名。这是学校公开记录中的升学去向。",
+      "highlights": [
+        "卡内基梅隆大学",
+        "计算机学院",
+        "2027版",
+        "第55名"
+      ]
+    },
+    {
+      "label": "培养与实践",
+      "text": "从这份学院介绍中，还能看到学生成长的平台：学科竞赛、学生科研团队和校企合作，把课堂知识与项目实践连接起来；学院也开展国际合作。这些是学院层面的培养情况，供家长了解学生在校期间能够接触的学习环境。",
+      "highlights": [
+        "学科竞赛",
+        "学生科研团队",
+        "校企合作",
+        "国际合作"
+      ]
+    },
+    {
+      "label": "报考启发",
+      "text": "选专业时，除了录取分数，也可以看看毕业生的去向，以及在校期间有哪些实践机会。有继续深造目标的同学，建议尽早了解目标院校的要求，把课程学习、语言准备和项目积累落实到大学四年的安排中。这份升学去向，可以作为选择专业的一项参考。",
+      "highlights": [
+        "毕业生的去向",
+        "课程学习",
+        "语言准备",
+        "项目积累"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "college",
+      "title": "计算机学院官方介绍",
+      "url": "https://jsj.zcst.edu.cn/2026/0528/c2103a192107/page.htm",
+      "publishedAt": "2026-05-28"
+    },
+    {
+      "id": "qs",
+      "title": "QS院校资料 · 2027世界排名",
+      "url": "https://www.topuniversities.com/universities/carnegie-mellon-university",
+      "checkedAt": "2026-11-18"
+    }
+  ],
+  "wordCount": 314
+}

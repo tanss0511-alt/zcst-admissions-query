@@ -1,0 +1,44 @@
+{
+  "version": "12e35a8f655edc7b",
+  "entries": [
+    {
+      "id": "cmu-computing-progression",
+      "kind": "postgraduate",
+      "genre": "升学去向介绍",
+      "title": "从珠科走向卡内基梅隆大学",
+      "studentName": null,
+      "college": "计算机学院",
+      "major": null,
+      "year": null,
+      "stage": "官方记载的往届升学去向",
+      "targets": [
+        {
+          "name": "卡内基梅隆大学",
+          "aliases": [
+            "卡梅",
+            "CMU",
+            "Carnegie Mellon University",
+            "美国卡内基梅隆大学"
+          ],
+          "scope": "overseas",
+          "rank": {
+            "system": "QS世界大学排名",
+            "edition": 2027,
+            "value": 55,
+            "sourceId": "qs"
+          },
+          "inclusion": "user-specified"
+        }
+      ],
+      "keywords": [
+        "美国",
+        "计算机",
+        "海外升学",
+        "研究生"
+      ],
+      "reviewedAt": "2026-11-18",
+      "wordCount": 314,
+      "revision": "12e35a8f655edc7b"
+    }
+  ]
+}

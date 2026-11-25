@@ -41,6 +41,11 @@ jobs:
               shutil.copyfile(source,dest)
           assert pathlib.Path('_site/index.html').is_file()
           PY
+      - name: Apply verified public page deltas
+        run: |
+          for delta in public-site-deltas/*.json; do
+            python3 scripts/apply-pages-deltas.py _site "$delta"
+          done
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

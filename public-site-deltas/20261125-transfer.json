@@ -1,0 +1,16 @@
+{
+  "whenIndex": "e88f47c06a0b8699e63b4f89eea59e2ad5fdf414b396f7c268cc09d8419d8f41",
+  "files": [
+    {"source":"assets/mirror-385cf399db86.js","target":"assets/mirror-4e7f30e2a2de.js","before":"385cf399db86e40cfeea1fe20314ec5d5c8188e04ab93b555099f071a9d88fbe","after":"4e7f30e2a2deb253b9335eea0c2d5da4f7aceb02dd5305239111871829a0f6ae","edits":[
+      [135119,135119," // 2027招生咨询补充；原拟招生表未单列城乡规划学制，不套用历史记录。\n const confirmedStudyYears2027=new Map([['城乡规划',3],['建筑学',3]]);\n function proposalTerm(r){const years=r.year===2027&&confirmedStudyYears2027.get(r.name);return years?`<b class=\"tr-study-term\">学制${years}年</b>`:'';}\n"],
+      [138606,138753,"aria-label=\"较2026普通批计划拟增${increase}人\" title=\"2027学院拟计划${r.plan}人；2026普通批计划${baseline}人${rows.length>1?'（各方向合计）':''}\"><span>较2026普通批<span class=\"tr-plan-long-label\">计划</span>"],
+      [140403,140403,"${proposalTerm(r)}"],
+      [157268,157553,"${proposalTerm(r)}<span>${r.year}年 · ${proposed?'拟招生':esc(r.batch)+' · 专业代码 '+esc(r.code)}</span></div>${proposed?`<div class=\"tr-detail-panel\"><p class=\"tr-proposed-college\">${esc(r.college)}</p><div class=\"tr-proposal-count tr-proposal-summary\"><span class=\"tr-proposal-total\" aria-label=\"学院拟计划${value(r.plan)}人\"><span class=\"tr-plan-long-label\">学院</span>"]]},
+    {"source":"style.css","target":"style.css","before":"b908f9ba9a8b382789d08c5c44657f3e9149f0445e52cfae91df9b64a62f1404","after":"04cf79e0ddaecf182cbbe7a37640786bec52f9455e73ad9428b200be603a4a2c","edits":[
+      [86528,86908,"flex;flex-flow:row nowrap;align-items:center;justify-content:flex-start;gap:6px;padding:4px 6px}\n.tr-proposal-summary>.tr-proposal-total,.tr-proposal-summary>.tr-exam-badge{flex:none;white-space:nowrap}\n.tr-proposal-summary>.tr-exam-badge{margin-inline-start:auto}\n.tr-proposal-summary>.tr-plan-growth{display:inline-flex;flex:none;align-items:baseline;gap:4px;white-space:nowrap;color:#286c50;background:#e4f3eb;border:1px solid #c5e4d3;border-radius:4px;padding:2"],
+      [87019,87019,".tr-study-term{display:inline-block;vertical-align:middle;white-space:nowrap;padding:1px 5px;border:1px solid #c4dedb;border-radius:4px;background:#eaf5f3;color:#24625c;font-size:12px;font-weight:650;line-height:1.4}\n.tr-card-label .tr-study-term{margin-inline-start:3px;font-size:10px;padding:0 3px}\n"],
+      [88793,89032,"ap:4px;padding:3px 4px}\n .tr-proposal-summary>.tr-plan-growth{gap:3px;padding:2px 4px}\n .tr-plan-growth strong{font-size:13"],
+      [135235,135235,"\n@media(max-width:400px){\n .tr-proposal-summary .tr-plan-long-label{display:none}\n .tr-proposal-summary>.tr-exam-badge{font-size:14px;padding:2px 4px}\n}\n"]]},
+    {"source":"index.html","target":"index.html","before":"e88f47c06a0b8699e63b4f89eea59e2ad5fdf414b396f7c268cc09d8419d8f41","after":"6fe048151f31f7c4675fa63d8c2dda17ea4cce412f5728a77584b45a9290e30a","edits":[[321,393,"25-plan-term\"><script src=\"/zcst-admissions-query/assets/mirror-4e7f30e2a2de"]]}
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "whenIndex": "6fe048151f31f7c4675fa63d8c2dda17ea4cce412f5728a77584b45a9290e30a",
+  "files": [
+    {
+      "source": "assets/mirror-4e7f30e2a2de.js",
+      "target": "assets/mirror-6d008b711234.js",
+      "before": "4e7f30e2a2deb253b9335eea0c2d5da4f7aceb02dd5305239111871829a0f6ae",
+      "after": "6d008b7112342e6220af2605e3c7523fb5f02454ef8cc7411f3989ab87513323",
+      "edits": [
+        [
+          2254,
+          2254,
+          " if(p.get('areas')==='1'){\n  const fields=new Map(d.cities.map(c=>[c,new Set()]));\n  const yearsById=new Map();\n  for(const s of d.schools){fields.get(s.city)?.add(s.district);if(s.city===city)yearsById.set(s.id,s.years);}\n  result.area_directory=Object.fromEntries([...fields].map(([c,values])=>[c,[...values]]));\n  for(const s of result.schools)s.years=Object.fromEntries(Object.entries(yearsById.get(s.id)).filter(([y])=>+y>=start&&+y<=end));\n }\n"
+        ],
+        [
+          80205,
+          80988,
+          ",schoolEntry=null){ScoreState.module=kind;const seq=++ScoreState.sequence;searchSeq++;moduleNav(kind);if(kind==='home'){await showHome();return;}$('#app').innerHTML='<p class=\"loading\">正在加载…</p>';try{if(kind==='cases-postgraduate'||kind==='cases-career'){await CaseLibrary.open(kind);return;}if(kind==='transfer-plan'||kind==='transfer-score'){await Transfer.open(kind);return;}if(kind==='policies'){await showPolicies();return;}if(kind==='colleges'){await showColleges();return;}if(kind==='college-contacts'){await showCollegeContacts();return;}if(kind==='department-contacts'){await showDepartmentContacts();return;}if(kind==='catalog'){CatalogState.origin='catalog';await drawCatalog();return;}if(kind==='schools'){await refreshMeta();if(seq!==ScoreState.sequence)return;await showQuery(schoolEntry?.city||null,false,schoolEntry?.district"
+        ],
+        [
+          126650,
+          126650,
+          "if(u.searchParams.get('module')==='schools'){u.searchParams.delete('city');u.searchParams.delete('district');}"
+        ],
+        [
+          179281,
+          179281,
+          "// School locations refer to the source school, never the student's address.\n// Keep raw records/IDs intact; these city-scoped aliases are for the directory only.\nconst SchoolAreas = (() => {\n  const unknown = '区域未细分';\n  const aliases = {\n    '东莞市': {'松山湖园区':'松山湖', '松山湖管委会':'松山湖', '松山湖高新区':'松山湖'},\n    '惠州市': {'大亚湾区':'大亚湾开发区', '大亚湾经济技术开发区':'大亚湾开发区'}\n  };\n  const collator = new Intl.Collator('zh-CN');\n  const norm = s => String(s ?? '').normalize('NFKC').replace(/[\\s·]/g,'');\n  const shortCity = city => city.replace(/市$/,'');\n  function parts(city, raw) {\n    const values = norm(raw).split(/[/、,;]+/).filter(Boolean).map(v => {\n      if ([city, shortCity(city)+'市区', '市区', '市辖区', '其他', '其它', '未填写', '0'].includes(v)) return unknown;\n      const table=aliases[city];\n      return table && Object.hasOwn(table,v) ? table[v] : v;\n    });\n    return [...new Set(values.length ? values : [unknown])];\n  }\n  function directory(raw) {\n    return Object.fromEntries(Object.entries(raw).map(([city,fields]) => {\n      const items = new Set(fields.flatMap(x => parts(city,x)));\n      return [city,[...items].sort((a,b)=>(a===unknown)-(b===unknown)||collator.compare(a,b))];\n    }));\n  }\n  function match(dir, query) {\n    const q = norm(query);\n    if(q.length<2) return [];\n    const hits=[];\n    for(const [city,regions] of Object.entries(dir)) {\n      const key=[city,shortCity(city)].find(k=>q.startsWith(k));\n      const needle=key?q.slice(key.length):q;\n      for(const area of regions) {\n        if(area===unknown) continue;\n        const names=[area,...Object.entries(aliases[city]||{}).filter(([,to])=>to===area).map(([from])=>from)];\n        if((key&&!needle)||names.some(n=>n.includes(needle))) hits.push({city,area,exact:names.includes(needle)});\n      }\n    }\n    return hits.sort((a,b)=>Number(b.exact)-Number(a.exact)||collator.compare(a.city,b.city)||collator.compare(a.area,b.area));\n  }\n  function scope(schools, city, area) {\n    const local=[], cross=[];\n    for(const school of schools) {\n      if(!area) {local.push(school);continue;}\n      const loc=parts(city,school.district);\n      if(loc.includes(area)) (loc.length===1?local:cross).push(school);\n    }\n    return {local,cross};\n  }\n  function rows(schools, year) {\n    return schools.map(s=>({...s,period_total:year==null?s.period_total:(s.years[year]??0)}))\n      .filter(s=>s.period_total>0)\n      .sort((a,b)=>b.period_total-a.period_total||collator.compare(a.name,b.name)||a.id.localeCompare(b.id));\n  }\n  function annual(schools, coverage) {\n    return coverage.map(y=>({...y,count:y.count===null?null:schools.reduce((n,s)=>n+(s.years[y.year]??0),0)}));\n  }\n  return {unknown,parts,directory,match,scope,rows,annual};\n})();\n\n"
+        ],
+        [
+          181262,
+          181268,
+          "function syncSchoolLink(city,area){\n const u=new URL(location.href);\n u.searchParams.set('module','schools');\n for(const [k,v] of [['city',city],['district',area]]){if(v)u.searchParams.set(k,v);else u.searchParams.delete(k);}\n if(u.href!==location.href)history.replaceState(null,'',u.pathname+u.search+u.hash);\n}\nfunction areaPicker(city,areas){\n const byTown=['东莞市','中山市'].includes(city),type=byTown?'镇街／园区':'区县／区域';\n const button=(label,value,i)=>`<button type=\"button\" class=\"area-chip\" data-action=\"city-area\" data-area=\"${esc(value)}\" data-area-index=\"${i}\" aria-pressed=\"false\" aria-controls=\"city-school-results\">${esc(label)}</button>`;\n return `<section class=\"area-picker\" aria-label=\"选择${esc(city)}的区域\"><div class=\"area-picker-head\"><h3>按${type}查看</h3>${areas.length>12?`<button type=\"button\" class=\"area-more\" data-action=\"area-more\" aria-controls=\"city-area-options\">展开全部</button>`:''}</div><div class=\"area-options\" id=\"city-area-options\">${button('全市','',-1)}${areas.map((v,i)=>button(v,v,i)).join('')}</div></section>`;\n}\nfunction markAreaChoice(){\n const view=cityView;if(!view)return;\n const many=view.areas.length>12;\n for(const b of document.querySelectorAll('#city-area-options [data-area]')){\n  const selected=b.dataset.area===S.regionArea;\n  b.setAttribute('aria-pressed',String(selected));b.hidden=many&&!S.areaExpanded&&!selected&&Number(b.dataset.areaIndex)>=8;\n }\n const more=$('[data-action=\"area-more\"]');if(more){more.setAttribute('aria-expanded',String(Boolean(S.areaExpanded)));more.textContent=S.areaExpanded?'收起':'展开全部（'+view.areas.length+'）';}\n}\nfunction selectCityArea(area){\n const view=cityView;if(!view)return;\n S.regionArea=view.areas.includes(area)?area:'';\n view.scope=SchoolAreas.scope(view.schools,view.city,S.regionArea);\n markAreaChoice();\n const annual=S.regionArea?SchoolAreas.annual(view.scope.local,view.annual):view.annual;\n $('#city-annual').innerHTML=annualPicker(annual,'city','city-school-results');\n syncSchoolLink(view.city,S.regionArea);\n selectCityYear(annual.some(y=>y.year===S.cityYear&&y.count!==null)?S.cityYear:null);\n}\n"
+        ],
+        [
+          181376,
+          182630,
+          "S.cityYear=year;markAnnualChoice($('#city-year-picker'),year);\n const area=S.regionArea,period=year===null?view.start+'—'+view.end+'级':year+'级';\n const local=SchoolAreas.rows(view.scope.local,year),cross=SchoolAreas.rows(view.scope.cross,year);\n const n=local.reduce((sum,s)=>sum+s.period_total,0);\n $('#city-total-label').textContent=[view.city,area,period].filter(Boolean).join(' · ');\n $('#city-total-count').textContent=fmt(n);\n $('#city-total-foot').textContent=local.length+'所'+(area&&area!==SchoolAreas.unknown?'归属本区的':'')+'学校有录取记录';\n $('#city-school-title').textContent=area?(area===SchoolAreas.unknown?area+'学校':area+' · 本区学校'):view.city+'中学';\n $('#city-school-count').textContent=period+' · '+local.length+'所 · '+fmt(n)+'人';\n $('#city-local-schools').innerHTML=cards(local)||'<p class=\"empty\">所选年级暂无录取记录。</p>';\n const related=$('#city-cross-schools');related.hidden=!cross.length;\n related.innerHTML=cross.length?`<div class=\"section-heading\"><h3>涉及本区的跨区学校</h3><span>${cross.length}所</span></div><p class=\"area-cross-note\">以下为全校录取人数，未分校区统计，不计入本区小计。</p><div class=\"school-grid\">${cards(cross,true)}</div>`:'"
+        ],
+        [
+          182635,
+          182635,
+          "\n"
+        ],
+        [
+          187434,
+          187434,
+          "const p=new URLSearchParams(location.search);if(p.get('module')==='schools'){openModule('schools',{city:p.get('city'),district:p.get('district')});}else "
+        ],
+        [
+          189138,
+          189545,
+          ",wholeSchool=false){return list.map(s=>`<button class=\"school-card school-result-card\" data-action=\"school\" data-id=\"${esc(s.id)}\"><span class=\"school-card-count\"><strong>${wholeSchool?'<small class=\"area-whole-label\">全校</small>':''}${s.period_total===undefined?'—':fmt(s.period_total)}</strong><span>人 <span aria-hidden=\"true\">›</span></span></span><span class=\"school-card-info\"><b>${esc(s.name)}</b><small>${esc(s.city||'城市待核对')} · ${esc(SchoolAreas.parts(s.city||'',s.district).join('／')"
+        ],
+        [
+          190669,
+          192105,
+          "\n q=q.trim();S.search=q;const searching=Boolean(q),seq=++searchSeq;\n $('#region-browser')?.classList.toggle('hidden',searching);$('#home-total')?.classList.toggle('hidden',searching);\n $('#search-return')?.classList.toggle('hidden',!searching||Boolean(S.regionCity));\n const heading=$('.compact-hero h1');if(heading)heading.textContent=searching?'生源中学录取查询':S.regionCity?S.regionCity+'录取情况':'生源中学录取查询';\n const hits=searching?SchoolAreas.match(S.areaDirectory||{},q):[],areaBox=$('#area-search-results');\n if(areaBox){\n  areaBox.hidden=!hits.length;\n  areaBox.innerHTML=hits.length?`<h3>地区</h3><div class=\"area-options\">${hits.map(h=>`<button type=\"button\" class=\"area-chip area-jump\" data-action=\"area-result\" data-city=\"${esc(h.city)}\" data-area=\"${esc(h.area)}\">${esc(h.city)} · <b>${esc(h.area)}</b> ›</button>`).join('')}</div>`:'';\n }\n if(!searching&&$('#region-browser')){$('#search-heading')?.classList.add('hidden');$('#school-results').innerHTML='';return;}\n $('#search-heading')?.classList.remove('hidden');$('#results-title').textContent='中学';$('#results-count').textContent='正在查询…';$('#school-results').replaceChildren();\n const r=await api('/api/schools?'+new URLSearchParams({q,start:S.regionStart??S.meta.version.default_start,end:S.regionEnd??S.meta.version.default_end}));\n if(seq!==searchSeq||!$('#school-results'))return;\n $('#results-title').textContent=q?'中学':'已导入的学校';$('#results-count').textContent=r.schools.length?`${S.regionStart??S.meta.version.default_start}—${S.regionEnd??S.meta.version.default_end}级 · ${r.schools.length}所`:'暂无匹配校名';\n for(const school of r.schools.slice(0,3))api(schoolSummaryPath(school.id,S.regionStart,S.regionEnd)).catch(()=>{});\n if(r.schools.length)letterIndex().catch(()=>{});\n $('#school-results').innerHTML=r.schools.length?cards(r.schools):hits.length?'':'<div class=\"empty\">未找到匹配的学校或地区，可试试校名或区县名。</div>';\n"
+        ],
+        [
+          193007,
+          193243,
+          "(S.regionArea||S.regionCity)+\"中学\":\"返回城市总览\")}<div class=\"detail-head\"><div><div class=\"eyebrow\">学校录取档案</div><h2>${esc(s.name)}</h2><div class=\"location\">${esc(s.city||'城市待核对')} · ${esc(SchoolAreas.parts(s.city||'',s.district).join('／')"
+        ],
+        [
+          209229,
+          209229,
+          "area-result','"
+        ],
+        [
+          210733,
+          210733,
+          "  if(a==='area-result')await showQuery(b.dataset.city,false,b.dataset.area);\n  if(a==='city-area')selectCityArea(b.dataset.area);\n  if(a==='area-more'){S.areaExpanded=!S.areaExpanded;markAreaChoice();}\n"
+        ],
+        [
+          219983,
+          220039,
+          "nput=e.target,id=input.id,q=input.value;debounce=setTimeout(()=>{if(!input.isConnected||input.value!==q)return;"
+        ],
+        [
+          223312,
+          223312,
+          ",area"
+        ],
+        [
+          223419,
+          223434,
+          "{S.cityYear=null;S.regionArea='';S.areaExpanded=false;}\n if(area!==undefined)S.regionArea=area||''"
+        ],
+        [
+          223723,
+          223723,
+          ",areas:1"
+        ],
+        [
+          223997,
+          223997,
+          " if(!r.area_directory||(city&&r.schools.some(s=>!s.years)))throw new Error('区县资料暂时无法读取，请刷新重试。');\n S.areaDirectory=SchoolAreas.directory(r.area_directory);\n const areas=S.areaDirectory[city]||[];if(!city)syncSchoolLink(null,'');\n"
+        ],
+        [
+          224872,
+          225628,
+          "或区县名称\" placeholder=\"输入校名或区县，如“东华”“天河”\" autocomplete=\"off\" value=\"\"><button class=\"btn primary\">查询</button></form><section id=\"area-search-results\" class=\"area-search-results\" aria-label=\"匹配的地区\" hidden></section><div class=\"section-heading hidden\" id=\"search-heading\"><h3 id=\"results-title\">搜索结果</h3><span id=\"results-count\"></span></div><div id=\"school-results\" class=\"school-grid\"></div></section>\n <div id=\"region-browser\"><form id=\"region-range\" class=\"filterbar\"><div class=\"field\"><label for=\"region-start\">起始年级</label><select id=\"region-start\">${yearOptions(start)}</select></div><div class=\"field\"><label for=\"region-end\">截止年级</label><select id=\"region-end\">${yearOptions(end)}</select></div></form>${city!==null?areaPicker(city,areas)"
+        ],
+        [
+          226870,
+          227328,
+          " id=\"city-total-label\"></span><div class=\"total-number\"><span id=\"city-total-count\"></span><small>人</small></div><span class=\"foot\" id=\"city-total-foot\"></span></div><div id=\"city-annual\"></div></div><section id=\"city-school-results\"><div class=\"section-heading\"><h3 id=\"city-school-title\"></h3><span id=\"city-school-count\" class=\"muted\" aria-live=\"polite\"></span></div><div id=\"city-local-schools\" class=\"school-grid\"></div><section id=\"city-cross-schools\" hidden></section"
+        ],
+        [
+          227473,
+          227603,
+          "annual:selected.annual,areas};\n  selectCityArea(S.regionArea"
+        ],
+        [
+          230759,
+          230759,
+          "${esc(x.city)}"
+        ]
+      ]
+    },
+    {
+      "source": "style.css",
+      "target": "style.css",
+      "before": "04cf79e0ddaecf182cbbe7a37640786bec52f9455e73ad9428b200be603a4a2c",
+      "after": "61a2af757204a9c529264298b425c10fd1d109459271665d5d7d3a4b1953812f",
+      "edits": [
+        [
+          135658,
+          135658,
+          "\n/* Source schools: compact city/district controls; school cards keep the existing grid. */\n.area-picker,.area-search-results{margin:6px 0;padding:7px 9px;background:#fff;border:1px solid var(--line);border-radius:8px}\n.area-picker-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 4px}\n.area-picker h3,.area-search-results h3{margin:0;font-size:14px;line-height:1.35;color:var(--ink)}\n.area-search-results h3{margin-bottom:4px}\n.area-options{display:flex;flex-wrap:wrap;align-items:center;gap:4px}\n.area-chip,.area-more{appearance:none;font:inherit;cursor:pointer}\n.area-chip{display:inline-flex;align-items:center;justify-content:center;gap:2px;max-width:100%;min-height:33px;line-height:1.25;font-size:13px;font-weight:550;padding:3px 9px;border:1px solid #d6e1ed;border-radius:6px;color:#315679;background:#f3f7fb;overflow-wrap:anywhere}\n.area-chip[aria-pressed=true]{color:#fff;background:#245594;border-color:#245594}\n.area-more{border:0;background:transparent;color:#235694;padding:3px 2px;min-height:30px;font-size:12px}\n.area-chip:focus-visible,.area-more:focus-visible{outline:2px solid #387dcc;outline-offset:1px}\n.area-search-results .area-jump{background:#eaf3f2;border-color:#bedbd6;color:#205d54}\n#city-annual{min-width:0}\n#city-annual>.year-overview{margin:0}\n#city-school-results .section-heading{align-items:baseline;flex-wrap:wrap}\n#city-cross-schools{margin-top:9px;padding-top:5px;border-top:1px solid #d7e1eb}\n#city-cross-schools .section-heading{margin-top:0}\n#city-cross-schools .section-heading>span,.area-cross-note{font-size:12px;color:#576c83}\n.area-cross-note{margin:2px 0 5px;line-height:1.4}\n#city-cross-schools .school-card-count .area-whole-label{display:inline;color:#526881;margin:0 2px 0 0;font-size:10px;font-weight:500}\n.area-chip[hidden],#area-search-results[hidden],#city-cross-schools[hidden]{display:none}\n@media(max-width:480px){.area-picker,.area-search-results{padding:6px}.area-options{gap:3px}.area-chip{padding:3px 6px;min-height:32px}.area-picker h3,.area-search-results h3{font-size:13px}#city-school-count{font-size:11px}}\n"
+        ]
+      ]
+    },
+    {
+      "source": "index.html",
+      "target": "index.html",
+      "before": "6fe048151f31f7c4675fa63d8c2dda17ea4cce412f5728a77584b45a9290e30a",
+      "after": "47b4e9b6b9010e47307b1cbc9b658c53bfa34747b5eb1dd7856a7a5689d888e4",
+      "edits": [
+        [
+          324,
+          397,
+          "districts\"><script src=\"/zcst-admissions-query/assets/mirror-6d008b711234"
+        ]
+      ]
+    }
+  ]
+}

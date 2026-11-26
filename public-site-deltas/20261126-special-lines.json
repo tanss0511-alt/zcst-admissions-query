@@ -1,0 +1,92 @@
+{
+  "whenIndex": "47b4e9b6b9010e47307b1cbc9b658c53bfa34747b5eb1dd7856a7a5689d888e4",
+  "files": [
+    {
+      "source": "assets/mirror-6d008b711234.js",
+      "target": "assets/mirror-96555b43a440.js",
+      "before": "6d008b7112342e6220af2605e3c7523fb5f02454ef8cc7411f3989ab87513323",
+      "after": "96555b43a440e9415687f654bc4934700fc2336fe78717e4fe7b3f6cffa42ccd",
+      "edits": [
+        [
+          51256,
+          51256,
+          ",\"specialLines\":{\"2026\":{\"source\":\"https://gaokao.chsi.com.cn/z/gkbmfslq/pcx.jsp?pageId=361\",\"provinces\":{\"河北\":{\"历史\":542,\"物理\":510,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260624/2293846508.html\"},\"山西\":{\"历史\":538,\"物理\":524,\"source\":\"https://www.dt.gov.cn/dtszf/gaozhongjiaoyu/202606/a4786a75fd38488ab65f570cbeaf890a.shtml\"},\"内蒙古\":{\"历史\":512,\"物理\":488,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260624/2293846506.html\"},\"辽宁\":{\"历史\":527,\"物理\":508,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293845433.html\"},\"吉林\":{\"历史\":478,\"物理\":473,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847517.html\"},\"黑龙江\":{\"历史\":466,\"物理\":464,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847509.html\"},\"江苏\":{\"历史\":532,\"物理\":513,\"source\":\"https://www.jiangsu.gov.cn/art/2026/6/25/art_60085_11794458.html\"},\"安徽\":{\"历史\":522,\"物理\":514,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847624.html\"},\"福建\":{\"历史\":533,\"物理\":528,\"source\":\"https://www.eeafj.cn/gkptgkgsgg/20260624/14697.html\"},\"江西\":{\"历史\":535,\"物理\":505,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847174.html\"},\"河南\":{\"历史\":534,\"物理\":513,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847171.html\"},\"湖北\":{\"历史\":532,\"物理\":529,\"source\":\"https://jyt.hubei.gov.cn/bmdt/ztzl/gxzs/zkyw/202606/t20260625_5964769.shtml\"},\"湖南\":{\"历史\":494,\"物理\":481,\"source\":\"https://hunan.gov.cn/hnszf/hdjl/xwfbhhd/wqhg/202606/t20260626_34013822.html\"},\"广东\":{\"历史\":546,\"物理\":539,\"source\":\"https://jyj.gz.gov.cn/yw/zsks/content/post_10870410.html\"},\"广西\":{\"历史\":520,\"物理\":510,\"source\":\"https://www.gxeea.cn/view/content_619_32889.htm\"},\"重庆\":{\"历史\":510,\"物理\":496,\"source\":\"https://jw.cq.gov.cn/zwxx_209/gggs/202606/t20260624_15774338.html\"},\"四川\":{\"历史\":525,\"物理\":519,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847770.html\"},\"贵州\":{\"历史\":503,\"物理\":494,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847640.html\"},\"云南\":{\"历史\":545,\"物理\":505,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847730.html\"},\"陕西\":{\"历史\":462,\"物理\":451,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847203.html\"},\"甘肃\":{\"历史\":508,\"物理\":477,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847669.html\"},\"青海\":{\"历史\":427,\"物理\":417,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847208.html\"},\"宁夏\":{\"历史\":474,\"物理\":437,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847132.html\"}}}}"
+        ],
+        [
+          82402,
+          82733,
+          "scoreCategory(row){\n // The admissions workbook retained the former label in these two 2026 history rows.\n if(row.year===2026 && row.category==='文科' && ['山西','内蒙古'].includes(row.province))return '历史';\n return row.category;\n}\nfunction controlLineMetrics(line,category,reference){\n const subject=/^(历史|物理)(?:\\+.+)?$/.exec(category)?.[1];\n const cutoff=reference?.[subject];\n const ordinary=scoreMetric('省控线',line);\n if(!Number.isFinite(cutoff))return ordinary;\n const title=`${subject}类特殊类型招生控制线 ${cutoff} 分，查看官方出处`;\n return `<div class=\"score-cutoffs\">${ordinary}<a class=\"metric-special\" href=\"${esc(reference.source)}\" target=\"_blank\" rel=\"noopener\" title=\"${title}\" aria-label=\"${title}\"><span>特控线</span><strong>${cutoff}<small class=\"score-unit\">分</small></strong></a></div>`;\n}\nfunction provinceCard(r,reference){\n const category=scoreCategory(r);\n const metrics=[['最低分',r.min],['最高分',r.max],['最低排位',r.rank],['最高排位','未提供'],['录取人数','未提供']];\n return `<article class=\"score-card\"><h3>${esc(category)}</h3><div class=\"score-all\">${metrics.map(([k,v])=>scoreMetric(k,v)).join('')}${controlLineMetrics(r.line,category,reference)}${scoreMetric('超省控线',r.over)}</div></article>`;\n"
+        ],
+        [
+          83634,
+          84442,
+          ",reference){\n const lines=[...new Set(overview.map(x=>x.line).filter(x=>typeof x==='number'))];\n const line=lines.length===1?lines[0]:null;\n const metrics=[['最低分',r.min],['最高分',r.max],['最低排位',r.worst],['最高排位',r.best],['录取人数',r.count],['平均分',r.avg.toFixed(1)]];\n return `<article class=\"score-card major-score-card\"><header class=\"major-score-head\"><span class=\"major-score-code\"><span>专业代码</span><b>${esc(r.code??'—')}</b></span><h3>${typeof majorNameMarkup==='function'?majorNameMarkup(r.name):esc(r.name)}</h3></header><div class=\"score-all\">${metrics.map(([k,v])=>scoreMetric(k,v)).join('')}${controlLineMetrics(line,r.category,reference)}${scoreMetric('超省控线',line===null?null:r.min-line)}</div>${withIntro?`<button class=\"major-info-link\" data-major-name=\"${esc(r.name)}\">专业介绍 / 创新班 ›</button>`:''}</article>`;\n"
+        ],
+        [
+          88626,
+          88626,
+          " const cutoffs=n.specialLines?.[z.year]?.provinces||{};\n"
+        ],
+        [
+          89342,
+          89354,
+          "r=>provinceCard(r,cutoffs['广东'])"
+        ],
+        [
+          89893,
+          89893,
+          ",true,cutoffs['广东']"
+        ],
+        [
+          91587,
+          91599,
+          "r=>provinceCard(r,cutoffs[selected])"
+        ],
+        [
+          111357,
+          111357,
+          ",n.specialLines?.[r.year]?.provinces?.['广东']"
+        ]
+      ]
+    },
+    {
+      "source": "style.css",
+      "target": "style.css",
+      "before": "61a2af757204a9c529264298b425c10fd1d109459271665d5d7d3a4b1953812f",
+      "after": "d7f3ba3090e2b665dc091a23dca814b2aed3f77960c96444b81b244fb3883d0f",
+      "edits": [
+        [
+          128638,
+          128638,
+          ".score-card .score-all>.score-cutoffs{\n grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:3px\n}\n.score-cutoffs>.metric-line,.score-cutoffs>.metric-special{\n display:flex;flex-wrap:wrap;align-items:baseline;align-content:center;justify-content:space-between;\n min-width:0;column-gap:3px;padding:2px 3px;border-radius:4px\n}\n.score-cutoffs>.metric-line{background:#f4f6f9}\n.score-cutoffs>.metric-special{background:#e8f1fb;color:#214d81;text-decoration:none}\n.score-card .score-cutoffs .metric-special>span{color:#345c86;text-decoration:underline;text-underline-offset:2px}\n.score-card .score-cutoffs .metric-special>strong{color:#214d81}\n.score-card .score-cutoffs :is(span,strong){white-space:nowrap}\n.score-cutoffs .score-unit{font-size:.75em;margin-left:1px;color:inherit}\n.score-cutoffs+.metric-over{grid-column:1/-1}\n\n"
+        ]
+      ]
+    },
+    {
+      "source": "scores/national.json",
+      "target": "scores/national.json",
+      "before": "ed94938a8a34134f73bb1a9781b37b1d2316d8a854dbb91f4a882de82abffd8b",
+      "after": "ef0bc39471b644142344c0213aa4d41d8f9c09de0df6c23555815dc55cb2eeba",
+      "edits": [
+        [
+          46556,
+          46556,
+          ",\"specialLines\":{\"2026\":{\"source\":\"https://gaokao.chsi.com.cn/z/gkbmfslq/pcx.jsp?pageId=361\",\"provinces\":{\"河北\":{\"历史\":542,\"物理\":510,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260624/2293846508.html\"},\"山西\":{\"历史\":538,\"物理\":524,\"source\":\"https://www.dt.gov.cn/dtszf/gaozhongjiaoyu/202606/a4786a75fd38488ab65f570cbeaf890a.shtml\"},\"内蒙古\":{\"历史\":512,\"物理\":488,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260624/2293846506.html\"},\"辽宁\":{\"历史\":527,\"物理\":508,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293845433.html\"},\"吉林\":{\"历史\":478,\"物理\":473,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847517.html\"},\"黑龙江\":{\"历史\":466,\"物理\":464,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847509.html\"},\"江苏\":{\"历史\":532,\"物理\":513,\"source\":\"https://www.jiangsu.gov.cn/art/2026/6/25/art_60085_11794458.html\"},\"安徽\":{\"历史\":522,\"物理\":514,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847624.html\"},\"福建\":{\"历史\":533,\"物理\":528,\"source\":\"https://www.eeafj.cn/gkptgkgsgg/20260624/14697.html\"},\"江西\":{\"历史\":535,\"物理\":505,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847174.html\"},\"河南\":{\"历史\":534,\"物理\":513,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847171.html\"},\"湖北\":{\"历史\":532,\"物理\":529,\"source\":\"https://jyt.hubei.gov.cn/bmdt/ztzl/gxzs/zkyw/202606/t20260625_5964769.shtml\"},\"湖南\":{\"历史\":494,\"物理\":481,\"source\":\"https://hunan.gov.cn/hnszf/hdjl/xwfbhhd/wqhg/202606/t20260626_34013822.html\"},\"广东\":{\"历史\":546,\"物理\":539,\"source\":\"https://jyj.gz.gov.cn/yw/zsks/content/post_10870410.html\"},\"广西\":{\"历史\":520,\"物理\":510,\"source\":\"https://www.gxeea.cn/view/content_619_32889.htm\"},\"重庆\":{\"历史\":510,\"物理\":496,\"source\":\"https://jw.cq.gov.cn/zwxx_209/gggs/202606/t20260624_15774338.html\"},\"四川\":{\"历史\":525,\"物理\":519,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847770.html\"},\"贵州\":{\"历史\":503,\"物理\":494,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847640.html\"},\"云南\":{\"历史\":545,\"物理\":505,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847730.html\"},\"陕西\":{\"历史\":462,\"物理\":451,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847203.html\"},\"甘肃\":{\"历史\":508,\"物理\":477,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847669.html\"},\"青海\":{\"历史\":427,\"物理\":417,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847208.html\"},\"宁夏\":{\"历史\":474,\"物理\":437,\"source\":\"https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260625/2293847132.html\"}}}}"
+        ]
+      ]
+    },
+    {
+      "source": "index.html",
+      "target": "index.html",
+      "before": "47b4e9b6b9010e47307b1cbc9b658c53bfa34747b5eb1dd7856a7a5689d888e4",
+      "after": "7fb22a57c8e59147a6a8605a7211e4a1c8cdb8ae75509c596f0f7a9386d16ab1",
+      "edits": [
+        [
+          322,
+          397,
+          "6-special-lines\"><script src=\"/zcst-admissions-query/assets/mirror-96555b43a440"
+        ]
+      ]
+    }
+  ]
+}

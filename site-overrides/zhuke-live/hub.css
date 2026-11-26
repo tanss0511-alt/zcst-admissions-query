@@ -108,3 +108,17 @@ dialog button {
 @media (max-width: 600px) {
   #form .form-field:has(#slot option[data-note]:checked) { grid-column: span 2; }
 }
+
+/* Small form text triggers automatic focus zoom in iOS WebKit. */
+@media (max-width: 760px), (any-pointer: coarse) {
+  #zhukeMain :is(input, select, textarea),
+  dialog :is(input, select, textarea) {
+    font-size: max(16px, 1rem);
+  }
+}
+
+@media (min-width: 370px) and (max-width: 420px) {
+  #bookingPage #form {
+    grid-template-columns: minmax(7.5rem, 1fr) repeat(2, minmax(0, 1fr));
+  }
+}
